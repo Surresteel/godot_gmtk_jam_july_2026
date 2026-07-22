@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b0ionbk7iv0dl"]
+
+[ext_resource type="PackedScene" uid="uid://b6xqtc6mkbkt5" path="res://Timer/alarm.tscn" id="1_aibq1"]
+[ext_resource type="Script" uid="uid://cj0ttvnfnc7xp" path="res://Timer/Test/test.gd" id="1_jbqqw"]
+[ext_resource type="AudioStream" uid="uid://b34pndjjmdrco" path="res://Timer/Test/Alarm.wav" id="2_jbqqw"]
+[ext_resource type="AudioStream" uid="uid://kurbrbdqdfv3" path="res://Timer/Test/Tick.wav" id="3_755ca"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_wvhbo"]
+
+[node name="Mesh" type="MeshInstance3D" unique_id=1955930780]
+mesh = SubResource("CylinderMesh_wvhbo")
+script = ExtResource("1_jbqqw")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=153040677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7491467, 2.932081)
+
+[node name="Alarm" parent="." unique_id=1661125311 instance=ExtResource("1_aibq1")]
+alarm_sound = ExtResource("2_jbqqw")
+alarm_tick_sound = ExtResource("3_755ca")
+alarm_duration = 10.0
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1416452570]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0.5309731, 0.5773344)
+text = "Test"
