@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bqau8qwhogedj" path="res://Cooking/FryingPan/frying_pan.gd" id="1_ckwe8"]
 [ext_resource type="Script" uid="uid://hd08ag0h56gx" path="res://Cooking/FryingPan/PrecisionGameUI.gd" id="2_ji5t8"]
 [ext_resource type="PackedScene" uid="uid://v4a8273qwfva" path="res://Cooking/Heat Area/heat_area.tscn" id="3_yh7qs"]
+[ext_resource type="PackedScene" uid="uid://c5jb8qgn17sj5" path="res://Interactable/interactable.tscn" id="4_yh7qs"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_oqu74"]
 _surfaces = [{
@@ -16,7 +17,7 @@ _surfaces = [{
 }]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_f7fki"]
-radius = 0.47306508
+radius = 0.7262108
 
 [node name="Frying Pan" type="Node3D" unique_id=1945656068]
 script = ExtResource("1_ckwe8")
@@ -28,7 +29,6 @@ mesh = SubResource("ArrayMesh_oqu74")
 
 [node name="Precision Timer" type="Timer" parent="." unique_id=1104606294]
 one_shot = true
-autostart = true
 
 [node name="Cooldown Timer" type="Timer" parent="." unique_id=2024569600]
 wait_time = 0.5
@@ -37,12 +37,14 @@ one_shot = true
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1458968137]
 
 [node name="precision_minigame_ui" type="Control" parent="CanvasLayer" unique_id=1938833400]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("2_ji5t8")
 
 [node name="base" type="ColorRect" parent="CanvasLayer/precision_minigame_ui" unique_id=8891486]
@@ -58,6 +60,7 @@ offset_right = 179.0
 offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(1, 0, 0, 1)
 
 [node name="Good" type="ColorRect" parent="CanvasLayer/precision_minigame_ui/base" unique_id=1340652040]
@@ -73,6 +76,7 @@ offset_right = -143.0
 offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 1, 0, 1)
 
 [node name="Current_Position" type="ColorRect" parent="CanvasLayer/precision_minigame_ui/base" unique_id=1643711565]
@@ -86,12 +90,17 @@ offset_right = 3.8449707
 offset_bottom = 3.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0.18000486, 0.18000486, 0.18000486, 1)
 
 [node name="HeatArea" parent="." unique_id=891329366 instance=ExtResource("3_yh7qs")]
 heat_level = 0.1
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="HeatArea" unique_id=539909591]
+[node name="Interactable" parent="." unique_id=429174571 instance=ExtResource("4_yh7qs")]
+input_ray_pickable = false
+
+[node name="Collider" type="CollisionShape3D" parent="Interactable" unique_id=539909591]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.19900718, 0.1879409, 0)
 shape = SubResource("SphereShape3D_f7fki")
 
 [connection signal="timeout" from="Precision Timer" to="." method="_on_precision_timer_timeout"]
