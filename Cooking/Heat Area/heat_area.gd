@@ -11,9 +11,7 @@ signal increase_cook_level(amount: float) 										##Signal Emitted when the cu
 
 
 func start_cooking(current_ingridient) -> void:
-	#var cook_time = current_ingridient.get_cook_time(heat_level)
-	#cook_timer.start()
-	pass
+	_cook_timer.start()
 
 func stop_cooking() -> void:
 	_cook_timer.stop()

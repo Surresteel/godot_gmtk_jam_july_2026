@@ -3,7 +3,7 @@ extends CharacterBody3D
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-
+const INT_COLLIDER: int = 1 << 2
 
 @onready var camera: Camera3D = $Camera3D
 
@@ -36,14 +36,48 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func _input(event: InputEvent) -> void:
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		var interactable = _cast_mouse_ray()
+		if event.is_action_pressed("left_click"):
+			print(interactable)
+			if interactable != null:
+				interactable.activate()
+		if event.is_action_pressed("right_click"):
+			if interactable != null:
+				interactable.deactivate()
 	if event is InputEventMouseMotion:
 		var dir = event.screen_relative
 		if dir:
 			rotation_degrees.y += dir.x * -sensitivity
 			self.rotation_degrees.x += dir.y * -sensitivity
-			if self.rotation_degrees.x >= 60:
-				self.rotation_degrees.x = 60
+			if self.rotation_degrees.x >= 90:
+				self.rotation_degrees.x = 90
 			elif self.rotation_degrees.x <= -90:
 				self.rotation_degrees.x = -90
+
+func _cast_mouse_ray() -> Interactable:
+	var vp: Viewport = get_viewport()
+	var cam: Camera3D = vp.get_camera_3d()
+	if not cam:
+		return
 	
+	var m_pos: Vector2 = vp.get_mouse_position()
+	var start: Vector3 = cam.project_ray_origin(m_pos)
+	var end: Vector3 = start + cam.project_ray_normal(m_pos) * 1_000.0
+	var space_state = get_world_3d().direct_space_state
+	var query = PhysicsRayQueryParameters3D.create(start, end)
+	query.collide_with_areas = true
+	query.collide_with_bodies = false
+	query.collision_mask = INT_COLLIDER
+	var result = space_state.intersect_ray(query)
+	
+	if not result:
+		return
+	
+	var interact: Interactable = result["collider"]
+	if not interact:
+		return
+	
+	return interact
