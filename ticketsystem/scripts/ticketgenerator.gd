@@ -6,19 +6,21 @@ extends Node3D
 
 var ingredient_list_ready: Array[ingredient]
 
-func add_ingredient() -> bool:
-	var current_ingredient : ingredient = ingredient_list.pick_random()
-	if ingredient_list_ready.has(current_ingredient):
-		return false
+func add_ingredient(arr: Array[ingredient]) -> bool:
+	assert(not arr.is_empty())
+	var idx: int = randi() % arr.size()
+	var current_ingredient : ingredient = arr[idx]
 	ingredient_list_ready.append(current_ingredient)
+	arr.remove_at(idx)
 	return true
 
 
 func dish():
+	var temp: Array[ingredient] = ingredient_list.duplicate()
 	ingredient_list_ready.clear()
 	ingredient_amount = mini(ingredient_amount, ingredient_list.size())
 	for i in range(ingredient_amount):
-		add_ingredient()
+		add_ingredient(temp)
 	ticket()
 	return
 
