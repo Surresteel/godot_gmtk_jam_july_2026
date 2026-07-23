@@ -22,6 +22,12 @@ background_mode = 2
 sky = SubResource("Sky_nroaw")
 glow_enabled = true
 
+[sub_resource type="SystemFont" id="SystemFont_8qkwd"]
+font_names = PackedStringArray("Reenie Beanie")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qtq1x"]
+size = Vector2(0.75, 1.5)
+
 [node name="Node3D" type="Node3D" unique_id=1322980451]
 script = ExtResource("1_fgxps")
 ingredient_amount = 5
@@ -34,8 +40,43 @@ environment = SubResource("Environment_33feo")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Label3D" type="Label3D" parent="." unique_id=221562286]
+[node name="Order" type="Label3D" parent="." unique_id=221562286]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 2, 0, 1.509958e-07, 0, -1, 0, 0, -0.001)
+pixel_size = 0.001
+shaded = true
+double_sided = false
+alpha_antialiasing_mode = 2
+alpha_antialiasing_edge = 1.0
+texture_filter = 5
+modulate = Color(0.051515624, 0.20162857, 0.41013086, 1)
+outline_modulate = Color(0.21284258, 1.3476611e-05, 0.8651929, 1)
+text = "ORDER"
+font = SubResource("SystemFont_8qkwd")
+font_size = 54
+outline_size = 0
+line_spacing = 30.245
+
+[node name="Title" type="Label3D" parent="." unique_id=75580497]
+transform = Transform3D(-0.9974188, 0.14360596, -1.5060606e-07, 0.07180298, 1.9948376, 1.0841949e-08, 1.509958e-07, 0, -1, 0.13479675, 0.6037253, -0.001)
+pixel_size = 0.001
+shaded = true
+double_sided = false
+alpha_antialiasing_mode = 2
+alpha_antialiasing_edge = 1.0
+texture_filter = 5
+modulate = Color(0.051515624, 0.20162857, 0.41013086, 1)
+outline_modulate = Color(0.21284258, 1.3476611e-05, 0.8651929, 1)
+text = "Meal Ticket
+______________"
+font = SubResource("SystemFont_8qkwd")
+font_size = 54
+outline_size = 0
+line_spacing = -58.41
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=584084956]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.794801)
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -1.1525223)
 current = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1602496689]
+transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 0, 0, 0)
+mesh = SubResource("PlaneMesh_qtq1x")

@@ -1,10 +1,11 @@
 extends Node3D
 
-@onready var label: Label3D = $Label3D
+@onready var label: Label3D = $Order
 @export var ingredient_amount: int
 @export var ingredient_list: Array[ingredient]
 
 var ingredient_list_ready: Array[ingredient]
+var order_number: int = 1
 
 func add_ingredient(arr: Array[ingredient]) -> bool:
 	assert(not arr.is_empty())
@@ -30,6 +31,8 @@ func ticket():
 		return
 	
 	label.text = ""
+	
+	
 	for i in ingredient_list_ready:
 		var cook_value = "" if i.cook.is_empty() \
 				else i.COOK.find_key(i.cook.pick_random())
@@ -38,9 +41,13 @@ func ticket():
 		var prep_value = "" if i.prep.is_empty() \
 				else i.PREP.find_key(i.prep.pick_random())
 	
-		label.text += cook_value + " " \
+		label.text += (cook_value + " " \
 		+ i.name + " " + doneness_value \
-		+ " " + prep_value + "\n"
+		+ " " + prep_value + "\n").to_lower()
+	
+	label.text += "\n" + "\n" + "Order Number" \
+	+ " " + str(order_number)
+	order_number += 1
 	
 	return
 

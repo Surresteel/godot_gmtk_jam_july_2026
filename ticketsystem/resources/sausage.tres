@@ -7,5 +7,5 @@ script = ExtResource("1_3b522")
 name = "Sausage"
 cook = Array[int]([1, 2, 6])
 doneness = Array[int]([3, 4, 5])
-prep = Array[int]([2, 0])
+prep = Array[int]([2])
 metadata/_custom_type_script = "uid://br2b1npw4bnqg"
