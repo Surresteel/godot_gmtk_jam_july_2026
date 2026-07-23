@@ -7,6 +7,7 @@ const INT_COLLIDER: int = 1 << 2
 @onready var cam_anchor: Node3D = $CamAnchor
 var start_pos := Vector3.ZERO
 @onready var camera_3d: Camera3D = $CamAnchor/Camera3D
+var held_inter: Interactable = null
 
 
 func _ready() -> void:
@@ -16,16 +17,22 @@ func _ready() -> void:
 	return
 
 func _process(_delta: float) -> void:
-	var right: Vector3 = cam_anchor.global_basis.x
-	cam_anchor.global_position = start_pos + (right * sin(float(Time.get_ticks_msec()) / 1000.0)) * 10
-	camera_3d.look_at(Vector3.ZERO)
+	#var right: Vector3 = cam_anchor.global_basis.x
+	#cam_anchor.global_position = start_pos + (right * sin(float(Time.get_ticks_msec()) / 1000.0))
+	#camera_3d.look_at(Vector3.ZERO)
 	return
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is not InputEventMouseButton:
 		return
+	event = event as InputEventMouseButton
 	if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		_cast_mouse_ray()
+	if not held_inter:
+		return
+	if event.is_released() and event.button_index == MOUSE_BUTTON_LEFT:
+		held_inter.deactivate()
+		held_inter = null
 	return
 
 func _cast_mouse_ray() -> void:
@@ -52,6 +59,9 @@ func _cast_mouse_ray() -> void:
 		return
 	
 	interact.activate()
-	interact.deactivate()
+	if not interact.hold:
+		interact.deactivate()
+	else:
+		held_inter = interact
 	
 	return

@@ -11,6 +11,8 @@ signal pressed()
 signal released()
 @onready var collider: CollisionShape3D = $Collider
 
+@export var hold: bool = false
+
 
 #===============================================================================
 #	FUNCTIONS - INTERACTABLE:
