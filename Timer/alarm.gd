@@ -81,8 +81,8 @@ func get_time_str() -> String:
 	if _time_remaining <= 0.0:
 		return "00:00"
 	@warning_ignore("integer_division")
-	var mins := int(_time_remaining) / 60
-	var secs := int(_time_remaining) % 60
+	var mins := int(_time_remaining + 1) / 60
+	var secs := int(_time_remaining + 1) % 60
 	return ("%02d:%02d" % [mins, secs])
 
 ## Sets the time of the timer in seconds:
@@ -96,6 +96,23 @@ func set_time(t: float) -> void:
 	self.stop()
 	self.stream = alarm_tick_sound
 	self.play(0.0)
+	return
+
+func add_time(t: float) -> void:
+	if not is_set:
+		set_time(t)
+		return
+	t = clampf(t, 0, HOUR_S - _time_remaining)
+	_time_remaining += t
+	return
+
+func reset() -> void:
+	is_set = false
+	is_active = false
+	_time_tally = 0.0
+	_time_last = 0.0
+	_time_remaining = 0.0
+	self.stop()
 	return
 
 

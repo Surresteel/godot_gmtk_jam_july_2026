@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bmqek510od12m"]
+
+[ext_resource type="PackedScene" uid="uid://cju8258phf3m8" path="res://Microwave/microwave.tscn" id="1_8r1sl"]
+[ext_resource type="Script" uid="uid://cf8yknlbdsybm" path="res://Microwave/Test/test_microwave.gd" id="1_e8d8j"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s3epv"]
+sky_horizon_color = Color(0.6368897, 0.66238976, 0.69463974, 1)
+ground_bottom_color = Color(0.13399999, 0.167, 0.2, 1)
+ground_horizon_color = Color(0.6368897, 0.66238976, 0.69463974, 1)
+
+[sub_resource type="Sky" id="Sky_f4fwt"]
+sky_material = SubResource("ProceduralSkyMaterial_s3epv")
+
+[sub_resource type="Environment" id="Environment_aw8f4"]
+background_mode = 2
+sky = SubResource("Sky_f4fwt")
+glow_enabled = true
+
+[node name="Test" type="Node3D" unique_id=907753008]
+script = ExtResource("1_e8d8j")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=131826927]
+environment = SubResource("Environment_aw8f4")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=144839175]
+transform = Transform3D(0.656059, -0.29852197, 0.69316024, 0, 0.91844636, 0.3955455, -0.75470954, -0.25950122, 0.60255504, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1425829680]
+transform = Transform3D(1, 0, 0, 0, 0.9715467, 0.23684803, 0, -0.23684803, 0.9715467, 0.019548774, 0.3215307, 0.79812974)
+
+[node name="mwave" parent="." unique_id=796507166 instance=ExtResource("1_8r1sl")]

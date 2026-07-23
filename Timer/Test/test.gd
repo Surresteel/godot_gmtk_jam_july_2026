@@ -4,8 +4,8 @@ extends MeshInstance3D
 @onready var label: Label3D = $Label3D
 
 func _ready() -> void:
-	alarm.set_time(5)
-	#test_func()
+	alarm.set_time(3)
+	test_func()
 	return
 
 func _process(_delta: float) -> void:
