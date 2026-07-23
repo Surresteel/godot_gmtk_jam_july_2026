@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b6xqtc6mkbkt5"]
+
+[ext_resource type="Script" uid="uid://cf64kc12ctfck" path="res://Timer/alarm.gd" id="1_k7bpb"]
+
+[node name="Alarm" type="AudioStreamPlayer3D" unique_id=1661125311]
+script = ExtResource("1_k7bpb")
