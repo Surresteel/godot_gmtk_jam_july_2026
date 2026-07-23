@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cdl3urpo8e7w4"]
+
+[ext_resource type="Script" uid="uid://cqlkomneg4t0b" path="res://Testes/template character.gd" id="1_lhsoi"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f7fki"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ve6rv"]
+albedo_color = Color(0.8627451, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_f7fki"]
+material = SubResource("StandardMaterial3D_ve6rv")
+
+[node name="tempalte character" type="CharacterBody3D" unique_id=2009549190]
+script = ExtResource("1_lhsoi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=745625115]
+shape = SubResource("CapsuleShape3D_f7fki")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1218905569]
+mesh = SubResource("CapsuleMesh_f7fki")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1029608773]
