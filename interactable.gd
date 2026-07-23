@@ -18,12 +18,12 @@ signal released()
 #	FUNCTIONS - INTERACTABLE:
 #===============================================================================
 # Activates the interactable:
-func activate() -> void:
-	pressed.emit()
+func activate(player: Player) -> void:
+	pressed.emit(player)
 
 # Deactivates the interactable:
-func deactivate() -> void:
-	released.emit()
+func deactivate(player: Player) -> void:
+	released.emit(player)
 
 # Toggles whether the interactable is interactable:
 func toggle(value: bool) -> void:

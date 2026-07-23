@@ -25,7 +25,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="Frying Pan" parent="." unique_id=1945656068 instance=ExtResource("1_dwqgj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.97008026, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3933661, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1428401072]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2590332, 0)

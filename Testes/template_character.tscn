@@ -1,14 +1,19 @@
 [gd_scene format=3 uid="uid://cdl3urpo8e7w4"]
 
 [ext_resource type="Script" uid="uid://cqlkomneg4t0b" path="res://Testes/template character.gd" id="1_lhsoi"]
+[ext_resource type="PackedScene" uid="uid://c5jmlrbb6a57h" path="res://Cooking/Ingredients/ingredient.tscn" id="2_pewpo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f7fki"]
+radius = 0.25
+height = 1.0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ve6rv"]
 albedo_color = Color(0.8627451, 0, 0, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_f7fki"]
 material = SubResource("StandardMaterial3D_ve6rv")
+radius = 0.25
+height = 1.0
 
 [node name="tempalte character" type="CharacterBody3D" unique_id=2009549190]
 script = ExtResource("1_lhsoi")
@@ -20,3 +25,9 @@ shape = SubResource("CapsuleShape3D_f7fki")
 mesh = SubResource("CapsuleMesh_f7fki")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1029608773]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+
+[node name="HandPivot" type="Node3D" parent="." unique_id=884649959]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.145, 0.12, -0.155)
+
+[node name="Ingredient" parent="HandPivot" unique_id=585287791 instance=ExtResource("2_pewpo")]

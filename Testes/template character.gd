@@ -1,9 +1,11 @@
 extends CharacterBody3D
-
+class_name Player
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const INT_COLLIDER: int = 1 << 2
+
+var hand: Ingredient #holds ingredients and maybe also appliances and timers
 
 @onready var camera: Camera3D = $Camera3D
 
@@ -13,6 +15,8 @@ const INT_COLLIDER: int = 1 << 2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	hand = $HandPivot/Ingredient #delete this
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -41,21 +45,20 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		var interactable = _cast_mouse_ray()
 		if event.is_action_pressed("left_click"):
-			print(interactable)
 			if interactable != null:
-				interactable.activate()
+				interactable.activate(self)
 		if event.is_action_pressed("right_click"):
 			if interactable != null:
-				interactable.deactivate()
+				interactable.deactivate(self)
 	if event is InputEventMouseMotion:
 		var dir = event.screen_relative
 		if dir:
 			rotation_degrees.y += dir.x * -sensitivity
-			self.rotation_degrees.x += dir.y * -sensitivity
-			if self.rotation_degrees.x >= 90:
-				self.rotation_degrees.x = 90
-			elif self.rotation_degrees.x <= -90:
-				self.rotation_degrees.x = -90
+			camera.rotation_degrees.x += dir.y * -sensitivity
+			if camera.rotation_degrees.x >= 90:
+				camera.rotation_degrees.x = 90
+			elif camera.rotation_degrees.x <= -90:
+				camera.rotation_degrees.x = -90
 
 func _cast_mouse_ray() -> Interactable:
 	var vp: Viewport = get_viewport()
@@ -81,3 +84,15 @@ func _cast_mouse_ray() -> Interactable:
 		return
 	
 	return interact
+
+func give_ingredient() -> Ingredient:
+	var give: Ingredient = hand
+	hand = null
+	return give
+
+func take_ingredient(ingredient: Ingredient) -> bool:
+	if hand == null:
+		hand = ingredient
+		ingredient.physically_move($HandPivot)
+		return true
+	return false
