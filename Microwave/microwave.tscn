@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://b34pndjjmdrco" path="res://Timer/Test/Alarm.wav" id="5_qps4f"]
 [ext_resource type="AudioStream" uid="uid://kurbrbdqdfv3" path="res://Timer/Test/Tick.wav" id="6_2auqa"]
 [ext_resource type="AudioStream" uid="uid://bvyykumthb8d2" path="res://Microwave/Test/beep.wav" id="7_2auqa"]
+[ext_resource type="AudioStream" uid="uid://8d4nu8qqcseb" path="res://Microwave/Test/hum.wav" id="8_0ofec"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3dsjj"]
 resource_name = "mwaveMat"
@@ -269,8 +270,24 @@ shape = SubResource("BoxShape3D_wvhbo")
 [node name="Alarm" parent="." unique_id=1661125311 instance=ExtResource("4_4pk7o")]
 alarm_sound = ExtResource("5_qps4f")
 alarm_tick_sound = ExtResource("6_2auqa")
-alarm_duration = 5.0
+alarm_duration = 3.0
 
 [node name="Beeper" type="AudioStreamPlayer3D" parent="." unique_id=2065597479]
 stream = ExtResource("7_2auqa")
 volume_db = -24.0
+
+[node name="HeatPos" type="Node3D" parent="." unique_id=1462575894]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05815593, 0.009621605, 0.0010590451)
+
+[node name="Hum" type="AudioStreamPlayer3D" parent="." unique_id=2065221878]
+stream = ExtResource("8_0ofec")
+volume_db = -32.0
+doppler_tracking = 1
+
+[node name="Light" type="AreaLight3D" parent="." unique_id=1945820606]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.23096235, 0)
+light_color = Color(0.81875396, 0.53841096, 0, 1)
+light_energy = 0.25
+area_range = 1.0
+area_attenuation = 2.0
+area_size = Vector2(0.368, 0.243)

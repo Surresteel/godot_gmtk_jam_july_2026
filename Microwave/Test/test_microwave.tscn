@@ -14,7 +14,11 @@ sky_material = SubResource("ProceduralSkyMaterial_s3epv")
 [sub_resource type="Environment" id="Environment_aw8f4"]
 background_mode = 2
 sky = SubResource("Sky_f4fwt")
+ssao_enabled = true
 glow_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_wvhbo"]
+size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Test" type="Node3D" unique_id=907753008]
 script = ExtResource("1_e8d8j")
@@ -25,8 +29,25 @@ environment = SubResource("Environment_aw8f4")
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=144839175]
 transform = Transform3D(0.656059, -0.29852197, 0.69316024, 0, 0.91844636, 0.3955455, -0.75470954, -0.25950122, 0.60255504, 0, 0, 0)
 shadow_enabled = true
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=1425829680]
-transform = Transform3D(1, 0, 0, 0, 0.9715467, 0.23684803, 0, -0.23684803, 0.9715467, 0.019548774, 0.3215307, 0.79812974)
+directional_shadow_split_1 = 0.021
+directional_shadow_split_2 = 0.24
+directional_shadow_split_3 = 0.52
+directional_shadow_blend_splits = true
+directional_shadow_fade_start = 0.523
+directional_shadow_max_distance = 50.0
+directional_shadow_pancake_size = 0.0
 
 [node name="mwave" parent="." unique_id=796507166 instance=ExtResource("1_8r1sl")]
+
+[node name="Food" type="Node3D" parent="." unique_id=713152813]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6434722, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Food" unique_id=791915275]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+mesh = SubResource("BoxMesh_wvhbo")
+
+[node name="CamAnchor" type="Node3D" parent="." unique_id=1947365431]
+
+[node name="Camera3D" type="Camera3D" parent="CamAnchor" unique_id=1425829680]
+transform = Transform3D(1, 0, 0, 0, 0.9715467, 0.23684803, 0, -0.23684803, 0.9715467, 0.019548774, 0.3215307, 0.79812974)
+doppler_tracking = 1

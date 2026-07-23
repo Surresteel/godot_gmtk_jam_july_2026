@@ -31,16 +31,22 @@ const DOOR_ANG_LIMIT: float = deg_to_rad(120.0)
 var is_opened: bool = false
 
 # ANIMATION AND SOUND:
+@onready var light: AreaLight3D = $Light
 @onready var beeper: AudioStreamPlayer3D = $Beeper
+@onready var hum: AudioStreamPlayer3D = $Hum
 var _btn_move_amount: float = 0.005
 var _door_twn: Tween = null
+
+# HEATING:
+@onready var _heat_pos: Vector3 = $HeatPos.position
+var _food_item: Node3D = null
 
 
 #===============================================================================
 #	CALLBACKS:
 #===============================================================================
 func _ready() -> void:
-	int_btn_s.pressed.connect(_handle_btn.bind(_mesh_btn_s, 15.0))
+	int_btn_s.pressed.connect(_handle_btn.bind(_mesh_btn_s, 10.0))
 	int_btn_m.pressed.connect(_handle_btn.bind(_mesh_btn_m, 30.0))
 	int_btn_l.pressed.connect(_handle_btn.bind(_mesh_btn_l, 60.0))
 	int_btn_o.pressed.connect(_toggle_door.bind(_mesh_btn_o))
@@ -49,6 +55,9 @@ func _ready() -> void:
 	start_positions[_mesh_btn_m] = _mesh_btn_m.global_position
 	start_positions[_mesh_btn_l] = _mesh_btn_l.global_position
 	start_positions[_mesh_btn_o] = _mesh_btn_o.global_position
+	
+	alarm.timeout.connect(_stop_op)
+	light.visible = false
 	return
 
 func _process(_delta: float) -> void:
@@ -57,6 +66,8 @@ func _process(_delta: float) -> void:
 		timer.modulate = Color.RED
 	else:
 		timer.modulate = Color.WHITE
+	if _food_item and alarm.is_set:
+		_food_item.rotate(Vector3.UP, 0.01)
 	return
 
 
@@ -67,13 +78,16 @@ func _process(_delta: float) -> void:
 func _handle_btn(m_inst: MeshInstance3D, t: float) -> void:
 	if alarm and not is_opened:
 		alarm.add_time(t)
+		if not hum.playing:
+			hum.play()
+			light.visible = true
 	if m_inst:
 		_button_anim(m_inst)
 	return
 
 
 #===============================================================================
-#	ANIMATIONS:
+#	ANIMATIONS AND SOUND:
 #===============================================================================
 # Animates the buttons:
 func _button_anim(m_inst: MeshInstance3D) -> void:
@@ -101,6 +115,40 @@ func _toggle_door(m_inst: MeshInstance3D) -> void:
 	_door_twn.set_trans(Tween.TRANS_QUAD)
 	_door_twn.tween_property(_mesh_door, "rotation:y", rot, 0.5)
 	alarm.reset()
+	hum.stop()
+	light.visible = false
+	return
+
+func _stop_op() -> void:
+	hum.stop()
+	light.visible = false
+	return
+
+#===============================================================================
+#	OPERATIONS:
+#===============================================================================
+## Adds a food item to the microwave:
+func add_food(obj: Node3D) -> void:
+	if not obj:
+		print("Can't add a null object to microwave.")
+		return
+	if _food_item:
+		print("Microwave already has a food item.")
+		return
+	
+	_food_item = obj
+	obj.reparent(self)
+	obj.position = _heat_pos
+	return
+
+## Removes a food item from the microwave:
+func remove_food() -> Node3D:
+	if not _food_item:
+		print("Cannot remove food from microwave; it has none.")
+		return
+	var par: Node = self.get_parent()
+	assert(par)
+	_food_item.reparent(par)
 	return
 
 

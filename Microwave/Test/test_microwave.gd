@@ -3,10 +3,22 @@ extends Node3D
 const INT_COLLIDER: int = 1 << 2
 
 @onready var mwave: Microwave = $mwave
+@onready var food: Node3D = $Food
+@onready var cam_anchor: Node3D = $CamAnchor
+var start_pos := Vector3.ZERO
+@onready var camera_3d: Camera3D = $CamAnchor/Camera3D
 
 
 func _ready() -> void:
 	mwave.test()
+	mwave.add_food(food)
+	start_pos = cam_anchor.global_position
+	return
+
+func _process(_delta: float) -> void:
+	var right: Vector3 = cam_anchor.global_basis.x
+	cam_anchor.global_position = start_pos + (right * sin(float(Time.get_ticks_msec()) / 1000.0)) * 10
+	camera_3d.look_at(Vector3.ZERO)
 	return
 
 func _unhandled_input(event: InputEvent) -> void:

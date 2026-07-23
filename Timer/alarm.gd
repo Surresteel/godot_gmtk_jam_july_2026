@@ -10,6 +10,9 @@ extends AudioStreamPlayer3D
 # CONSTANTS:
 var HOUR_S: float = 3_600.0
 
+# SIGNALS:
+signal timeout()
+
 # EXPORT VARS:
 @export var alarm_sound: AudioStream = null
 @export var alarm_tick_sound: AudioStream = null
@@ -61,6 +64,7 @@ func _trigger_alarm() -> void:
 	self.stop()
 	self.stream = alarm_sound
 	self.play()
+	timeout.emit()
 	
 	await get_tree().create_timer(alarm_duration).timeout
 	if not is_set:
