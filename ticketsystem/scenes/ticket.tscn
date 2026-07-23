@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://tygjep58dxwr"]
+
+[ext_resource type="Script" uid="uid://dj51yu3b0rkf5" path="res://ticketsystem/scripts/ticketgenerator.gd" id="1_fgxps"]
+[ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/ingredient.gd" id="2_3ikn5"]
+[ext_resource type="Resource" uid="uid://bljjvyg0lfjh4" path="res://ticketsystem/resources/steak.tres" id="3_xulrx"]
+[ext_resource type="Resource" uid="uid://ci3rm2br1juic" path="res://ticketsystem/resources/sausage.tres" id="4_lmpnh"]
+[ext_resource type="Resource" uid="uid://c84fdf7junwni" path="res://ticketsystem/resources/rib.tres" id="5_nroaw"]
+[ext_resource type="Resource" uid="uid://dikahixc8gpfc" path="res://ticketsystem/resources/mincemeat.tres" id="6_33feo"]
+[ext_resource type="Resource" uid="uid://xlhqs5p6wjpf" path="res://ticketsystem/resources/egg.tres" id="7_bg1so"]
+[ext_resource type="Resource" uid="uid://rneejnyhqrei" path="res://ticketsystem/resources/chickenthigh.tres" id="8_0k7tp"]
+[ext_resource type="Resource" uid="uid://bbacld0t00y05" path="res://ticketsystem/resources/chickenbreast.tres" id="9_0pgt2"]
+
+[node name="Node3D" type="Node3D" unique_id=1322980451]
+
+[node name="Label3D" type="Label3D" parent="." unique_id=221562286]
+script = ExtResource("1_fgxps")
+ingredient_amount = 4
+ingredient_list = Array[ExtResource("2_3ikn5")]([ExtResource("9_0pgt2"), ExtResource("8_0k7tp"), ExtResource("7_bg1so"), ExtResource("6_33feo"), ExtResource("5_nroaw"), ExtResource("4_lmpnh"), ExtResource("3_xulrx")])

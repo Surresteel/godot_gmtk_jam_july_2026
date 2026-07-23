@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="godot_gmtk_jam_july_2026"
+run/main_scene="uid://tygjep58dxwr"
 config/features=PackedStringArray("4.7", "Forward Plus")
 
 [display]

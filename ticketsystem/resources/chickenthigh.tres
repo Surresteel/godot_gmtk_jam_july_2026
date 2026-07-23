@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="ingredient" format=3 uid="uid://rneejnyhqrei"]
+
+[ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/ingredient.gd" id="1_0vp8n"]
+
+[resource]
+script = ExtResource("1_0vp8n")
+name = "Chicken Thigh"
+cook = Array[int]([0, 1, 2, 6])
+prep = Array[int]([2])
+metadata/_custom_type_script = "uid://br2b1npw4bnqg"

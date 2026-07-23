@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="ingredient" format=3 uid="uid://xlhqs5p6wjpf"]
+
+[ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/ingredient.gd" id="1_ycmdq"]
+
+[resource]
+script = ExtResource("1_ycmdq")
+name = "Egg"
+cook = Array[int]([0, 1, 2, 3, 4, 5, 6])
+doneness = Array[int]([3, 4, 5])
+prep = Array[int]([6, 9])
+metadata/_custom_type_script = "uid://br2b1npw4bnqg"
