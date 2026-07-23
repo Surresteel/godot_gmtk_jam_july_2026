@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://ehl176ciki56"]
 
-[ext_resource type="Script" uid="uid://bqau8qwhogedj" path="res://frying_pan.gd" id="1_ckwe8"]
+[ext_resource type="Script" uid="uid://bqau8qwhogedj" path="res://Cooking/FryingPan/frying_pan.gd" id="1_ckwe8"]
 [ext_resource type="Script" uid="uid://hd08ag0h56gx" path="res://Cooking/FryingPan/PrecisionGameUI.gd" id="2_ji5t8"]
 [ext_resource type="PackedScene" uid="uid://v4a8273qwfva" path="res://Cooking/Heat Area/heat_area.tscn" id="3_yh7qs"]
 

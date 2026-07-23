@@ -9,12 +9,16 @@ class_name HeatArea
 
 var current_ingridient
 
-signal increase_cook_level
+signal increase_cook_level(amount: int)
 
 
-func cook_ingridient() -> void:
+func start_cooking() -> void:
 	#cook_timer.start(current_ingridient.time_to_cook)
 	pass
 
+func stop_cooking() -> void:
+	cook_timer.stop()
+	current_ingridient = null
+
 func _on_timer_timeout() -> void:
-	increase_cook_level.emit()
+	increase_cook_level.emit(1)
