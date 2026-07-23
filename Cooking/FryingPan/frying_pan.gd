@@ -5,7 +5,7 @@ class_name FryingPan
 
 @onready var precision_minigame_ui: Control = $CanvasLayer/precision_minigame_ui
 
-var active: bool = true
+var active: bool = false
 
 @onready var cooldown_timer: Timer = $"Cooldown Timer"
 @onready var timer: Timer = $"Precision Timer"
@@ -79,8 +79,11 @@ func _on_precision_timer_timeout() -> void:
 	reset(1)
 
 func activate() -> void:
+	if active:
+		return
 	active = true
 	precision_minigame_ui.visible = true
+	reset(1)
 
 func deactivate() -> void:
 	active = false
