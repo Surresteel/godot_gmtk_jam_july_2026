@@ -274,7 +274,7 @@ alarm_duration = 3.0
 
 [node name="Beeper" type="AudioStreamPlayer3D" parent="." unique_id=2065597479]
 stream = ExtResource("7_2auqa")
-volume_db = -24.0
+volume_db = -32.0
 
 [node name="HeatPos" type="Node3D" parent="." unique_id=1462575894]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05815593, 0.009621605, 0.0010590451)
