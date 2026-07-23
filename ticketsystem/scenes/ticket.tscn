@@ -10,9 +10,32 @@
 [ext_resource type="Resource" uid="uid://rneejnyhqrei" path="res://ticketsystem/resources/chickenthigh.tres" id="8_0k7tp"]
 [ext_resource type="Resource" uid="uid://bbacld0t00y05" path="res://ticketsystem/resources/chickenbreast.tres" id="9_0pgt2"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lmpnh"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_nroaw"]
+sky_material = SubResource("ProceduralSkyMaterial_lmpnh")
+
+[sub_resource type="Environment" id="Environment_33feo"]
+background_mode = 2
+sky = SubResource("Sky_nroaw")
+glow_enabled = true
+
 [node name="Node3D" type="Node3D" unique_id=1322980451]
+script = ExtResource("1_fgxps")
+ingredient_amount = 5
+ingredient_list = Array[ExtResource("2_3ikn5")]([ExtResource("9_0pgt2"), ExtResource("8_0k7tp"), ExtResource("7_bg1so"), ExtResource("6_33feo"), ExtResource("5_nroaw"), ExtResource("4_lmpnh"), ExtResource("3_xulrx")])
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1979681026]
+environment = SubResource("Environment_33feo")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1549698887]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
 
 [node name="Label3D" type="Label3D" parent="." unique_id=221562286]
-script = ExtResource("1_fgxps")
-ingredient_amount = 4
-ingredient_list = Array[ExtResource("2_3ikn5")]([ExtResource("9_0pgt2"), ExtResource("8_0k7tp"), ExtResource("7_bg1so"), ExtResource("6_33feo"), ExtResource("5_nroaw"), ExtResource("4_lmpnh"), ExtResource("3_xulrx")])
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=584084956]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3.794801)
+current = true
