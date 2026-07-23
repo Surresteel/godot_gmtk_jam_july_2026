@@ -2,18 +2,6 @@
 
 [ext_resource type="Script" uid="uid://bqau8qwhogedj" path="res://frying_pan.gd" id="1_7admc"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7admc"]
-sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
-
-[sub_resource type="Sky" id="Sky_oqu74"]
-sky_material = SubResource("ProceduralSkyMaterial_7admc")
-
-[sub_resource type="Environment" id="Environment_n8ooj"]
-background_mode = 2
-sky = SubResource("Sky_oqu74")
-glow_enabled = true
-
 [sub_resource type="ArrayMesh" id="ArrayMesh_oqu74"]
 _surfaces = [{
 "aabb": AABB(-1.0079938, -0.05, -0.5, 1.5079938, 0.1, 1),
@@ -30,23 +18,12 @@ script = ExtResource("1_7admc")
 precision_position = 0.75
 grace_amount = 0.05
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=539940571]
-environment = SubResource("Environment_n8ooj")
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1844444199]
-transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
-shadow_enabled = true
-
 [node name="mesh" type="MeshInstance3D" parent="." unique_id=258898070]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
 mesh = SubResource("ArrayMesh_oqu74")
 
 [node name="Precision Timer" type="Timer" parent="." unique_id=1104606294]
 one_shot = true
 autostart = true
-
-[node name="Camera3D" type="Camera3D" parent="." unique_id=903953912]
-transform = Transform3D(1, 0, 0, 0, 0.98054856, 0.19627663, 0, -0.19627663, 0.98054856, -0.029702723, 0.04955004, 0.1603801)
 
 [node name="Label3D" type="Label3D" parent="." unique_id=19469919]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.026486404, 0)
