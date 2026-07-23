@@ -1,8 +1,8 @@
 extends Node3D
 class_name Ingredient
 
-@onready var temp: MeshInstance3D = $temp
-@onready var temp_2: MeshInstance3D = $temp2
+@export var temp: MeshInstance3D
+@export var temp_2: MeshInstance3D
 const COOK_COLOURS: Gradient = preload("uid://88d3j1g3o83w")
 
 var cook_level: float = 0
