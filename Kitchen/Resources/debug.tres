@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://vvesh6rbjoq0"]
+
+[ext_resource type="Texture2D" uid="uid://cddj3vbpbw1q8" path="res://Kitchen/Resources/Debug_Grid.png" id="1_m8nwi"]
+
+[resource]
+albedo_texture = ExtResource("1_m8nwi")
+uv1_scale = Vector3(10, 10, 10)
