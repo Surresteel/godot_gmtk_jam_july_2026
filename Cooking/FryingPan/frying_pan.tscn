@@ -21,6 +21,7 @@ radius = 0.47306508
 [node name="Frying Pan" type="Node3D" unique_id=1945656068]
 script = ExtResource("1_ckwe8")
 precision_position = 0.75
+grace_amount = 0.05
 
 [node name="mesh" type="MeshInstance3D" parent="." unique_id=258898070]
 mesh = SubResource("ArrayMesh_oqu74")
@@ -88,6 +89,7 @@ grow_vertical = 2
 color = Color(0.18000486, 0.18000486, 0.18000486, 1)
 
 [node name="HeatArea" parent="." unique_id=891329366 instance=ExtResource("3_yh7qs")]
+heat_level = 0.1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="HeatArea" unique_id=539909591]
 shape = SubResource("SphereShape3D_f7fki")

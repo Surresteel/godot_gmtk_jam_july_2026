@@ -3,20 +3,20 @@ extends Area3D
 class_name HeatArea
 
 
-@onready var cook_timer: Timer = $Timer
+@onready var _cook_timer: Timer = $Timer
 
-@export var heat_level: float = 1.0
+@export var heat_level: float = 0.1 ##Increases an ingridients cook_level by this, every half a second
 
-signal increase_cook_level(amount: int) 										##Signal Emitted when the current ingridient has been cooked for its appointed time
+signal increase_cook_level(amount: float) 										##Signal Emitted when the current ingridient has been cooked for its appointed time
 
 
-func start_cooking() -> void:
+func start_cooking(current_ingridient) -> void:
 	#var cook_time = current_ingridient.get_cook_time(heat_level)
-	#cook_timer.start(cook_time)
+	#cook_timer.start()
 	pass
 
 func stop_cooking() -> void:
-	cook_timer.stop()
+	_cook_timer.stop()
 
 func _on_timer_timeout() -> void:
-	increase_cook_level.emit(1)
+	increase_cook_level.emit(heat_level)
