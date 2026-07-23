@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://e505jng6qa5i"]
 
-[ext_resource type="PackedScene" uid="uid://ehl176ciki56" path="res://Cooking/frying_pan.tscn" id="1_dwqgj"]
+[ext_resource type="PackedScene" uid="uid://ehl176ciki56" path="res://Cooking/FryingPan/frying_pan.tscn" id="1_dwqgj"]
 [ext_resource type="PackedScene" uid="uid://cdl3urpo8e7w4" path="res://template_character.tscn" id="2_pjr2m"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pjr2m"]

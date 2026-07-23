@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cdl3urpo8e7w4"]
 
-[ext_resource type="Script" uid="uid://cqlkomneg4t0b" path="res://Cooking/template character.gd" id="1_lhsoi"]
+[ext_resource type="Script" uid="uid://cqlkomneg4t0b" path="res://Testes/template character.gd" id="1_lhsoi"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f7fki"]
 

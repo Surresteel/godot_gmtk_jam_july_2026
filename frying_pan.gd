@@ -2,16 +2,15 @@ extends Node3D
 
 class_name FryingPan
 
-@onready var label: Label3D = $Label3D
-@onready var precision_indicator: ColorRect = $CanvasLayer/Control/base/Good
-@onready var current_position: ColorRect = $CanvasLayer/Control/base/Current_Position
-const base_size = 358
 
-var current_ingridient
-var active: bool = false
+@onready var precision_minigame_ui: Control = $CanvasLayer/precision_minigame_ui
+
+var active: bool = true
 
 @onready var cooldown_timer: Timer = $"Cooldown Timer"
 @onready var timer: Timer = $"Precision Timer"
+
+@onready var heat_area: HeatArea = $HeatArea
 
 @export_range(0.1, 0.9, 0.01) var precision_position: float = 0.5 ##as a fraction
 @export_range(0, 0.5, 0.01) var grace_amount: float = 0.1         ##as a fraction
@@ -21,20 +20,30 @@ var upper_range: float
 
 var cooldown: bool = false
 
+signal successful_flip
+
+
 func _ready() -> void:
 	calc_range()
-	set_up_precision_indicator()
+	precision_minigame_ui.set_up_precision_zone(grace_amount, precision_position)
 
 func _process(_delta: float) -> void:
+	if not active:
+		return
+	
 	if not timer.is_stopped():
-		current_position.position.x = (timer.time_left / timer.wait_time) * (base_size - current_position.size.x)
+		precision_minigame_ui.set_current_position(timer)
 
 func _input(event: InputEvent) -> void:
+	if not active:
+		return
+	
 	if event is InputEventMouseButton:
 		if event.button_index == 1 and not cooldown:
 			var time_left = timer.time_left
 			if time_left >= lower_range and time_left <= upper_range:
 				reset(1)
+				successful_flip.emit()
 			else:
 				cooldown = true
 				cooldown_timer.start()
@@ -51,7 +60,7 @@ func calc_range() -> void:
 		lower_range -= diff
 		upper_range -= diff
 	
-	#print(lower_range, " - ", upper_range)
+	#print(precision_position," | ", lower_range, " - ", upper_range)
 
 func reset(speed: float) -> void:
 	timer.stop()
@@ -61,15 +70,18 @@ func reset(speed: float) -> void:
 	timer.start(speed)
 	calc_range()
 	
-	set_up_precision_indicator()
+	precision_minigame_ui.set_up_precision_zone(grace_amount, precision_position)
 
 func _on_cooldown_timer_timeout() -> void:
 	cooldown = false
 
-func set_up_precision_indicator() -> void:
-	precision_indicator.size.x = grace_amount * 2 * base_size - current_position.size.x
-	
-	precision_indicator.position.x = (base_size - precision_indicator.size.x) * precision_position
-
 func _on_precision_timer_timeout() -> void:
 	reset(1)
+
+func activate() -> void:
+	active = true
+	precision_minigame_ui.visible = true
+
+func deactivate() -> void:
+	active = false
+	precision_minigame_ui.visible = false

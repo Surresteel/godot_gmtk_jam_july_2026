@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://v4a8273qwfva"]
+
+[ext_resource type="Script" uid="uid://d2aqjtw30a8ok" path="res://Cooking/Heat Area/heat_area.gd" id="1_5uel5"]
+
+[node name="HeatArea" type="Area3D" unique_id=891329366]
+script = ExtResource("1_5uel5")
+
+[node name="Timer" type="Timer" parent="." unique_id=601249624]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
