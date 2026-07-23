@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://d2aqjtw30a8ok" path="res://Cooking/Heat Area/heat_area.gd" id="1_5uel5"]
 
-[node name="HeatArea" type="Node3D" unique_id=901621722]
+[node name="HeatArea" type="Area3D" unique_id=891329366]
 script = ExtResource("1_5uel5")
 heat_level = 1.0
 
