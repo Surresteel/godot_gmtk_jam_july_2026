@@ -101,7 +101,7 @@ func _activate(player: Player) -> void:
 		return
 	
 	current_ingredient = player.give_ingredient()
-	current_ingredient.physically_move(self,Vector3(0,0.05,0))
+	current_ingredient.physically_move(self,Vector3(0,0.01,0))
 	active = true
 	heat_area.increase_cook_level.connect(current_ingredient.cook)
 	heat_area.start_cooking()
@@ -130,7 +130,7 @@ func _stop_flipping() -> void:
 	flipping = false
 
 func flip_tween(flip_amount: float) -> void:
-	var time: float = 1
+	var time: float = 0.9
 	
 	var tween = create_tween()
 	tween.tween_property(current_ingredient,"rotation_degrees",\
@@ -140,4 +140,4 @@ func flip_tween(flip_amount: float) -> void:
 			current_ingredient.position + Vector3(0,0.2,0), time/2 + 0.05).set_trans(\
 			Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	tween.parallel().tween_property(current_ingredient,"position",current_ingredient.position, time/2 + 0.05).set_trans(\
-			Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT).set_delay(time/2 + 0.05)
+			Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN).set_delay(time/2 + 0.05)

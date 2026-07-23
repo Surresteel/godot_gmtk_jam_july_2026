@@ -1,4 +1,4 @@
-extends Area3D
+extends Node3D
 
 class_name HeatArea
 
@@ -21,6 +21,6 @@ func stop_cooking() -> void:
 
 func _on_timer_timeout() -> void:
 	if even_cook:
-		increase_cook_level.emit(heat_level, true, true)
+		increase_cook_level.emit(heat_level/2, true, true)
 	else:
 		increase_cook_level.emit(heat_level, !flip_side, flip_side)
