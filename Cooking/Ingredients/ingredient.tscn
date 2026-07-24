@@ -14,10 +14,11 @@ size = Vector3(0.1, 0.02, 0.1)
 material = SubResource("StandardMaterial3D_ukqol")
 size = Vector3(0.1, 0.02, 0.1)
 
-[node name="Ingredient" type="Node3D" unique_id=585287791 node_paths=PackedStringArray("temp", "temp_2")]
+[node name="Ingredient" type="Node3D" unique_id=585287791 node_paths=PackedStringArray("temp", "temp_2", "temp_label")]
 script = ExtResource("1_ukqol")
 temp = NodePath("temp")
 temp_2 = NodePath("temp2")
+temp_label = NodePath("Label3D")
 
 [node name="temp" type="MeshInstance3D" parent="." unique_id=899766830]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)
@@ -26,3 +27,10 @@ mesh = SubResource("BoxMesh_ukqol")
 [node name="temp2" type="MeshInstance3D" parent="." unique_id=16767957]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 mesh = SubResource("BoxMesh_c6hw6")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=1262836507]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.04918176, 0)
+top_level = true
+pixel_size = 0.0001
+text = "mediumwell"
+font_size = 274

@@ -288,8 +288,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.007873535, 0.11038405, -0.
 shape = SubResource("BoxShape3D_abi3o")
 
 [node name="HeatArea" parent="." unique_id=470900665 instance=ExtResource("4_731tc")]
-even_cook = true
-heat_level = 0.1
+heat_level = 0.5
 
 [node name="HeatPos" type="Node3D" parent="." unique_id=1462575894]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.05687897, 0.025921531, 0.0010590451)

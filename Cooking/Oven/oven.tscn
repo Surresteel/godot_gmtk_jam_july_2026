@@ -219,7 +219,6 @@ volume_db = -32.0
 volume_db = -32.0
 
 [node name="HeatArea" parent="." unique_id=470900665 instance=ExtResource("5_qnfm4")]
-even_cook = true
 heat_level = 0.05
 
 [node name="HeatPos" type="Node3D" parent="." unique_id=1906661493]

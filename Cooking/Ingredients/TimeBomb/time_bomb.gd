@@ -20,7 +20,7 @@ func _ready() -> void:
 	pickup_interactable.pressed.connect(pickup)
 	focus_interactable.released.connect(unfocus)
 	
-	wires.defused.connect(destroy)
+	wires.defused.connect(defuse)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -35,6 +35,10 @@ func physically_move(new_parent: Node3D, Offset: Vector3 = Vector3.ZERO) -> void
 		unfocus(null)
 		super.physically_move(new_parent,Offset)
 		rotation_degrees = Vector3(0,0,0)
+
+func cook(amount: float, _even_cook: bool) -> void:
+	alarm.add_time(-amount)
+	print(-amount)
 
 func pickup(player: Player) ->void:
 	if player.take_ingredient(self):
@@ -59,7 +63,7 @@ func unfocus(_player: Player) -> void:
 	wires.enable(false)
 	lock_camera.emit(false)
 
-func destroy() -> void:
+func defuse() -> void:
 	unfocus(null)
 	pickup_interactable.toggle(false)
 	focus_interactable.toggle(false)
@@ -70,9 +74,11 @@ func destroy() -> void:
 	tween.set_parallel().tween_property(self,"rotation_degrees",Vector3(90,6969,0),3).set_trans(Tween.TRANS_LINEAR)
 	await tween.finished
 	
+	destroy_me.emit()
 	queue_free()
 	
 
 func explode() -> void:
 	print("boom")
+	destroy_me.emit()
 	queue_free()

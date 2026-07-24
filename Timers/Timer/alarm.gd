@@ -106,7 +106,7 @@ func add_time(t: float) -> void:
 	if not is_set:
 		set_time(t)
 		return
-	t = clampf(t, 0, HOUR_S - _time_remaining)
+	t = clampf(t, -_time_remaining, HOUR_S - _time_remaining)
 	_time_remaining += t
 	return
 

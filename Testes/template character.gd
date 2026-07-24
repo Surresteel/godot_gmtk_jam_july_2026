@@ -108,7 +108,7 @@ func give_ingredient() -> Ingredient:
 	return give
 
 func take_ingredient(ingredient: Ingredient) -> bool:
-	if hand == null:
+	if hand == null and ingredient != null:
 		hand = ingredient
 		ingredient.physically_move($HandPivot)
 		return true

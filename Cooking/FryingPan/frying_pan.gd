@@ -102,8 +102,11 @@ func _activate(player: Player) -> void:
 	
 	if player.hand == null:
 		return
+	
 	current_ingredient = player.give_ingredient()
 	current_ingredient.physically_move(self,Vector3(0,0.01,0))
+	current_ingredient.destroy_me.connect(_clear_pan)
+	successful_flip.connect(current_ingredient.flip_side)
 	active = true
 	heat_area.increase_cook_level.connect(current_ingredient.cook)
 	heat_area.start_cooking()
@@ -115,6 +118,8 @@ func _deactivate(player: Player) -> void:
 	
 	if player.take_ingredient(current_ingredient):
 		heat_area.increase_cook_level.disconnect(current_ingredient.cook)
+		successful_flip.disconnect(current_ingredient.flip_side)
+		current_ingredient.destroy_me.disconnect(_clear_pan)
 		heat_area.stop_cooking()
 		current_ingredient = null
 		active = false
@@ -143,3 +148,9 @@ func flip_tween(flip_amount: float) -> void:
 			Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	tween.parallel().tween_property(current_ingredient,"position",current_ingredient.position, time/2 + 0.05).set_trans(\
 			Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN).set_delay(time/2 + 0.05)
+
+func _clear_pan() ->void:
+	print("i shouldnt happen")
+	heat_area.stop_cooking()
+	current_ingredient = null
+	active = false

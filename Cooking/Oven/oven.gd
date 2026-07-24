@@ -35,7 +35,7 @@ var _hum_twn: Tween = null
 # HEATING:
 @onready var _heat_area: HeatArea = $HeatArea
 @onready var _heat_pos: Vector3 = $HeatPos.position
-const HEAT_MAX: float = 0.25
+const HEAT_MAX: float = 1.0
 const HEAT_THRESH: float = 0.01
 var _heat_scale: float = 0.0
 var _ingredient: Ingredient = null

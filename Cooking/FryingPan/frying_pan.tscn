@@ -97,7 +97,8 @@ mouse_filter = 2
 color = Color(0.18000486, 0.18000486, 0.18000486, 1)
 
 [node name="HeatArea" parent="." unique_id=891329366 instance=ExtResource("3_yh7qs")]
-heat_level = 0.01
+even_cook = false
+heat_level = 0.1
 
 [node name="Interactable" type="Area3D" parent="." unique_id=1833764178]
 collision_layer = 4
