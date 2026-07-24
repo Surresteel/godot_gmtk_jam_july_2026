@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://tygjep58dxwr"]
 
 [ext_resource type="Script" uid="uid://dj51yu3b0rkf5" path="res://ticketsystem/scripts/ticketgenerator.gd" id="1_fgxps"]
-[ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/ingredient.gd" id="2_3ikn5"]
+[ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/IngredientData.gd" id="2_3ikn5"]
 [ext_resource type="Resource" uid="uid://d0f2cauwut22p" path="res://ticketsystem/resources/bread.tres" id="3_e1gx3"]
 [ext_resource type="Resource" uid="uid://bljjvyg0lfjh4" path="res://ticketsystem/resources/steak.tres" id="3_xulrx"]
 [ext_resource type="Resource" uid="uid://cavlhsox0dika" path="res://ticketsystem/resources/broccoli.tres" id="4_lefr8"]
@@ -50,6 +50,7 @@ glow_enabled = true
 
 [sub_resource type="SystemFont" id="SystemFont_8qkwd"]
 font_names = PackedStringArray("Reenie Beanie")
+subpixel_positioning = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qtq1x"]
 size = Vector2(0.75, 1.5)

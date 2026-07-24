@@ -1,6 +1,6 @@
 extends Resource
 
-class_name ingredient
+class_name IngredientData
 
 enum COOK { BAKED, FRIED, GRILLED, BOILED, STEAMED, MICROWAVED,
 SMOKED }

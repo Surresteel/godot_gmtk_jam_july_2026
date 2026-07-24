@@ -2,22 +2,22 @@ extends Node3D
 
 @onready var label: Label3D = $Order
 @export var ingredient_amount: int
-@export var ingredient_list: Array[ingredient]
+@export var ingredient_list: Array[IngredientData]
 
-var ingredient_list_ready: Array[ingredient]
+var ingredient_list_ready: Array[IngredientData]
 var order_number: int = 1
 
-func add_ingredient(arr: Array[ingredient]) -> bool:
+func add_ingredient(arr: Array[IngredientData]) -> bool:
 	assert(not arr.is_empty())
 	var idx: int = randi() % arr.size()
-	var current_ingredient : ingredient = arr[idx]
+	var current_ingredient : IngredientData = arr[idx]
 	ingredient_list_ready.append(current_ingredient)
 	arr.remove_at(idx)
 	return true
 
 
 func dish():
-	var temp: Array[ingredient] = ingredient_list.duplicate()
+	var temp: Array[IngredientData] = ingredient_list.duplicate()
 	ingredient_list_ready.clear()
 	ingredient_amount = mini(ingredient_amount, ingredient_list.size())
 	for i in range(ingredient_amount):
