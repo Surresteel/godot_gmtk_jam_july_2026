@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="ingredient" format=3 uid="uid://dixg0p5j8vv2m"]
+
+[ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/ingredient.gd" id="1_icbk6"]
+
+[resource]
+script = ExtResource("1_icbk6")
+name = "Rotini"
+cook = Array[int]([3, 0, 4])
+metadata/_custom_type_script = "uid://br2b1npw4bnqg"

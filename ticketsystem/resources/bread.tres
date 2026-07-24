@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="ingredient" format=3 uid="uid://d0f2cauwut22p"]
+
+[ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/ingredient.gd" id="1_2prbl"]
+
+[resource]
+script = ExtResource("1_2prbl")
+name = "Bread"
+metadata/_custom_type_script = "uid://br2b1npw4bnqg"

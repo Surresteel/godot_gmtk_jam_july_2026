@@ -48,6 +48,13 @@ func ticket():
 	label.text += "\n" + "\n" + "Order Number" \
 	+ " " + str(order_number)
 	order_number += 1
+	ingredient_amount = randi_range(1, 33)
+	
+	label.line_spacing = remap(ingredient_amount, 0, 33, 30, -5)
+	label.font_size = remap(ingredient_amount, 0, 33, 54, 21)
+	
+	var t = clamp(ingredient_amount / 33, 0, 1)
+	label.font_size = lerp(54.0, 21.0, pow(t, 2.2))
 	
 	return
 

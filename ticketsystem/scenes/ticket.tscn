@@ -2,13 +2,39 @@
 
 [ext_resource type="Script" uid="uid://dj51yu3b0rkf5" path="res://ticketsystem/scripts/ticketgenerator.gd" id="1_fgxps"]
 [ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/ingredient.gd" id="2_3ikn5"]
+[ext_resource type="Resource" uid="uid://d0f2cauwut22p" path="res://ticketsystem/resources/bread.tres" id="3_e1gx3"]
 [ext_resource type="Resource" uid="uid://bljjvyg0lfjh4" path="res://ticketsystem/resources/steak.tres" id="3_xulrx"]
+[ext_resource type="Resource" uid="uid://cavlhsox0dika" path="res://ticketsystem/resources/broccoli.tres" id="4_lefr8"]
 [ext_resource type="Resource" uid="uid://ci3rm2br1juic" path="res://ticketsystem/resources/sausage.tres" id="4_lmpnh"]
 [ext_resource type="Resource" uid="uid://c84fdf7junwni" path="res://ticketsystem/resources/rib.tres" id="5_nroaw"]
+[ext_resource type="Resource" uid="uid://cbmghvtkd6urk" path="res://ticketsystem/resources/butter.tres" id="5_ympst"]
 [ext_resource type="Resource" uid="uid://dikahixc8gpfc" path="res://ticketsystem/resources/mincemeat.tres" id="6_33feo"]
+[ext_resource type="Resource" uid="uid://r1kjsky08mxg" path="res://ticketsystem/resources/cabbage.tres" id="6_qtef2"]
 [ext_resource type="Resource" uid="uid://xlhqs5p6wjpf" path="res://ticketsystem/resources/egg.tres" id="7_bg1so"]
+[ext_resource type="Resource" uid="uid://bte3hbbyd34t5" path="res://ticketsystem/resources/capsicum.tres" id="7_mxgii"]
 [ext_resource type="Resource" uid="uid://rneejnyhqrei" path="res://ticketsystem/resources/chickenthigh.tres" id="8_0k7tp"]
+[ext_resource type="Resource" uid="uid://dewv1qfkbc4nn" path="res://ticketsystem/resources/carrot.tres" id="8_spb32"]
 [ext_resource type="Resource" uid="uid://bbacld0t00y05" path="res://ticketsystem/resources/chickenbreast.tres" id="9_0pgt2"]
+[ext_resource type="Resource" uid="uid://d4gjtcls47wcf" path="res://ticketsystem/resources/cheese.tres" id="9_tgr6f"]
+[ext_resource type="Resource" uid="uid://0j4lnt2777b6" path="res://ticketsystem/resources/chilli.tres" id="12_48gbr"]
+[ext_resource type="Resource" uid="uid://bly2wk3u0t1v0" path="res://ticketsystem/resources/corn.tres" id="13_xuqvi"]
+[ext_resource type="Resource" uid="uid://jn5v6jfsm745" path="res://ticketsystem/resources/cucumber.tres" id="14_8ni40"]
+[ext_resource type="Resource" uid="uid://e331332671fa" path="res://ticketsystem/resources/fettucini.tres" id="16_d67je"]
+[ext_resource type="Resource" uid="uid://caw7b703cdaww" path="res://ticketsystem/resources/gnocchi.tres" id="17_f72fo"]
+[ext_resource type="Resource" uid="uid://mpy8xewnkro8" path="res://ticketsystem/resources/lettuce.tres" id="18_w6und"]
+[ext_resource type="Resource" uid="uid://dipts6yqw1ub6" path="res://ticketsystem/resources/milk.tres" id="19_33q07"]
+[ext_resource type="Resource" uid="uid://bwh4446auxnk6" path="res://ticketsystem/resources/mushroom.tres" id="21_euhdl"]
+[ext_resource type="Resource" uid="uid://0nfhlmeauy2k" path="res://ticketsystem/resources/onion.tres" id="22_w222r"]
+[ext_resource type="Resource" uid="uid://tilsk4l4wr6t" path="res://ticketsystem/resources/penne.tres" id="23_6xlqs"]
+[ext_resource type="Resource" uid="uid://pfq8en113e0i" path="res://ticketsystem/resources/potato.tres" id="24_ovce8"]
+[ext_resource type="Resource" uid="uid://cq84vd57xrcii" path="res://ticketsystem/resources/pumpkin.tres" id="25_kkc8o"]
+[ext_resource type="Resource" uid="uid://be5sgewhl3e5p" path="res://ticketsystem/resources/rice.tres" id="27_fr6pj"]
+[ext_resource type="Resource" uid="uid://dixg0p5j8vv2m" path="res://ticketsystem/resources/rotini.tres" id="28_wbdpy"]
+[ext_resource type="Resource" uid="uid://5aueexxsbip" path="res://ticketsystem/resources/sourcream.tres" id="30_xxg1j"]
+[ext_resource type="Resource" uid="uid://le588v2eawgr" path="res://ticketsystem/resources/spaghetti.tres" id="31_bloxa"]
+[ext_resource type="Resource" uid="uid://cvlk757r83wys" path="res://ticketsystem/resources/spinach.tres" id="32_gxyp8"]
+[ext_resource type="Resource" uid="uid://bje3xaltc4vdp" path="res://ticketsystem/resources/tomato.tres" id="34_3763s"]
+[ext_resource type="Resource" uid="uid://c7ytqgsmh8vrv" path="res://ticketsystem/resources/yogurt.tres" id="35_efjey"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_lmpnh"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -31,7 +57,7 @@ size = Vector2(0.75, 1.5)
 [node name="Node3D" type="Node3D" unique_id=1322980451]
 script = ExtResource("1_fgxps")
 ingredient_amount = 5
-ingredient_list = Array[ExtResource("2_3ikn5")]([ExtResource("9_0pgt2"), ExtResource("8_0k7tp"), ExtResource("7_bg1so"), ExtResource("6_33feo"), ExtResource("5_nroaw"), ExtResource("4_lmpnh"), ExtResource("3_xulrx")])
+ingredient_list = Array[ExtResource("2_3ikn5")]([ExtResource("3_e1gx3"), ExtResource("4_lefr8"), ExtResource("5_ympst"), ExtResource("6_qtef2"), ExtResource("7_mxgii"), ExtResource("8_spb32"), ExtResource("9_tgr6f"), ExtResource("9_0pgt2"), ExtResource("8_0k7tp"), ExtResource("12_48gbr"), ExtResource("13_xuqvi"), ExtResource("14_8ni40"), ExtResource("7_bg1so"), ExtResource("16_d67je"), ExtResource("17_f72fo"), ExtResource("18_w6und"), ExtResource("19_33q07"), ExtResource("6_33feo"), ExtResource("21_euhdl"), ExtResource("22_w222r"), ExtResource("23_6xlqs"), ExtResource("24_ovce8"), ExtResource("25_kkc8o"), ExtResource("5_nroaw"), ExtResource("27_fr6pj"), ExtResource("28_wbdpy"), ExtResource("4_lmpnh"), ExtResource("30_xxg1j"), ExtResource("31_bloxa"), ExtResource("32_gxyp8"), ExtResource("3_xulrx"), ExtResource("34_3763s"), ExtResource("35_efjey")])
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1979681026]
 environment = SubResource("Environment_33feo")
@@ -50,14 +76,49 @@ alpha_antialiasing_edge = 1.0
 texture_filter = 5
 modulate = Color(0.051515624, 0.20162857, 0.41013086, 1)
 outline_modulate = Color(0.21284258, 1.3476611e-05, 0.8651929, 1)
-text = "ORDER"
+text = "A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+A
+
+"
 font = SubResource("SystemFont_8qkwd")
-font_size = 54
+font_size = 21
 outline_size = 0
-line_spacing = 30.245
+line_spacing = -5.0
+autowrap_mode = 3
 
 [node name="Title" type="Label3D" parent="." unique_id=75580497]
-transform = Transform3D(-0.9974188, 0.14360596, -1.5060606e-07, 0.07180298, 1.9948376, 1.0841949e-08, 1.509958e-07, 0, -1, 0.13479675, 0.6037253, -0.001)
+transform = Transform3D(-0.9974188, 0.14360596, -1.5060606e-07, 0.07180298, 1.9948376, 1.0841949e-08, 1.509958e-07, 0, -1, 0.13479675, 0.65387475, -0.001)
 pixel_size = 0.001
 shaded = true
 double_sided = false
