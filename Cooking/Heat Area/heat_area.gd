@@ -11,7 +11,7 @@ var is_cooking: bool = false
 
 @export var heat_level: float = 0.10 ##Increases an ingridients cook_level by this, 10 times a second
 
-signal increase_cook_level(amount: float,side_a: bool, side_b: bool) 										##Signal Emitted when the current ingridient has been cooked for its appointed time
+signal increase_cook_level(amount: float, cooks_evenly: bool) ##Signal Emitted when the current ingridient has been cooked for its appointed time
 
 
 func start_cooking() -> void:
