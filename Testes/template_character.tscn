@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f7fki"]
 radius = 0.25
-height = 1.0
+height = 1.8
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ve6rv"]
 albedo_color = Color(0.8627451, 0, 0, 1)
@@ -13,7 +13,7 @@ albedo_color = Color(0.8627451, 0, 0, 1)
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_f7fki"]
 material = SubResource("StandardMaterial3D_ve6rv")
 radius = 0.25
-height = 1.0
+height = 1.8
 
 [node name="tempalte character" type="CharacterBody3D" unique_id=2009549190 node_paths=PackedStringArray("hand")]
 script = ExtResource("1_lhsoi")
@@ -26,7 +26,7 @@ shape = SubResource("CapsuleShape3D_f7fki")
 mesh = SubResource("CapsuleMesh_f7fki")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1029608773]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5301525, 0)
 
 [node name="HandPivot" type="Node3D" parent="." unique_id=884649959]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09, 0.17, -0.218)

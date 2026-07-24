@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cfpea7c6cd1kn" path="res://Timers/Egg/egg_timer.tscn" id="5_8g2gw"]
 [ext_resource type="PackedScene" uid="uid://vhgao8ryl3vs" path="res://Cooking/Toaster/toaster.tscn" id="6_8c2ne"]
 [ext_resource type="PackedScene" uid="uid://dr82dajpjam24" path="res://Levels/Counter/kitchen_counter.tscn" id="7_ejrnt"]
+[ext_resource type="PackedScene" uid="uid://ces40c6el0x3x" path="res://Levels/Counter/kitchen_sink.tscn" id="8_60r0g"]
+[ext_resource type="PackedScene" uid="uid://ny2fgb7y3rxp" path="res://Levels/Counter/kitchen_corner.tscn" id="9_8g2gw"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_abi3o"]
 sky_top_color = Color(0.49208552, 0.67516345, 0.8445393, 1)
@@ -50,16 +52,28 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3849409, 0)
 transform = Transform3D(1, 0, 0, 0, 0.6156615, 0.7880107, 0, -0.7880107, 0.6156615, 0, 0, 0)
 
 [node name="Oven" parent="." unique_id=427900998 instance=ExtResource("3_ejrnt")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0022639632, 1.8556992)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.086340904, 0.33862638, 1.7641021)
 
 [node name="mwave" parent="." unique_id=796507166 instance=ExtResource("4_60r0g")]
-transform = Transform3D(-0.9976287, 0, -0.068825714, 0, 1, 0, 0.068825714, 0, -0.9976287, -0.84670156, 0.60176975, 1.8203307)
+transform = Transform3D(-0.83508164, 0, -0.5501263, 0, 1, 0, 0.5501263, 0, -0.83508164, 3.9923244, 0.9432805, 1.67107)
 
 [node name="Egg" parent="." unique_id=917528442 instance=ExtResource("5_8g2gw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24831861, 0.60579234, 1.6309942)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7290058, 0.9538814, 1.7263913)
 
 [node name="Toaster" parent="." unique_id=1715365848 instance=ExtResource("6_8c2ne")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10592091, 0.5975011, 1.7235031)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1391168, 0.9571833, 1.7235031)
 
 [node name="Counter2" parent="." unique_id=1691214533 instance=ExtResource("7_ejrnt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.88995564, 0, 1.7718525)
+
+[node name="Counter3" parent="." unique_id=141484855 instance=ExtResource("7_ejrnt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8899136, 0, 1.7718525)
+
+[node name="Counter4" parent="." unique_id=513086685 instance=ExtResource("7_ejrnt")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.102, 0, 0.561)
+
+[node name="Counter_Sink" parent="." unique_id=1555734744 instance=ExtResource("8_60r0g")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.891, 0, 1.772)
+
+[node name="Counter_Corner" parent="." unique_id=121429401 instance=ExtResource("9_8g2gw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.939, 0, 1.608)

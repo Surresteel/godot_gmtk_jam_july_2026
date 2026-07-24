@@ -34,7 +34,7 @@ var _toast_down_offset := Vector3(0.0, -0.05, 0.0)
 
 # HEATING:
 var HEAT_TIME_MAX: float = 120.0
-var HEAT_TIME_MIN: float = 30.0
+var HEAT_TIME_MIN: float = 5.0
 @onready var _heat_area_l: HeatArea = $HeatAreaL
 @onready var _heat_area_r: HeatArea = $HeatAreaR
 var slots: Dictionary[Node3D, bool]
@@ -82,10 +82,6 @@ func _ready() -> void:
 	_int_lever_l.pressed.connect(start_cooking.bind(false))
 	_int_lever_r.pressed.connect(start_cooking.bind(true))
 	
-	#alarm_l.timeout.connect(_toast_up.bind(false))
-	#alarm_l.timeout.connect(_lever_up.bind(_mesh_lever_l))
-	#alarm_r.timeout.connect(_toast_up.bind(true))
-	#alarm_r.timeout.connect(_lever_up.bind(_mesh_lever_r))
 	alarm_l.timeout.connect(stop_cooking.bind(null, false))
 	alarm_r.timeout.connect(stop_cooking.bind(null, true))
 	return
