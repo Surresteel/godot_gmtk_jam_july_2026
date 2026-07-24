@@ -4,14 +4,19 @@ class_name Ingredient
 
 @export var data: IngredientData
 
-@export var temp: MeshInstance3D
-@export var temp_2: MeshInstance3D
-var label_offset: Vector3
-@export var temp_label: Label3D #delete all temp and maybe the gradient, that may go into data
+@export var meshes: Array[MeshInstance3D]
+@export var top_half_mesh: MeshInstance3D
+@export var bottom_half_mesh: MeshInstance3D # repalce with shader if can
+var current_mesh_index: int = 0
+
+@export var mesh_to_change_to: Dictionary[Node3D, Node3D]
+var prep_station_to_change: Dictionary[Node3D,Dictionary]
 
 const COOK_COLOURS: Gradient = preload("uid://88d3j1g3o83w")
 
 signal destroy_me(me)
+signal prep(station)
+
 var scale_tween: Tween
 
 enum side {TOP, BOTTOM}
@@ -53,22 +58,16 @@ func cook(amount: float, even_cook: bool) -> void:
 		if cook_level < data.doneness_intervals[data.doneness_intervals.size()-1]:
 			doneness_type = data.DONENESS.RAW
 		else:
-			doneness_type = data.DONENESS.BURNT 
-
-func _ready() -> void:
-	label_offset = temp_label.global_position
-	pass
+			doneness_type = data.DONENESS.BURNT
 
 func _process(_delta: float) -> void:
-	temp_label.global_position = global_position + label_offset
-	temp_label.text = data.DONENESS.keys()[doneness_type]
 	
 	#delete all this
 	var max_cook_time = data.doneness_intervals[data.doneness_intervals.size()-1]
-	var v = remap(side_a_cook_level, 0,max_cook_time/2, 0,1)
-	var v2 = remap(side_b_cook_level,0,max_cook_time/2, 0,1)
-	temp.mesh.surface_get_material(0).albedo_color = COOK_COLOURS.sample(v)
-	temp_2.mesh.surface_get_material(0).albedo_color = COOK_COLOURS.sample(v2)
+	var top = remap(side_a_cook_level, 0,max_cook_time/2, 0,1)
+	var bot = remap(side_b_cook_level,0,max_cook_time/2, 0,1)
+	var mat: StandardMaterial3D = meshes[current_mesh_index].mesh.surface_get_material(0)
+	mat.albedo_color = COOK_COLOURS.sample(top)
 
 func physically_move(new_parent: Node3D, Offset: Vector3 = Vector3.ZERO) -> void:
 	reparent(new_parent)
@@ -104,3 +103,8 @@ func _set_doneness() -> void:
 
 func flip_side() -> void:
 	current_side = (current_side + 1) % side.size() as side
+
+func prep_ingredient(station: Node) -> void:
+	if station.is_in_group("Prep Station"):
+		pass
+	

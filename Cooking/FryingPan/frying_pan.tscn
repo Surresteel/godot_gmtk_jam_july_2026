@@ -19,7 +19,7 @@ _surfaces = [{
 [sub_resource type="SphereShape3D" id="SphereShape3D_ve6rv"]
 radius = 0.26782867
 
-[node name="Frying Pan" type="Node3D" unique_id=1945656068]
+[node name="Frying Pan" type="Node3D" unique_id=1945656068 groups=["Prep Station"]]
 script = ExtResource("1_ckwe8")
 precision_position = 0.75
 grace_amount = 0.05

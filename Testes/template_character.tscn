@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://cdl3urpo8e7w4"]
 
 [ext_resource type="Script" uid="uid://cqlkomneg4t0b" path="res://Testes/template character.gd" id="1_lhsoi"]
-[ext_resource type="PackedScene" uid="uid://c5jmlrbb6a57h" path="res://Cooking/Ingredients/ingredient.tscn" id="2_pewpo"]
-[ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/IngredientData.gd" id="3_xj6sp"]
+[ext_resource type="PackedScene" uid="uid://cmtnvvib0ond" path="res://Cooking/Ingredients/Egg/egg.tscn" id="2_pewpo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f7fki"]
 radius = 0.25
@@ -16,17 +15,9 @@ material = SubResource("StandardMaterial3D_ve6rv")
 radius = 0.25
 height = 1.0
 
-[sub_resource type="Resource" id="Resource_e1gx3"]
-script = ExtResource("3_xj6sp")
-name = "gay"
-cook = Array[int]([4])
-doneness = Array[int]([0, 2, 3, 4, 6])
-prep = Array[int]([4])
-doneness_intervals = Array[float]([30.0, 45.0, 55.0, 70.0, 95.0])
-metadata/_custom_type_script = "uid://br2b1npw4bnqg"
-
-[node name="tempalte character" type="CharacterBody3D" unique_id=2009549190]
+[node name="tempalte character" type="CharacterBody3D" unique_id=2009549190 node_paths=PackedStringArray("hand")]
 script = ExtResource("1_lhsoi")
+hand = NodePath("HandPivot/Egg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=745625115]
 shape = SubResource("CapsuleShape3D_f7fki")
@@ -40,5 +31,4 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
 [node name="HandPivot" type="Node3D" parent="." unique_id=884649959]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09, 0.17, -0.218)
 
-[node name="Ingredient" parent="HandPivot" unique_id=585287791 instance=ExtResource("2_pewpo")]
-data = SubResource("Resource_e1gx3")
+[node name="Egg" parent="HandPivot" unique_id=376967929 instance=ExtResource("2_pewpo")]

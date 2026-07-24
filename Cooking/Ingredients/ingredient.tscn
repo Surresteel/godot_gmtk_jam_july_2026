@@ -14,11 +14,8 @@ size = Vector3(0.1, 0.02, 0.1)
 material = SubResource("StandardMaterial3D_ukqol")
 size = Vector3(0.1, 0.02, 0.1)
 
-[node name="Ingredient" type="Node3D" unique_id=585287791 node_paths=PackedStringArray("temp", "temp_2", "temp_label")]
+[node name="Ingredient" type="Node3D" unique_id=585287791]
 script = ExtResource("1_ukqol")
-temp = NodePath("temp")
-temp_2 = NodePath("temp2")
-temp_label = NodePath("Label3D")
 
 [node name="temp" type="MeshInstance3D" parent="." unique_id=899766830]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.01, 0)

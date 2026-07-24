@@ -5,7 +5,7 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const INT_COLLIDER: int = 1 << 2
 
-var hand: Ingredient #holds ingredients and maybe also appliances and timers
+@export var hand: Ingredient #holds ingredients and maybe also appliances and timers
 
 @onready var camera: Camera3D = $Camera3D
 
@@ -20,8 +20,6 @@ signal secondary_click(player: Player)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	$MeshInstance3D.visible = false
-	hand = $HandPivot/Ingredient #delete this
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
