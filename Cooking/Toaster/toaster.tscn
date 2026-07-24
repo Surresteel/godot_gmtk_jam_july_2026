@@ -338,7 +338,7 @@ size = Vector3(0.08267212, 0.068359375, 0.070495605)
 [sub_resource type="BoxShape3D" id="BoxShape3D_abi3o"]
 size = Vector3(0.12695313, 0.059887696, 0.048828125)
 
-[node name="The Autistic Little Toaster" type="Node3D" unique_id=1715365848]
+[node name="Toaster" type="Node3D" unique_id=1715365848]
 script = ExtResource("1_xw0y0")
 
 [node name="StaticBody" type="StaticBody3D" parent="." unique_id=1339034950]
