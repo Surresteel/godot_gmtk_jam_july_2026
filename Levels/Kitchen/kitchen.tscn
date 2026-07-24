@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bpnn7nb4fqwlj" path="res://Cooking/Oven/oven.tscn" id="3_ejrnt"]
 [ext_resource type="PackedScene" uid="uid://cju8258phf3m8" path="res://Cooking/Microwave/microwave.tscn" id="4_60r0g"]
 [ext_resource type="PackedScene" uid="uid://cfpea7c6cd1kn" path="res://Timers/Egg/egg_timer.tscn" id="5_8g2gw"]
+[ext_resource type="PackedScene" uid="uid://vhgao8ryl3vs" path="res://Cooking/Toaster/toaster.tscn" id="6_8c2ne"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_abi3o"]
 sky_top_color = Color(0.49208552, 0.67516345, 0.8445393, 1)
@@ -51,7 +52,10 @@ transform = Transform3D(1, 0, 0, 0, 0.6156615, 0.7880107, 0, -0.7880107, 0.61566
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0022639632, 1.8556992)
 
 [node name="mwave" parent="." unique_id=796507166 instance=ExtResource("4_60r0g")]
-transform = Transform3D(-0.9976287, 0, -0.068825714, 0, 1, 0, 0.068825714, 0, -0.9976287, 0.08349042, 0.60176975, 1.8203307)
+transform = Transform3D(-0.9976287, 0, -0.068825714, 0, 1, 0, 0.068825714, 0, -0.9976287, -0.84670156, 0.60176975, 1.8203307)
 
 [node name="Egg" parent="." unique_id=917528442 instance=ExtResource("5_8g2gw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24831861, 0.60579234, 1.6309942)
+
+[node name="The Autistic Little Toaster" parent="." unique_id=1715365848 instance=ExtResource("6_8c2ne")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7323972, 0.4793949, 1.7235031)
