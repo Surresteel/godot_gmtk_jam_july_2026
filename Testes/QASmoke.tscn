@@ -40,5 +40,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9748448, 1.0183408)
 [node name="TimeBomb" parent="." unique_id=293750379 instance=ExtResource("3_v22l4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22303617, 0.3614239, -0.7873777)
 
+[node name="TimeBomb2" parent="." unique_id=2126678156 instance=ExtResource("3_v22l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.045672238, 0.3614239, -1.2012832)
+time_to_die = 296.69
+
+[node name="TimeBomb3" parent="." unique_id=758694251 instance=ExtResource("3_v22l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62880856, 0.3614239, -0.3666734)
+time_to_die = 189.0
+
+[node name="TimeBomb4" parent="." unique_id=1187017588 instance=ExtResource("3_v22l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30426854, 0.3614239, -1.3543844)
+time_to_die = 414.94
+
 [node name="TrashCan" parent="." unique_id=1712450866 instance=ExtResource("4_7okn6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
