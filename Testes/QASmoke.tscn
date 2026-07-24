@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://e505jng6qa5i"]
+
+[ext_resource type="PackedScene" uid="uid://ehl176ciki56" path="res://Cooking/FryingPan/frying_pan.tscn" id="1_dwqgj"]
+[ext_resource type="PackedScene" uid="uid://cdl3urpo8e7w4" path="res://Testes/template_character.tscn" id="2_pjr2m"]
+[ext_resource type="PackedScene" uid="uid://bduju8xc0b3li" path="res://Cooking/Ingredients/TimeBomb/time_bomb.tscn" id="3_v22l4"]
+[ext_resource type="PackedScene" uid="uid://bwdxnwb2myx1" path="res://trash_can.tscn" id="4_7okn6"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_pjr2m"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_kkuy2"]
+sky_material = SubResource("ProceduralSkyMaterial_pjr2m")
+
+[sub_resource type="Environment" id="Environment_i1g10"]
+background_mode = 2
+sky = SubResource("Sky_kkuy2")
+glow_enabled = true
+
+[node name="Node3D" type="Node3D" unique_id=960280462]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=548505034]
+environment = SubResource("Environment_i1g10")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=394057713]
+transform = Transform3D(-0.8660254, -0.50000006, -2.1855696e-08, 0, -4.371139e-08, 1, -0.50000006, 0.8660254, 3.7855173e-08, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Frying Pan" parent="." unique_id=1945656068 instance=ExtResource("1_dwqgj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3933661, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=1428401072]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.2590332, 0)
+use_collision = true
+size = Vector3(20, 0.5, 20)
+
+[node name="tempalte character" parent="." unique_id=2009549190 instance=ExtResource("2_pjr2m")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9748448, 1.0183408)
+
+[node name="TimeBomb" parent="." unique_id=293750379 instance=ExtResource("3_v22l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22303617, 0.3614239, -0.7873777)
+
+[node name="TimeBomb2" parent="." unique_id=2126678156 instance=ExtResource("3_v22l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.045672238, 0.3614239, -1.2012832)
+time_to_die = 296.69
+
+[node name="TimeBomb3" parent="." unique_id=758694251 instance=ExtResource("3_v22l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.62880856, 0.3614239, -0.3666734)
+time_to_die = 189.0
+
+[node name="TimeBomb4" parent="." unique_id=1187017588 instance=ExtResource("3_v22l4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30426854, 0.3614239, -1.3543844)
+time_to_die = 414.94
+
+[node name="TrashCan" parent="." unique_id=1712450866 instance=ExtResource("4_7okn6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2)
