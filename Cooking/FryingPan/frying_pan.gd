@@ -137,6 +137,8 @@ func _stop_flipping() -> void:
 	flipping = false
 
 func flip_tween(flip_amount: float) -> void:
+	if current_ingredient == null:
+		return
 	var time: float = 0.9
 	
 	var tween = create_tween()

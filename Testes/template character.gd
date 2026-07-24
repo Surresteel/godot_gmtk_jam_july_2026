@@ -20,7 +20,7 @@ signal secondary_click(player: Player)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	
+	$MeshInstance3D.visible = false
 	hand = $HandPivot/Ingredient #delete this
 
 func _physics_process(delta: float) -> void:

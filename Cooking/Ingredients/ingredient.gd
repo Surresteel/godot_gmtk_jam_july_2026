@@ -12,6 +12,7 @@ var label_offset: Vector3
 const COOK_COLOURS: Gradient = preload("uid://88d3j1g3o83w")
 
 signal destroy_me(me)
+var scale_tween: Tween
 
 enum side {TOP, BOTTOM}
 
@@ -36,7 +37,16 @@ func cook(amount: float, even_cook: bool) -> void:
 		side_b_cook_level += amount
 	
 	cook_level = side_a_cook_level + side_b_cook_level
-	print("Cook Level = ", str(cook_level).pad_decimals(2))
+	
+	if cook_level > data.doneness_intervals[data.doneness_intervals.size()-1]:
+		scale_tween = create_tween()
+		scale_tween.tween_property(self, "scale", scale - Vector3.ONE * amount * 0.1 ,0.1)
+		if scale <= Vector3.ZERO:
+			visible = false
+			destroy_me.emit()
+			queue_free()
+	
+	#print("Cook Level = ", str(cook_level).pad_decimals(2))
 	if _is_evenly_cooked():
 		_set_doneness()
 	else:
@@ -75,7 +85,7 @@ func _is_evenly_cooked() -> bool:
 		d = side_a_cook_level
 	
 	var evenness: float = n/d
-	print(str(n).pad_decimals(2)," : ",str(d).pad_decimals(2), " = ", str(evenness * 100).pad_decimals(2), "%")
+	#print(str(n).pad_decimals(2)," : ",str(d).pad_decimals(2), " = ", str(evenness * 100).pad_decimals(2), "%")
 	if evenness <= 0.6:
 		return false
 	else:

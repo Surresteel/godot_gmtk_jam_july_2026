@@ -37,7 +37,7 @@ use_collision = true
 size = Vector3(20, 0.5, 20)
 
 [node name="tempalte character" parent="." unique_id=2009549190 instance=ExtResource("2_pjr2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9748448, 1.0183408)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.46, 0.5, 1.201)
 
 [node name="TimeBomb" parent="." unique_id=293750379 instance=ExtResource("3_v22l4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22303617, 0.3614239, -0.7873777)
