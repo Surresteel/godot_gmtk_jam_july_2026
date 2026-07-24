@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://bduju8xc0b3li"]
 
 [ext_resource type="Script" uid="uid://dlheitl1chwi7" path="res://Cooking/Ingredients/TimeBomb/time_bomb.gd" id="1_xfmfj"]
-[ext_resource type="PackedScene" uid="uid://b6xqtc6mkbkt5" path="res://Timer/alarm.tscn" id="2_540jj"]
+[ext_resource type="PackedScene" uid="uid://b6xqtc6mkbkt5" path="res://Timers/Timer/alarm.tscn" id="2_540jj"]
 [ext_resource type="Script" uid="uid://clybvbxju4s5q" path="res://Cooking/Ingredients/TimeBomb/wires.gd" id="2_frvok"]
 [ext_resource type="AudioStream" uid="uid://c6d2f52c8j2o5" path="res://Testes/voice-message.wav" id="3_s88dp"]
-[ext_resource type="AudioStream" uid="uid://kurbrbdqdfv3" path="res://Timer/Test/Tick.wav" id="4_frvok"]
+[ext_resource type="AudioStream" uid="uid://kurbrbdqdfv3" path="res://Timers/Timer/Test/Tick.wav" id="4_frvok"]
 [ext_resource type="PackedScene" uid="uid://c5jb8qgn17sj5" path="res://Interactable/interactable.tscn" id="5_s88dp"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_alpy1"]
