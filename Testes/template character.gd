@@ -9,6 +9,8 @@ var hand: Ingredient #holds ingredients and maybe also appliances and timers
 
 @onready var camera: Camera3D = $Camera3D
 
+var camera_lock: bool = false
+
 @export var sensitivity: float = 0.2
 var held_inter: Interactable = null
 
@@ -47,21 +49,25 @@ func _physics_process(delta: float) -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		var interactable = _cast_mouse_ray()
+		
 		if event.is_action_pressed("left_click"):
 			if interactable != null:
 				signal_check(primary_click,interactable.activate)
 				primary_click.emit(self)
 				if interactable.hold:
-					held_inter = interactable
+					held_inter = interactable 
+	
 		if event.is_action_pressed("right_click"):
 			if interactable != null:
 				signal_check(secondary_click,interactable.deactivate)
 				secondary_click.emit(self)
+	
 		if held_inter:
 			if event.is_action_released("left_click"):
 				held_inter.deactivate(self)
 				held_inter = null
-	if event is InputEventMouseMotion and not held_inter:
+	
+	if event is InputEventMouseMotion and not held_inter and not camera_lock:
 		var dir = event.screen_relative
 		if dir:
 			rotation_degrees.y += dir.x * -sensitivity
@@ -109,8 +115,11 @@ func take_ingredient(ingredient: Ingredient) -> bool:
 	return false
 
 func signal_check(action: Signal, callable: Callable) -> void:
-	print(action.get_connections())
+	#print(action.get_connections())
 	if !action.is_connected(callable):
 		if action.has_connections():
-			action.disconnect(action.get_connections().get(0)["callable"])
+			action.disconnect(action.get_connections().get(0)["callable"])#should only ever be connected to one thing
 		action.connect(callable)
+
+func lock_camera(state: bool) -> void:
+	camera_lock = state
