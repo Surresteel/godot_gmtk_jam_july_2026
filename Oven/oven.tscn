@@ -4,6 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://blhjl3se226yy" path="res://Oven/Model/oven_texture.png" id="1_yr1l4"]
 [ext_resource type="PackedScene" uid="uid://c5jb8qgn17sj5" path="res://Interactable/interactable.tscn" id="3_qnfm4"]
 [ext_resource type="AudioStream" uid="uid://dnaxid3orkmar" path="res://Oven/Model/oven.wav" id="4_dcfdx"]
+[ext_resource type="PackedScene" uid="uid://v4a8273qwfva" path="res://Cooking/Heat Area/heat_area.tscn" id="5_qnfm4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ifow5"]
+size = Vector3(0.6040039, 0.6045532, 0.5966797)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1r324"]
 resource_name = "Material"
@@ -146,8 +150,18 @@ shadow_mesh = SubResource("ArrayMesh_8ps1l")
 [sub_resource type="SphereShape3D" id="SphereShape3D_wvhbo"]
 radius = 0.04
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_abi3o"]
+size = Vector3(0.47631836, 0.50405884, 0.5004883)
+
 [node name="Oven" type="Node3D" unique_id=427900998]
 script = ExtResource("1_dcfdx")
+
+[node name="StaticBody" type="StaticBody3D" parent="." unique_id=326294880]
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody" unique_id=808320121]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0017089844, 0.30038452, 0)
+shape = SubResource("BoxShape3D_ifow5")
 
 [node name="Oven" type="MeshInstance3D" parent="." unique_id=1169139158]
 mesh = SubResource("ArrayMesh_2fvt3")
@@ -168,7 +182,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.227, -0.283)
 shape = SubResource("BoxShape3D_wvhbo")
 
 [node name="Rack" type="MeshInstance3D" parent="Oven" unique_id=266733460]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24484779, -0.01787062)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.17011686, -0.01787062)
 mesh = SubResource("ArrayMesh_w5jn4")
 
 [node name="InterDial" parent="." unique_id=374879175 instance=ExtResource("3_qnfm4")]
@@ -178,6 +192,12 @@ hold = true
 [node name="Collider" type="CollisionShape3D" parent="InterDial" unique_id=507875163]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00517112, 0, 0.0061470866)
 shape = SubResource("SphereShape3D_wvhbo")
+
+[node name="FoodArea" parent="." unique_id=846501213 instance=ExtResource("3_qnfm4")]
+
+[node name="Collider" type="CollisionShape3D" parent="FoodArea" unique_id=1689357453]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2541046, 0.008544922)
+shape = SubResource("BoxShape3D_abi3o")
 
 [node name="Light" type="AreaLight3D" parent="." unique_id=376424325]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.46426973, 0.08697051)
@@ -198,5 +218,9 @@ volume_db = -32.0
 [node name="Clicker" type="AudioStreamPlayer3D" parent="." unique_id=794049919]
 volume_db = -32.0
 
+[node name="HeatArea" parent="." unique_id=470900665 instance=ExtResource("5_qnfm4")]
+even_cook = true
+heat_level = 0.05
+
 [node name="HeatPos" type="Node3D" parent="." unique_id=1906661493]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.30545998, -0.07196968)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23643234, -0.114174925)

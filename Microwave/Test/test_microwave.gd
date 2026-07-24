@@ -3,7 +3,6 @@ extends Node3D
 const INT_COLLIDER: int = 1 << 2
 
 @onready var mwave: Microwave = $mwave
-@onready var food: Node3D = $Food
 @onready var cam_anchor: Node3D = $CamAnchor
 var start_pos := Vector3.ZERO
 @onready var camera_3d: Camera3D = $CamAnchor/Camera3D
@@ -11,8 +10,7 @@ var held_inter: Interactable = null
 
 
 func _ready() -> void:
-	mwave.test()
-	mwave.add_food(food)
+	#mwave.add_food(food)
 	start_pos = cam_anchor.global_position
 	return
 
@@ -31,7 +29,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not held_inter:
 		return
 	if event.is_released() and event.button_index == MOUSE_BUTTON_LEFT:
-		held_inter.deactivate()
+		held_inter.deactivate(null)
 		held_inter = null
 	return
 
@@ -58,9 +56,9 @@ func _cast_mouse_ray() -> void:
 	if not interact:
 		return
 	
-	interact.activate()
+	interact.activate(null)
 	if not interact.hold:
-		interact.deactivate()
+		interact.deactivate(null)
 	else:
 		held_inter = interact
 	

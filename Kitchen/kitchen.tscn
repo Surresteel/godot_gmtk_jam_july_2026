@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://vvesh6rbjoq0" path="res://Kitchen/Resources/debug.tres" id="2_hoq2g"]
 [ext_resource type="PackedScene" uid="uid://bpnn7nb4fqwlj" path="res://Oven/oven.tscn" id="3_hoq2g"]
 [ext_resource type="PackedScene" uid="uid://cju8258phf3m8" path="res://Microwave/microwave.tscn" id="4_0gnlc"]
+[ext_resource type="PackedScene" uid="uid://cfpea7c6cd1kn" path="res://Egg/egg_timer.tscn" id="5_k2udy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_abi3o"]
 sky_top_color = Color(0.49208552, 0.67516345, 0.8445393, 1)
@@ -50,4 +51,7 @@ transform = Transform3D(1, 0, 0, 0, 0.6156615, 0.7880107, 0, -0.7880107, 0.61566
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0022639632, 1.8556992)
 
 [node name="mwave" parent="." unique_id=796507166 instance=ExtResource("4_0gnlc")]
-transform = Transform3D(-0.9976287, 0, -0.068825714, 0, 1, 0, 0.068825714, 0, -0.9976287, 0.034674346, 0.59387857, 1.8203307)
+transform = Transform3D(-0.9976287, 0, -0.068825714, 0, 1, 0, 0.068825714, 0, -0.9976287, 0.08349042, 0.60176975, 1.8203307)
+
+[node name="Egg" parent="." unique_id=917528442 instance=ExtResource("5_k2udy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.24831861, 0.60579234, 1.6309942)

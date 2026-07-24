@@ -78,7 +78,7 @@ func _trigger_alarm() -> void:
 #===============================================================================
 ## Gets the time of the timer in seconds:
 func get_time() -> float:
-	return maxf(0.0, float(_time_remaining) / 1_000.0)
+	return maxf(0.0, _time_remaining)
 
 ## Gets the time of the timer as a string (format: MM:SS)
 func get_time_str() -> String:

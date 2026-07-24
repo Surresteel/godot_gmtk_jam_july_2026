@@ -10,6 +10,7 @@ var hand: Ingredient #holds ingredients and maybe also appliances and timers
 @onready var camera: Camera3D = $Camera3D
 
 @export var sensitivity: float = 0.2
+var held_inter: Interactable = null
 
 
 # Called when the node enters the scene tree for the first time.
@@ -47,10 +48,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		if event.is_action_pressed("left_click"):
 			if interactable != null:
 				interactable.activate(self)
+				if interactable.hold:
+					held_inter = interactable
 		if event.is_action_pressed("right_click"):
 			if interactable != null:
 				interactable.deactivate(self)
-	if event is InputEventMouseMotion:
+		if held_inter:
+			if event.is_released() and event.button_index == MOUSE_BUTTON_LEFT:
+				held_inter.deactivate(self)
+				held_inter = null
+	if event is InputEventMouseMotion and not held_inter:
 		var dir = event.screen_relative
 		if dir:
 			rotation_degrees.y += dir.x * -sensitivity
@@ -68,7 +75,7 @@ func _cast_mouse_ray() -> Interactable:
 	
 	var m_pos: Vector2 = vp.get_mouse_position()
 	var start: Vector3 = cam.project_ray_origin(m_pos)
-	var end: Vector3 = start + cam.project_ray_normal(m_pos) * 1_000.0
+	var end: Vector3 = start + cam.project_ray_normal(m_pos) * 1.5
 	var space_state = get_world_3d().direct_space_state
 	var query = PhysicsRayQueryParameters3D.create(start, end)
 	query.collide_with_areas = true

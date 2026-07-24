@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cju8258phf3m8" path="res://Microwave/microwave.tscn" id="1_8r1sl"]
 [ext_resource type="Script" uid="uid://cf8yknlbdsybm" path="res://Microwave/Test/test_microwave.gd" id="1_e8d8j"]
 [ext_resource type="PackedScene" uid="uid://bpnn7nb4fqwlj" path="res://Oven/oven.tscn" id="3_f4fwt"]
+[ext_resource type="PackedScene" uid="uid://cfpea7c6cd1kn" path="res://Egg/egg_timer.tscn" id="4_aw8f4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_s3epv"]
 sky_horizon_color = Color(0.6368897, 0.66238976, 0.69463974, 1)
@@ -17,9 +18,6 @@ background_mode = 2
 sky = SubResource("Sky_f4fwt")
 ssao_enabled = true
 glow_enabled = true
-
-[sub_resource type="BoxMesh" id="BoxMesh_wvhbo"]
-size = Vector3(0.1, 0.1, 0.1)
 
 [node name="Test" type="Node3D" unique_id=907753008]
 script = ExtResource("1_e8d8j")
@@ -40,18 +38,14 @@ directional_shadow_pancake_size = 0.0
 
 [node name="mwave" parent="." unique_id=796507166 instance=ExtResource("1_8r1sl")]
 
-[node name="Food" type="Node3D" parent="." unique_id=713152813]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6434722, 0, 0)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Food" unique_id=791915275]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
-mesh = SubResource("BoxMesh_wvhbo")
-
 [node name="CamAnchor" type="Node3D" parent="." unique_id=1947365431]
 
 [node name="Camera3D" type="Camera3D" parent="CamAnchor" unique_id=1425829680]
-transform = Transform3D(1, 0, 0, 0, 0.9715467, 0.23684803, 0, -0.23684803, 0.9715467, 0.6563928, 0.5329059, 0.79812974)
+transform = Transform3D(1, 0, 0, 0, 0.9715467, 0.23684803, 0, -0.23684803, 0.9715467, 0.12534982, 0.3993218, 0.79812974)
 doppler_tracking = 1
 
 [node name="Oven" parent="." unique_id=427900998 instance=ExtResource("3_f4fwt")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0.68108153, 0, 0.005632758)
+
+[node name="Egg" parent="." unique_id=917528442 instance=ExtResource("4_aw8f4")]
+transform = Transform3D(-0.9956961, 0, 0.09267777, 0, 1, 0, -0.09267777, 0, -0.9956961, 0.071819454, 0.23157752, 0.09988308)

@@ -21,6 +21,7 @@ var start_positions: Dictionary[Node3D, Vector3]
 @onready var int_btn_m: Interactable = $IntBtnM
 @onready var int_btn_l: Interactable = $IntBtnL
 @onready var int_btn_o: Interactable = $IntBtnO
+@onready var food_area: Interactable = $FoodArea
 
 # ALARM:
 @onready var alarm: Alarm = $Alarm
@@ -38,8 +39,9 @@ var _btn_move_amount: float = 0.005
 var _door_twn: Tween = null
 
 # HEATING:
+@onready var _heat_area: HeatArea = $HeatArea
 @onready var _heat_pos: Vector3 = $HeatPos.position
-var _food_item: Node3D = null
+var _ingredient: Ingredient = null
 
 
 #===============================================================================
@@ -50,6 +52,8 @@ func _ready() -> void:
 	int_btn_m.pressed.connect(_handle_btn.bind(_mesh_btn_m, 30.0))
 	int_btn_l.pressed.connect(_handle_btn.bind(_mesh_btn_l, 60.0))
 	int_btn_o.pressed.connect(_toggle_door.bind(_mesh_btn_o))
+	food_area.pressed.connect(add_food)
+	food_area.released.connect(remove_food)
 	
 	start_positions[_mesh_btn_s] = _mesh_btn_s.global_position
 	start_positions[_mesh_btn_m] = _mesh_btn_m.global_position
@@ -66,8 +70,8 @@ func _process(_delta: float) -> void:
 		timer.modulate = Color.RED
 	else:
 		timer.modulate = Color.WHITE
-	if _food_item and alarm.is_set:
-		_food_item.rotate(Vector3.UP, 0.01)
+	if _ingredient and alarm.is_set:
+		_ingredient.rotate(Vector3.UP, 0.01)
 	return
 
 
@@ -75,12 +79,13 @@ func _process(_delta: float) -> void:
 #	BUTTON FUNCTIONS:
 #===============================================================================
 # Handles button time logic.
-func _handle_btn(m_inst: MeshInstance3D, t: float) -> void:
+func _handle_btn(_p: Player, m_inst: MeshInstance3D, t: float) -> void:
 	if alarm and not is_opened:
 		alarm.add_time(t)
 		if not hum.playing:
 			hum.play()
 			light.visible = true
+			_heat_area.start_cooking()
 	if m_inst:
 		_button_anim(m_inst)
 	return
@@ -103,7 +108,7 @@ func _button_anim(m_inst: MeshInstance3D) -> void:
 	return
 
 # Opens and closes the door:
-func _toggle_door(m_inst: MeshInstance3D) -> void:
+func _toggle_door(_p: Player, m_inst: MeshInstance3D) -> void:
 	if m_inst:
 		_button_anim(m_inst)
 	if _door_twn and _door_twn.is_valid():
@@ -116,11 +121,13 @@ func _toggle_door(m_inst: MeshInstance3D) -> void:
 	_door_twn.tween_property(_mesh_door, "rotation:y", rot, 0.5)
 	alarm.reset()
 	hum.stop()
+	_heat_area.stop_cooking()
 	light.visible = false
 	return
 
 func _stop_op() -> void:
 	hum.stop()
+	_heat_area.stop_cooking()
 	light.visible = false
 	return
 
@@ -128,35 +135,31 @@ func _stop_op() -> void:
 #	OPERATIONS:
 #===============================================================================
 ## Adds a food item to the microwave:
-func add_food(obj: Node3D) -> void:
-	if not obj:
-		print("Can't add a null object to microwave.")
-		return
-	if _food_item:
+func add_food(p: Player) -> void:
+	if _ingredient:
 		print("Microwave already has a food item.")
 		return
-	
-	_food_item = obj
-	obj.reparent(self)
-	obj.position = _heat_pos
+	if not is_opened:
+		print("Microwave is not opened.")
+		return
+	_ingredient = p.give_ingredient()
+	if not _ingredient:
+		return
+	_ingredient.physically_move(self, global_basis * _heat_pos)
+	_heat_area.increase_cook_level.connect(_ingredient.cook)
 	return
 
 ## Removes a food item from the microwave:
-func remove_food() -> Node3D:
-	if not _food_item:
-		print("Cannot remove food from microwave; it has none.")
+func remove_food(p: Player) -> void:
+	if not _ingredient:
+		print("Microwave has no food item.")
 		return
-	var par: Node = self.get_parent()
-	assert(par)
-	_food_item.reparent(par)
-	return
-
-
-#===============================================================================
-#	TESTING:
-#===============================================================================
-func test() -> void:
-	#_toggle_door(_mesh_btn_o)
+	if not is_opened:
+		print("Microwave is not opened.")
+		return
+	if p.take_ingredient(_ingredient):
+		_heat_area.increase_cook_level.disconnect(_ingredient.cook)
+		_ingredient = null
 	return
 
 
