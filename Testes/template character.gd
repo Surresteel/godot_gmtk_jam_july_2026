@@ -12,6 +12,8 @@ var hand: Ingredient #holds ingredients and maybe also appliances and timers
 @export var sensitivity: float = 0.2
 var held_inter: Interactable = null
 
+signal primary_click(player: Player)
+signal secondary_click(player: Player)
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -47,14 +49,16 @@ func _unhandled_input(event: InputEvent) -> void:
 		var interactable = _cast_mouse_ray()
 		if event.is_action_pressed("left_click"):
 			if interactable != null:
-				interactable.activate(self)
+				signal_check(primary_click,interactable.activate)
+				primary_click.emit(self)
 				if interactable.hold:
 					held_inter = interactable
 		if event.is_action_pressed("right_click"):
 			if interactable != null:
-				interactable.deactivate(self)
+				signal_check(secondary_click,interactable.deactivate)
+				secondary_click.emit(self)
 		if held_inter:
-			if event.is_released() and event.button_index == MOUSE_BUTTON_LEFT:
+			if event.is_action_released("left_click"):
 				held_inter.deactivate(self)
 				held_inter = null
 	if event is InputEventMouseMotion and not held_inter:
@@ -103,3 +107,10 @@ func take_ingredient(ingredient: Ingredient) -> bool:
 		ingredient.physically_move($HandPivot)
 		return true
 	return false
+
+func signal_check(action: Signal, callable: Callable) -> void:
+	print(action.get_connections())
+	if !action.is_connected(callable):
+		if action.has_connections():
+			action.disconnect(action.get_connections().get(0)["callable"])
+		action.connect(callable)

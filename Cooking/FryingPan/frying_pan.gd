@@ -100,6 +100,8 @@ func _activate(player: Player) -> void:
 			_start_flipping()
 		return
 	
+	if player.hand == null:
+		return
 	current_ingredient = player.give_ingredient()
 	current_ingredient.physically_move(self,Vector3(0,0.01,0))
 	active = true

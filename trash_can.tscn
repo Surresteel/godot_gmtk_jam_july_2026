@@ -15,18 +15,18 @@ _surfaces = [{
 }]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_f7fki"]
-radius = 0.361735
+radius = 0.29268995
 
 [node name="TrashCan" type="Node3D" unique_id=1712450866]
 script = ExtResource("1_alpy1")
 
 [node name="mesh" type="MeshInstance3D" parent="." unique_id=1847676666]
-transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.28082192, 0)
+transform = Transform3D(0.45, 0, 0, 0, 0.45, 0, 0, 0, 0.45, 0, 0.23127112, 0)
 mesh = SubResource("ArrayMesh_kcyba")
 
 [node name="Interactable" parent="." unique_id=429174571 instance=ExtResource("2_wr0p8")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.46058458, 0)
 
 [node name="Collider" type="CollisionShape3D" parent="Interactable" unique_id=517975149]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1452474, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.21521485, 0)
 shape = SubResource("SphereShape3D_f7fki")

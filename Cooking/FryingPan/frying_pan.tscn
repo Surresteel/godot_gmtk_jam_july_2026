@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bqau8qwhogedj" path="res://Cooking/FryingPan/frying_pan.gd" id="1_ckwe8"]
 [ext_resource type="Script" uid="uid://hd08ag0h56gx" path="res://Cooking/FryingPan/PrecisionGameUI.gd" id="2_ji5t8"]
 [ext_resource type="PackedScene" uid="uid://v4a8273qwfva" path="res://Cooking/Heat Area/heat_area.tscn" id="3_yh7qs"]
-[ext_resource type="Script" uid="uid://c0x3t0rb11ugq" path="res://interactable.gd" id="4_yh7qs"]
+[ext_resource type="Script" uid="uid://c0x3t0rb11ugq" path="res://Interactable/interactable.gd" id="4_yh7qs"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_oqu74"]
 _surfaces = [{

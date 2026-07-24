@@ -15,7 +15,7 @@ func cook(amount: float,side_a: bool, side_b: bool) -> void:
 	if side_b:
 		side_b_cook_level += amount
 	cook_level = side_a_cook_level + side_b_cook_level
-	print(cook_level)
+	#print(cook_level)
 
 func _process(_delta: float) -> void:
 	
