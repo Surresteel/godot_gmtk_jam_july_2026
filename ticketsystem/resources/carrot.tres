@@ -1,10 +1,12 @@
 [gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://dewv1qfkbc4nn"]
 
 [ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/IngredientData.gd" id="1_duvgk"]
+[ext_resource type="ArrayMesh" uid="uid://ds0vj5ktb25qa" path="res://Cooking/Ingredients/Carrot/Carrot.tres" id="1_wli7l"]
 
 [resource]
 script = ExtResource("1_duvgk")
 name = "Carrot"
-cook = Array[int]([5, 4, 0, 6, 3, 2])
+mesh = ExtResource("1_wli7l")
+cook = Array[int]([0, 1, 3, 2])
 prep = Array[int]([2, 3, 4, 5, 0])
 metadata/_custom_type_script = "uid://br2b1npw4bnqg"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="IngredientMetaData" format=3]
+
+[ext_resource type="Resource" path="res://ticketsystem/resources/chickenbreast.tres" id="1_xwtrd"]
+[ext_resource type="PackedScene" path="res://Cooking/Ingredients/Chicken Breast/Chicken Breast.tscn" id="2_bgpwp"]
+[ext_resource type="Script" path="res://Cooking/Ingredients/IngredientMetaData.gd" id="3_33mwf"]
+
+[resource]
+script = ExtResource("3_33mwf")
+scene = ExtResource("2_bgpwp")
+data = ExtResource("1_xwtrd")

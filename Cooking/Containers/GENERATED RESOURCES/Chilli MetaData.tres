@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="IngredientMetaData" format=3]
+
+[ext_resource type="Resource" path="res://ticketsystem/resources/chilli.tres" id="1_iwwhe"]
+[ext_resource type="PackedScene" path="res://Cooking/Ingredients/Chilli/Chilli.tscn" id="2_qiek5"]
+[ext_resource type="Script" path="res://Cooking/Ingredients/IngredientMetaData.gd" id="3_poj1v"]
+
+[resource]
+script = ExtResource("3_poj1v")
+scene = ExtResource("2_qiek5")
+data = ExtResource("1_iwwhe")

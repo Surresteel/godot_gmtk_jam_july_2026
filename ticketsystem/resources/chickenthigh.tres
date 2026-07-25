@@ -1,10 +1,13 @@
 [gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://rneejnyhqrei"]
 
 [ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/IngredientData.gd" id="1_0vp8n"]
+[ext_resource type="ArrayMesh" uid="uid://b3uqldhll76l5" path="res://Cooking/Ingredients/Chicken Leg/Chicken Leg.tres" id="1_hu4ql"]
 
 [resource]
 script = ExtResource("1_0vp8n")
 name = "Chicken Thigh"
+mesh = ExtResource("1_hu4ql")
 cook = Array[int]([0, 1, 2, 6])
+doneness = Array[int]([0, 4, 6])
 prep = Array[int]([2])
 metadata/_custom_type_script = "uid://br2b1npw4bnqg"

@@ -1,4 +1,4 @@
-@tool
+
 extends IngredientContainer
 
 class_name IngredientGiver
@@ -38,6 +38,8 @@ const y_size: float = 0.8
 func put_in(player: Player) -> void:
 	print("wow")
 	super.put_in(player)
+	if ingredient == null:
+		return
 	ingredient.queue_free()
 	ingredient = null
 

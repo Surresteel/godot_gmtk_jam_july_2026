@@ -31,6 +31,10 @@ var doneness_type: IngredientData.DONENESS
 var prep_type: IngredientData.PREP
 
 
+func _ready() -> void:
+	if data.doneness == null:
+		data.doneness.append(data.DONENESS.RAW)
+
 func cook(amount: float, even_cook: bool) -> void:
 	if even_cook:
 		side_a_cook_level += amount/2

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="IngredientMetaData" format=3]
+
+[ext_resource type="Resource" path="res://ticketsystem/resources/carrot.tres" id="1_t2q3k"]
+[ext_resource type="PackedScene" path="res://Cooking/Ingredients/Carrot/Carrot.tscn" id="2_i6hda"]
+[ext_resource type="Script" path="res://Cooking/Ingredients/IngredientMetaData.gd" id="3_hbfgw"]
+
+[resource]
+script = ExtResource("3_hbfgw")
+scene = ExtResource("2_i6hda")
+data = ExtResource("1_t2q3k")

@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://d0f2cauwut22p"]
 
 [ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/IngredientData.gd" id="1_2prbl"]
+[ext_resource type="ArrayMesh" uid="uid://bxqguofbo0dof" path="res://Cooking/Ingredients/Bread/Bread.tres" id="1_ftjia"]
 
 [resource]
 script = ExtResource("1_2prbl")
 name = "Bread"
-cook = Array[int]([7])
-prep = Array[int]([2])
+mesh = ExtResource("1_ftjia")
+cook = Array[int]([4])
 metadata/_custom_type_script = "uid://br2b1npw4bnqg"

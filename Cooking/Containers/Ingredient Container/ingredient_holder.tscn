@@ -1,9 +1,8 @@
 [gd_scene format=4 uid="uid://ctbjli6hi8foy"]
 
 [ext_resource type="Script" uid="uid://cygpcuc5m047a" path="res://Cooking/Containers/Ingredient Container/ingredient_holder.gd" id="1_1tlwy"]
-[ext_resource type="Resource" uid="uid://cx1qx0txuo588" path="res://Cooking/Containers/GENERATED RESOURCES/Onion MetaData.tres" id="2_2cwt1"]
 [ext_resource type="Script" uid="uid://c0x3t0rb11ugq" path="res://Interactable/interactable.gd" id="2_sbnpw"]
-[ext_resource type="ArrayMesh" uid="uid://byyekiu4wpl07" path="res://Cooking/Ingredients/Onion/Onion.tres" id="4_ra07f"]
+[ext_resource type="ArrayMesh" uid="uid://c56w413heaq6r" path="res://Cooking/Ingredients/Brocoli/Brocoli.tres" id="4_kp621"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_f7fki"]
 size = Vector3(0.81, 0.61, 0.81)
@@ -23,14 +22,13 @@ _surfaces = [{
 transform_format = 1
 custom_aabb = AABB(-0.35, 0, -0.35, 0.7, 0.3, 0.7)
 instance_count = 9
-mesh = ExtResource("4_ra07f")
-buffer = PackedFloat32Array(1.106, 0, 0, 1.0866244, 0, 1.106, 0, 0.29, 0, 0, 1.106, 0.2679613, 1.106, 0, 0, 2.3521686, 0, 1.106, 0, 0.29, 0, 0, 1.106, -0.5753724, 1.106, 0, 0, 2.84164, 0, 1.106, 0, 0.29, 0, 0, 1.106, -0.5437008, 1.106, 0, 0, 0.50469494, 0, 1.106, 0, 0.29, 0, 0, 1.106, 1.5243535, 1.106, 0, 0, 1.0620248, 0, 1.106, 0, 0.29, 0, 0, 1.106, 1.3833584, 1.106, 0, 0, 1.7755604, 0, 1.106, 0, 0.29, 0, 0, 1.106, 1.0100142, 1.106, 0, 0, 1.153971, 0, 1.106, 0, 0.29, 0, 0, 1.106, 1.99385, 1.106, 0, 0, 2.2838633, 0, 1.106, 0, 0.29, 0, 0, 1.106, 1.5199444, 1.106, 0, 0, 3.1459503, 0, 1.106, 0, 0.29, 0, 0, 1.106, 1.7867033)
+mesh = ExtResource("4_kp621")
+buffer = PackedFloat32Array(1.106, 0, 0, 0.85651284, 0, 1.106, 0, 0.29, 0, 0, 1.106, 0.09413238, 1.106, 0, 0, 1.7808573, 0, 1.106, 0, 0.29, 0, 0, 1.106, -0.6006722, 1.106, 0, 0, 3.1706457, 0, 1.106, 0, 0.29, 0, 0, 1.106, 0.5676981, 1.106, 0, 0, 0.70507586, 0, 1.106, 0, 0.29, 0, 0, 1.106, -0.009387526, 1.106, 0, 0, 0.92145187, 0, 1.106, 0, 0.29, 0, 0, 1.106, 1.6908536, 1.106, 0, 0, 2.2858667, 0, 1.106, 0, 0.29, 0, 0, 1.106, 1.4473455, 1.106, 0, 0, 0.20823786, 0, 1.106, 0, 0.29, 0, 0, 1.106, 1.1057019, 1.106, 0, 0, 0.81448287, 0, 1.106, 0, 0.29, 0, 0, 1.106, 1.5389249, 1.106, 0, 0, 2.196144, 0, 1.106, 0, 0.29, 0, 0, 1.106, 1.3698628)
 
 [node name="Ingredient Holder" type="Node3D" unique_id=409195013]
 script = ExtResource("1_1tlwy")
 amount = 9
 ing_scale = 1.106
-ingredient_to_give = ExtResource("2_2cwt1")
 pos = Vector3(-0.27, 0.29, -0.299)
 
 [node name="Interactable" type="Area3D" parent="." unique_id=1101779295]

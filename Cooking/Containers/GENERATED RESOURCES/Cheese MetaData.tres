@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="IngredientMetaData" format=3]
+
+[ext_resource type="Resource" path="res://ticketsystem/resources/cheese.tres" id="1_cipd1"]
+[ext_resource type="PackedScene" path="res://Cooking/Ingredients/Cheese/Cheese.tscn" id="2_pexym"]
+[ext_resource type="Script" path="res://Cooking/Ingredients/IngredientMetaData.gd" id="3_memns"]
+
+[resource]
+script = ExtResource("3_memns")
+scene = ExtResource("2_pexym")
+data = ExtResource("1_cipd1")
