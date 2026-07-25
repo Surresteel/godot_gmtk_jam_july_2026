@@ -26,7 +26,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	label.text = alarm.get_time_str()
 
-func physically_move(new_parent: Node3D, Offset: Vector3 = Vector3.ZERO) -> void:
+func physically_move(new_parent: Node3D, Offset: Vector3 = Vector3.ZERO, rot: Vector3 = Vector3.ZERO) -> void:
 	if new_parent.get_parent() is Player:
 		reparent(new_parent)
 		position = Vector3(-0.145,0.1,-0.1) #overwrite the player placing in hand to place in middle of screen

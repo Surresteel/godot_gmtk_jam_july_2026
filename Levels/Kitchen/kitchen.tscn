@@ -12,7 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ces40c6el0x3x" path="res://Levels/Counter/kitchen_sink.tscn" id="8_60r0g"]
 [ext_resource type="PackedScene" uid="uid://ny2fgb7y3rxp" path="res://Levels/Counter/kitchen_corner.tscn" id="9_8g2gw"]
 [ext_resource type="PackedScene" uid="uid://8rjrxxb052f4" path="res://Cooking/ChoppingBoard/chopping_board.tscn" id="10_vlpn2"]
-[ext_resource type="PackedScene" uid="uid://dsn0lskwut4qh" path="res://Cooking/CuttingBoard/CuttingBoard.tscn" id="11_nc5na"]
+[ext_resource type="PackedScene" uid="uid://ctbjli6hi8foy" path="res://Cooking/Containers/Ingredient Container/ingredient_holder.tscn" id="12_oclhi"]
 [ext_resource type="PackedScene" uid="uid://ehl176ciki56" path="res://Cooking/FryingPan/frying_pan.tscn" id="14_8l2iy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_abi3o"]
@@ -41,6 +41,7 @@ script = ExtResource("1_oclhi")
 
 [node name="MusicPlayer" parent="." unique_id=1734320360 instance=ExtResource("2_kvk2a")]
 volume_db = -6.0
+bus = &"Master"
 
 [node name="Sun" type="DirectionalLight3D" parent="." unique_id=737940651]
 transform = Transform3D(1, 0, 0, 0, 0.6156615, 0.7880107, 0, -0.7880107, 0.6156615, 0, 0, 0)
@@ -90,11 +91,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.891, 0, 1.772)
 [node name="Counter_Corner" parent="." unique_id=121429401 instance=ExtResource("9_8g2gw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.939, 0, 1.608)
 
-[node name="CuttingBoard" parent="." unique_id=662522804 instance=ExtResource("11_nc5na")]
-transform = Transform3D(-0.99997646, 0, -0.006864168, 0, 1, 0, 0.006864168, 0, -0.99997646, 0.67227685, 0.96028686, 1.674485)
-
 [node name="chopping_board" parent="." unique_id=772539163 instance=ExtResource("10_vlpn2")]
 transform = Transform3D(-0.10355582, 0, 0.99462366, 0, 1, 0, -0.99462366, 0, -0.10355582, 4.079187, 0.9468608, 0.45714855)
 
 [node name="Frying Pan" parent="." unique_id=1945656068 instance=ExtResource("14_8l2iy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1920929e-07, 0.9830595, 1.7315794)
+
+[node name="Ingredient Holder" parent="." unique_id=409195013 instance=ExtResource("12_oclhi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6070185, 0.3, -4.0664196)

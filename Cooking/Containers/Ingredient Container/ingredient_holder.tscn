@@ -1,13 +1,50 @@
-[gd_scene format=3 uid="uid://ctbjli6hi8foy"]
+[gd_scene format=4 uid="uid://ctbjli6hi8foy"]
 
 [ext_resource type="Script" uid="uid://cygpcuc5m047a" path="res://Cooking/Containers/Ingredient Container/ingredient_holder.gd" id="1_1tlwy"]
+[ext_resource type="Resource" uid="uid://cx1qx0txuo588" path="res://Cooking/Containers/GENERATED RESOURCES/Onion MetaData.tres" id="2_2cwt1"]
 [ext_resource type="Script" uid="uid://c0x3t0rb11ugq" path="res://Interactable/interactable.gd" id="2_sbnpw"]
+[ext_resource type="ArrayMesh" uid="uid://byyekiu4wpl07" path="res://Cooking/Ingredients/Onion/Onion.tres" id="4_ra07f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f7fki"]
+size = Vector3(0.81, 0.61, 0.81)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_kp621"]
+_surfaces = [{
+"aabb": AABB(-0.4, -0.3, -0.4, 0.8, 0.6, 0.8),
+"attribute_data": PackedByteArray("AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPwAAgD8AAHA/AABwPwAAAAAAAIA/AACAPwAAgD8AAIA/AAAAAAAAcD8AAHA/AACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAgD8AAHA/AABwPwIAgD0AAHA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAgD8CAIA9AABwPwIAgD0CAIA9AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAHA/AgCAPQAAcD8AAHA/AACAPwAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAACAIA9AgCAPQAAcD8CAIA9AAAAAAAAgD8CAIA9AgCAPQAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAIAgD0CAIA9AACAPwAAAAAAAIA/AACAPwAAAAAAAAAAAACAPwAAAAAAAIA/AACAPwAAAAAAAAAAAACAPwAAAAAAAIA/AACAPwAAAAAAAAAAAACAPwAAgD8AAAAAAACAPwAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAIA/AACAPwAAgD8AAAAAAACAPwAAAAAAAAAAAACAPwAAgD8AAAAAAAAAAAAAgD8AAAAAAAAAAAAAAAAAAIA/AACAPwAAAAAAAIA/AACAPwAAgD8AAAAAAACAPwAAAAAAAAAA"),
+"format": 34359738391,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 84,
+"vertex_data": PackedByteArray("zczMvpqZmb7NzMy+zczMvpqZmT7NzMy+zczMvpqZmb7NzMw+zczMvpqZmb7NzMy+zczMvpqZmb7NzMw+zczMPpqZmb7NzMy+zczMvpqZmb7NzMy+zczMPpqZmb7NzMy+zczMvpqZmT7NzMy+zczMvpqZmT7NzMy+MzOzvpqZmT4zM7O+zczMvpqZmT7NzMw+zczMvpqZmT7NzMy+zczMPpqZmT7NzMy+MzOzvpqZmT4zM7O+zczMvpqZmb7NzMw+zczMvpqZmT7NzMy+zczMvpqZmT7NzMw+zczMvpqZmT7NzMw+MzOzvpqZmT4zM7O+MzOzvpqZmT4zM7M+zczMvpqZmb7NzMw+zczMvpqZmT7NzMw+zczMPpqZmT7NzMw+zczMvpqZmT7NzMw+MzOzvpqZmT4zM7M+MzOzPpqZmT4zM7M+zczMvpqZmb7NzMw+zczMPpqZmb7NzMw+zczMPpqZmb7NzMy+zczMvpqZmb7NzMw+zczMPpqZmT7NzMw+zczMPpqZmb7NzMw+zczMPpqZmb7NzMy+zczMPpqZmb7NzMw+zczMPpqZmT7NzMw+zczMvpqZmT7NzMy+zczMPpqZmb7NzMy+zczMPpqZmT7NzMy+zczMPpqZmT7NzMy+MzOzPpqZmT4zM7O+MzOzvpqZmT4zM7O+zczMPpqZmb7NzMy+zczMPpqZmT7NzMw+zczMPpqZmT7NzMy+zczMPpqZmT7NzMy+MzOzPpqZmT4zM7M+MzOzPpqZmT4zM7O+zczMvpqZmT7NzMw+MzOzPpqZmT4zM7M+zczMPpqZmT7NzMw+zczMPpqZmT7NzMy+zczMPpqZmT7NzMw+MzOzPpqZmT4zM7M+MzOzvs3MTL4zM7O+MzOzvs3MTL4zM7M+MzOzvpqZmT4zM7O+MzOzvs3MTL4zM7O+MzOzPs3MTL4zM7O+MzOzvs3MTL4zM7M+MzOzvs3MTL4zM7O+MzOzvpqZmT4zM7O+MzOzPs3MTL4zM7O+MzOzvs3MTL4zM7M+MzOzvpqZmT4zM7M+MzOzvpqZmT4zM7O+MzOzvs3MTL4zM7M+MzOzPpqZmT4zM7M+MzOzvpqZmT4zM7M+MzOzvs3MTL4zM7M+MzOzPs3MTL4zM7O+MzOzPs3MTL4zM7M+MzOzvs3MTL4zM7M+MzOzPs3MTL4zM7M+MzOzPpqZmT4zM7M+MzOzPs3MTL4zM7O+MzOzPpqZmT4zM7M+MzOzPs3MTL4zM7M+MzOzPs3MTL4zM7O+MzOzvpqZmT4zM7O+MzOzPpqZmT4zM7O+MzOzPs3MTL4zM7O+MzOzPpqZmT4zM7O+MzOzPpqZmT4zM7M+AAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8//3///wAAAAD/f///AAAAAP9//////wAA/3///wAAAAD/f///AAAAAP9///8AAAAAAAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//////AAD/f///AAAAAP9//////wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3///wAAAAD/f/////8AAP9///8AAAAA////f/9//n////9//3/+f////3//f/5//3///wAAAAD/f/////8AAP9//////wAA/3//////AAD/f/////8AAP9//////wAA/3///wAAAAD/f/////8AAP9//////wAA////f/9/AID///9//38AgP///3//fwCA/3//////////f/////////9//////////3//fwAA/7//f/9/AAD/v/9//38AAP+/////f/9/AID///9//38AgP///3//fwCA/////wAA/7//////AAD/v/////8AAP+//3//////////f/////////9//////////////wAA/7//////AAD/v/////8AAP+/AAD/f/9/AIAAAP9//38AgAAA/3//fwCA/3//fwAA/7//f/9/AAD/v/9//38AAP+/AAD/f/9/AIAAAP9//38AgAAA/3//fwCA")
+}]
+
+[sub_resource type="MultiMesh" id="MultiMesh_2ogs6"]
+transform_format = 1
+custom_aabb = AABB(-0.35, 0, -0.35, 0.7, 0.3, 0.7)
+instance_count = 9
+mesh = ExtResource("4_ra07f")
+buffer = PackedFloat32Array(1.106, 0, 0, 1.0866244, 0, 1.106, 0, 0.29, 0, 0, 1.106, 0.2679613, 1.106, 0, 0, 2.3521686, 0, 1.106, 0, 0.29, 0, 0, 1.106, -0.5753724, 1.106, 0, 0, 2.84164, 0, 1.106, 0, 0.29, 0, 0, 1.106, -0.5437008, 1.106, 0, 0, 0.50469494, 0, 1.106, 0, 0.29, 0, 0, 1.106, 1.5243535, 1.106, 0, 0, 1.0620248, 0, 1.106, 0, 0.29, 0, 0, 1.106, 1.3833584, 1.106, 0, 0, 1.7755604, 0, 1.106, 0, 0.29, 0, 0, 1.106, 1.0100142, 1.106, 0, 0, 1.153971, 0, 1.106, 0, 0.29, 0, 0, 1.106, 1.99385, 1.106, 0, 0, 2.2838633, 0, 1.106, 0, 0.29, 0, 0, 1.106, 1.5199444, 1.106, 0, 0, 3.1459503, 0, 1.106, 0, 0.29, 0, 0, 1.106, 1.7867033)
 
 [node name="Ingredient Holder" type="Node3D" unique_id=409195013]
 script = ExtResource("1_1tlwy")
+amount = 9
+ing_scale = 1.106
+ingredient_to_give = ExtResource("2_2cwt1")
+pos = Vector3(-0.27, 0.29, -0.299)
 
 [node name="Interactable" type="Area3D" parent="." unique_id=1101779295]
+collision_layer = 4
+collision_mask = 0
 script = ExtResource("2_sbnpw")
 metadata/_custom_type_script = "uid://c0x3t0rb11ugq"
 
 [node name="Collider" type="CollisionShape3D" parent="Interactable" unique_id=1331933853]
+shape = SubResource("BoxShape3D_f7fki")
+debug_color = Color(9.524141, 11.540058, 0.0003942871, 1)
+
+[node name="box" type="MeshInstance3D" parent="." unique_id=1624467505]
+mesh = SubResource("ArrayMesh_kp621")
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D" parent="." unique_id=238369129]
+multimesh = SubResource("MultiMesh_2ogs6")
