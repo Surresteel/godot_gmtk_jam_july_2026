@@ -1,64 +1,132 @@
+#===============================================================================
+#	CLASS PROPERTIES:
+#===============================================================================
 extends Node3D
-
 class_name Ticket
 
-@onready var label: Label3D = $Order
+
+#===============================================================================
+#	CLASS MEMBERS:
+#===============================================================================
+# STATICS:
+const NA_C := IngredientData.COOK.NA
+const NA_D := IngredientData.DONENESS.NA
+const NA_P := IngredientData.PREP.NA
+const MAX_ORDER_ITEMS: int = 5
+static var order_number: int = 1
+
+# INNER CLASSES:
+class OrderItem:
+	var item: String
+	var prep: IngredientData.PREP
+	var donness: IngredientData.DONENESS
+	var cook: IngredientData.COOK
+
+class Order:
+	var items: Array[OrderItem]
+
+@onready var label: Label3D = $TicketMesh/OrderText
 @export var ingredient_amount: int
 @export var ingredient_list: Array[IngredientData]
+var _ingredient_list_ready: Array[IngredientData]
 
-var ingredient_list_ready: Array[IngredientData]
-var order_number: int = 1
+# Order:
+var ticket_order: Order = null
 
+# INTERACTIONS:
+@onready var inter_pickup: Interactable = $Pickup
+
+
+#===============================================================================
+#	CALLBACKS:
+#===============================================================================
+func _ready() -> void:
+	ticket_order = generate_dish()
+	inter_pickup.pressed.connect(pick_up)
+	return
+
+
+#===============================================================================
+#	PICKUP:
+#===============================================================================
+func pick_up(p: Player) -> void:
+	if not p:
+		return
+	self.reparent(p)
+	return
+
+
+#===============================================================================
+#	FUNCTIONS:
+#===============================================================================
 func add_ingredient(arr: Array[IngredientData]) -> bool:
 	assert(not arr.is_empty())
 	var idx: int = randi() % arr.size()
 	var current_ingredient : IngredientData = arr[idx]
-	ingredient_list_ready.append(current_ingredient)
+	_ingredient_list_ready.append(current_ingredient)
 	arr.remove_at(idx)
 	return true
 
 
-func dish():
-	var temp: Array[IngredientData] = ingredient_list.duplicate()
-	ingredient_list_ready.clear()
-	ingredient_amount = mini(ingredient_amount, ingredient_list.size())
-	for i in range(ingredient_amount):
-		add_ingredient(temp)
-	ticket()
-	return
-
-
-func ticket():
-	if ingredient_list_ready.is_empty():
-		return
-	
+func generate_ticket() -> Order:
+	if _ingredient_list_ready.is_empty():
+		return null
+	ticket_order = Order.new()
 	label.text = ""
-	
-	
-	for i in ingredient_list_ready:
-		var cook_value = "" if i.cook.is_empty() \
-				else i.COOK.find_key(i.cook.pick_random())
-		var doneness_value = "" if i.doneness.is_empty() \
-				else i.DONENESS.find_key(i.doneness.pick_random())
-		var prep_value = "" if i.prep.is_empty() \
-				else i.PREP.find_key(i.prep.pick_random())
-	
-		label.text += (cook_value + " " \
-		+ i.name + " " + doneness_value \
-		+ " " + prep_value + "\n").to_lower()
+	for i in _ingredient_list_ready:
+		assert(not i.cook.is_empty() and not i.doneness.is_empty()
+				and not i.prep.is_empty())
+		
+		var cook = i.cook.pick_random()
+		var cook_raw: bool = cook == IngredientData.COOK.RAW
+		var done = i.doneness.pick_random()
+		if cook_raw:
+			done = NA_D
+		elif done == IngredientData.DONENESS.RAW:
+			done = (done + 1) % i.doneness.size()
+		var prep = i.prep.pick_random()
+		
+		var cook_key = "" if cook == NA_C else i.COOK.find_key(cook)
+		var done_key = "" if done == NA_D else i.DONENESS.find_key(done)
+		var prep_key = "" if prep == NA_P else i.PREP.find_key(prep)
+		
+		var order_item := OrderItem.new()
+		order_item.cook = cook
+		order_item.donness = done
+		order_item.prep = prep
+		ticket_order.items.append(order_item)
+		
+		var done_space: String = "" if done == NA_D else " "
+		label.text += ("- " + cook_key + " " + i.name + " " + done_key \
+				+ done_space + prep_key + "\n").to_lower()
 	
 	label.text += "\n" + "Order Number" \
 	+ " " + str(order_number)
 	order_number += 1
-	ingredient_amount = randi_range(1, 12)
+	ingredient_amount = randi_range(1, MAX_ORDER_ITEMS)
 	
-	return
+	return null
 
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event is not InputEventMouseButton:
-		return
-	event = event as InputEventMouseButton
-	if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		dish()
-	return
+func generate_dish() -> Order:
+	var temp: Array[IngredientData] = ingredient_list.duplicate()
+	_ingredient_list_ready.clear()
+	ingredient_amount = mini(ingredient_amount, ingredient_list.size())
+	for i in range(ingredient_amount):
+		add_ingredient(temp)
+	generate_ticket()
+	return null
+
+
+#func _unhandled_input(event: InputEvent) -> void:
+#	if event is not InputEventMouseButton:
+#		return
+#	event = event as InputEventMouseButton
+#	if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
+#		generate_dish()
+#	return
+
+
+#===============================================================================
+#	EOF:
+#===============================================================================

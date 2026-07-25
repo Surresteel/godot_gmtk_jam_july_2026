@@ -3,56 +3,42 @@
 [ext_resource type="Script" uid="uid://dj51yu3b0rkf5" path="res://ticketsystem/scripts/ticketgenerator.gd" id="1_fgxps"]
 [ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/IngredientData.gd" id="2_3ikn5"]
 [ext_resource type="Resource" uid="uid://d0f2cauwut22p" path="res://ticketsystem/resources/bread.tres" id="3_e1gx3"]
-[ext_resource type="Resource" uid="uid://bljjvyg0lfjh4" path="res://ticketsystem/resources/Legacy/steak.tres" id="3_xulrx"]
 [ext_resource type="Resource" uid="uid://cavlhsox0dika" path="res://ticketsystem/resources/broccoli.tres" id="4_lefr8"]
 [ext_resource type="Resource" uid="uid://ci3rm2br1juic" path="res://ticketsystem/resources/sausage.tres" id="4_lmpnh"]
-[ext_resource type="Resource" uid="uid://c84fdf7junwni" path="res://ticketsystem/resources/Legacy/rib.tres" id="5_nroaw"]
-[ext_resource type="Resource" uid="uid://cbmghvtkd6urk" path="res://ticketsystem/resources/Legacy/butter.tres" id="5_ympst"]
-[ext_resource type="Resource" uid="uid://dikahixc8gpfc" path="res://ticketsystem/resources/Legacy/mincemeat.tres" id="6_33feo"]
-[ext_resource type="Resource" uid="uid://r1kjsky08mxg" path="res://ticketsystem/resources/Legacy/cabbage.tres" id="6_qtef2"]
 [ext_resource type="Resource" uid="uid://xlhqs5p6wjpf" path="res://ticketsystem/resources/egg.tres" id="7_bg1so"]
-[ext_resource type="Resource" uid="uid://bte3hbbyd34t5" path="res://ticketsystem/resources/Legacy/capsicum.tres" id="7_mxgii"]
 [ext_resource type="Resource" uid="uid://rneejnyhqrei" path="res://ticketsystem/resources/chickenthigh.tres" id="8_0k7tp"]
 [ext_resource type="Resource" uid="uid://dewv1qfkbc4nn" path="res://ticketsystem/resources/carrot.tres" id="8_spb32"]
 [ext_resource type="Resource" uid="uid://bbacld0t00y05" path="res://ticketsystem/resources/chickenbreast.tres" id="9_0pgt2"]
 [ext_resource type="Resource" uid="uid://d4gjtcls47wcf" path="res://ticketsystem/resources/cheese.tres" id="9_tgr6f"]
 [ext_resource type="Resource" uid="uid://0j4lnt2777b6" path="res://ticketsystem/resources/chilli.tres" id="12_48gbr"]
-[ext_resource type="Resource" uid="uid://bly2wk3u0t1v0" path="res://ticketsystem/resources/Legacy/corn.tres" id="13_xuqvi"]
-[ext_resource type="Resource" uid="uid://jn5v6jfsm745" path="res://ticketsystem/resources/Legacy/cucumber.tres" id="14_8ni40"]
-[ext_resource type="Resource" uid="uid://e331332671fa" path="res://ticketsystem/resources/Legacy/fettucini.tres" id="16_d67je"]
-[ext_resource type="Resource" uid="uid://caw7b703cdaww" path="res://ticketsystem/resources/Legacy/gnocchi.tres" id="17_f72fo"]
-[ext_resource type="Resource" uid="uid://mpy8xewnkro8" path="res://ticketsystem/resources/Legacy/lettuce.tres" id="18_w6und"]
-[ext_resource type="Resource" uid="uid://dipts6yqw1ub6" path="res://ticketsystem/resources/Legacy/milk.tres" id="19_33q07"]
-[ext_resource type="Resource" uid="uid://bwh4446auxnk6" path="res://ticketsystem/resources/Legacy/mushroom.tres" id="21_euhdl"]
+[ext_resource type="PackedScene" uid="uid://c5jb8qgn17sj5" path="res://Interactable/interactable.tscn" id="16_c6qrr"]
 [ext_resource type="Resource" uid="uid://0nfhlmeauy2k" path="res://ticketsystem/resources/onion.tres" id="22_w222r"]
-[ext_resource type="Resource" uid="uid://tilsk4l4wr6t" path="res://ticketsystem/resources/Legacy/penne.tres" id="23_6xlqs"]
 [ext_resource type="Resource" uid="uid://pfq8en113e0i" path="res://ticketsystem/resources/potato.tres" id="24_ovce8"]
-[ext_resource type="Resource" uid="uid://cq84vd57xrcii" path="res://ticketsystem/resources/Legacy/pumpkin.tres" id="25_kkc8o"]
-[ext_resource type="Resource" uid="uid://be5sgewhl3e5p" path="res://ticketsystem/resources/Legacy/rice.tres" id="27_fr6pj"]
-[ext_resource type="Resource" uid="uid://dixg0p5j8vv2m" path="res://ticketsystem/resources/Legacy/rotini.tres" id="28_wbdpy"]
-[ext_resource type="Resource" uid="uid://5aueexxsbip" path="res://ticketsystem/resources/Legacy/sourcream.tres" id="30_xxg1j"]
-[ext_resource type="Resource" uid="uid://le588v2eawgr" path="res://ticketsystem/resources/Legacy/spaghetti.tres" id="31_bloxa"]
-[ext_resource type="Resource" uid="uid://cvlk757r83wys" path="res://ticketsystem/resources/Legacy/spinach.tres" id="32_gxyp8"]
 [ext_resource type="Resource" uid="uid://bje3xaltc4vdp" path="res://ticketsystem/resources/tomato.tres" id="34_3763s"]
-[ext_resource type="Resource" uid="uid://c7ytqgsmh8vrv" path="res://ticketsystem/resources/Legacy/yogurt.tres" id="35_efjey"]
+[ext_resource type="FontFile" uid="uid://dt17xb3is7m6" path="res://Fonts/ReenieBeanie-Regular.ttf" id="36_lefr8"]
 
-[sub_resource type="SystemFont" id="SystemFont_8qkwd"]
-font_names = PackedStringArray("Reenie Beanie")
-subpixel_positioning = 0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_e1gx3"]
-albedo_color = Color(0.99999934, 0.9844684, 0.4859649, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c6qrr"]
+cull_mode = 2
+albedo_color = Color(1, 0.916, 0.44, 1)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_qtq1x"]
+material = SubResource("StandardMaterial3D_c6qrr")
 size = Vector2(0.75, 1.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ifow5"]
+size = Vector3(0.1484375, 0.30297852, 0.032226563)
 
 [node name="Ticket" type="Node3D" unique_id=1322980451]
 script = ExtResource("1_fgxps")
 ingredient_amount = 5
-ingredient_list = Array[ExtResource("2_3ikn5")]([ExtResource("3_e1gx3"), ExtResource("4_lefr8"), ExtResource("5_ympst"), ExtResource("6_qtef2"), ExtResource("7_mxgii"), ExtResource("8_spb32"), ExtResource("9_tgr6f"), ExtResource("9_0pgt2"), ExtResource("8_0k7tp"), ExtResource("12_48gbr"), ExtResource("13_xuqvi"), ExtResource("14_8ni40"), ExtResource("7_bg1so"), ExtResource("16_d67je"), ExtResource("17_f72fo"), ExtResource("18_w6und"), ExtResource("19_33q07"), ExtResource("6_33feo"), ExtResource("21_euhdl"), ExtResource("22_w222r"), ExtResource("23_6xlqs"), ExtResource("24_ovce8"), ExtResource("25_kkc8o"), ExtResource("5_nroaw"), ExtResource("27_fr6pj"), ExtResource("28_wbdpy"), ExtResource("4_lmpnh"), ExtResource("30_xxg1j"), ExtResource("31_bloxa"), ExtResource("32_gxyp8"), ExtResource("3_xulrx"), ExtResource("34_3763s"), ExtResource("35_efjey")])
+ingredient_list = Array[ExtResource("2_3ikn5")]([ExtResource("3_e1gx3"), ExtResource("4_lefr8"), ExtResource("8_spb32"), ExtResource("9_tgr6f"), ExtResource("9_0pgt2"), ExtResource("8_0k7tp"), ExtResource("12_48gbr"), ExtResource("7_bg1so"), ExtResource("22_w222r"), ExtResource("24_ovce8"), ExtResource("4_lmpnh"), ExtResource("34_3763s")])
 
-[node name="Order" type="Label3D" parent="." unique_id=221562286]
-transform = Transform3D(-1, 0, -1.509958e-07, 0, 2, 0, 1.509958e-07, 0, -1, 0, -0.057923943, -0.001)
+[node name="TicketMesh" type="MeshInstance3D" parent="." unique_id=1602496689]
+transform = Transform3D(-0.2, -3.019916e-08, 1.3200473e-15, 0, -8.742278e-09, -0.2, 3.019916e-08, -0.2, 8.742278e-09, 0, 0, 0)
+mesh = SubResource("PlaneMesh_qtq1x")
+
+[node name="OrderText" type="Label3D" parent="TicketMesh" unique_id=221562286]
+transform = Transform3D(1, 0, 0, 0, -8.742278e-08, 1, 0, -2, -4.371139e-08, -0.3116875, 0.0009999364, -0.38041076)
 pixel_size = 0.001
 shaded = true
 double_sided = false
@@ -63,27 +49,21 @@ modulate = Color(0.051515624, 0.20162857, 0.41013086, 1)
 outline_modulate = Color(0.21284258, 1.3476611e-05, 0.8651929, 1)
 text = "A
 
-
-
-
-
-
-
-
-
-
-
 ORDER NUMBER
 
 "
-font = SubResource("SystemFont_8qkwd")
-font_size = 50
+font = ExtResource("36_lefr8")
+font_size = 56
 outline_size = 0
+horizontal_alignment = 0
+vertical_alignment = 0
 line_spacing = -5.0
+autowrap_mode = 2
 autowrap_trim_flags = 0
+width = 650.0
 
-[node name="Title" type="Label3D" parent="." unique_id=75580497]
-transform = Transform3D(-0.9974188, 0.14360596, -1.5060606e-07, 0.07180298, 1.9948376, 1.0841949e-08, 1.509958e-07, 0, -1, 0.13479675, 0.65387475, -0.001)
+[node name="Title" type="Label3D" parent="TicketMesh" unique_id=75580497]
+transform = Transform3D(0.9974188, -0.14360596, -3.897469e-10, -3.5283563e-09, -1.0888102e-07, 1, -0.07180298, -1.9948376, -5.4553336e-08, -0.10725595, 0.0009999603, -0.5372242)
 pixel_size = 0.001
 shaded = true
 double_sided = false
@@ -94,17 +74,12 @@ modulate = Color(0.051515624, 0.20162857, 0.41013086, 1)
 outline_modulate = Color(0.21284258, 1.3476611e-05, 0.8651929, 1)
 text = "Meal Ticket
 ______________"
-font = SubResource("SystemFont_8qkwd")
-font_size = 54
+font = ExtResource("36_lefr8")
+font_size = 96
 outline_size = 0
 line_spacing = -58.41
 
-[node name="TicketMesh" type="MeshInstance3D" parent="." unique_id=1602496689]
-transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 0, 0, 0)
-material_override = SubResource("StandardMaterial3D_e1gx3")
-mesh = SubResource("PlaneMesh_qtq1x")
+[node name="Pickup" parent="." unique_id=429174571 instance=ExtResource("16_c6qrr")]
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=37945282]
-transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, -1.0520176)
-
-[node name="Timer" type="Timer" parent="." unique_id=1690626258]
+[node name="Collider" type="CollisionShape3D" parent="Pickup" unique_id=276238791]
+shape = SubResource("BoxShape3D_ifow5")

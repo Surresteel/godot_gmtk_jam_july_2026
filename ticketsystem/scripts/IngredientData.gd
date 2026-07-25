@@ -2,9 +2,9 @@ extends Resource
 
 class_name IngredientData
 
-enum COOK { RAW, BAKED, FRIED, MICROWAVED, TOASTED }
-enum DONENESS { RAW, RARE, MEDIUMRARE, MEDIUM, WELLDONE, BURNT }
-enum PREP { CHOPPED, SUNNYSIDEUP }
+enum COOK { RAW, BAKED, FRIED, MICROWAVED, TOASTED, NA }
+enum DONENESS { RAW, RARE, MEDIUMRARE, MEDIUM, WELLDONE, BURNT, NA }
+enum PREP { CHOPPED, SUNNYSIDEUP, NA }
 
 @export_group("Meta")
 @export var name: String
@@ -24,5 +24,3 @@ enum PREP { CHOPPED, SUNNYSIDEUP }
 @export var flipped_position: Vector3
 @export var laying_position: Vector3
 @export var laying_rotation_degrees: Vector3
-
-	

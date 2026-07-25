@@ -8,6 +8,7 @@ script = ExtResource("1_2prbl")
 name = "Bread"
 mesh = ExtResource("1_ftjia")
 cook = Array[int]([4])
+prep = Array[int]([2])
 flipped_position = Vector3(0, 0.159, 0)
 laying_rotation_degrees = Vector3(90, 90, 0)
 metadata/_custom_type_script = "uid://br2b1npw4bnqg"
