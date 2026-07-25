@@ -178,6 +178,7 @@ func add_food(p: Player, slot: Node3D) -> void:
 		print("Toaster slot already has a food item.")
 		return
 	var ing: Ingredient = p.give_ingredient()
+	ing.destroy_me.connect(clear_food.bind(slot))
 	if not ing:
 		print("Player has no ingredient to give.")
 		return
@@ -185,7 +186,6 @@ func add_food(p: Player, slot: Node3D) -> void:
 	if not _ingredients[slot]:
 		return
 	_ingredients[slot].global_basis = self.global_basis
-	#_ingredients[slot].physically_move(slot, global_basis * slot.position)
 	_ingredients[slot].physically_move(slot, Vector3.ZERO)
 	if slot_sides[slot]:
 		_heat_area_r.increase_cook_level.connect(_ingredients[slot].cook)
@@ -205,12 +205,24 @@ func remove_food(p: Player, slot: Node3D) -> void:
 	if not _ingredients.has(slot):
 		print("Toaster slot has no food item.")
 		return
+	if not _ingredients[slot]:
+		_ingredients.erase(slot)
+		return
 	if p.take_ingredient(_ingredients[slot]):
 		if slot_sides[slot]:
 			_heat_area_r.increase_cook_level.disconnect(_ingredients[slot].cook)
 		else:
 			_heat_area_l.increase_cook_level.disconnect(_ingredients[slot].cook)
 		_ingredients.erase(slot)
+	return
+
+
+func clear_food(slot: Node3D) -> void:
+	if not slot:
+		return
+	if not _ingredients.has(slot):
+		return
+	_ingredients.erase(slot)
 	return
 
 
