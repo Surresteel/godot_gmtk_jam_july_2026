@@ -5,9 +5,11 @@ const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
 const INT_COLLIDER: int = 1 << 2
 
+
 @export var hand: Ingredient #holds ingredients and maybe also appliances and timers
 
 @onready var camera: Camera3D = $Camera3D
+@onready var crosshair: Crosshair = $UI/Crosshair
 
 var camera_lock: bool = false
 
@@ -45,9 +47,22 @@ func _physics_process(delta: float) -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseButton:
+	#if event is InputEventMouseButton:
+	
+	if event is InputEventMouse:
+		
 		var interactable = _cast_mouse_ray()
 		
+		if interactable:
+			
+			crosshair.queue_redraw()
+			crosshair.color = Color.GREEN
+		
+		else:
+			
+			crosshair.queue_redraw()
+			crosshair.color = Color.WHITE
+			
 		if event.is_action_pressed("left_click"):
 			if interactable != null:
 				signal_check(primary_click,interactable.activate)

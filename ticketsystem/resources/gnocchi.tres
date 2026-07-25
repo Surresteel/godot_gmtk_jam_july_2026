@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ingredient" format=3 uid="uid://caw7b703cdaww"]
+[gd_resource type="Resource" script_class="IngredientData" format=3 uid="uid://caw7b703cdaww"]
 
 [ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/IngredientData.gd" id="1_difhv"]
 

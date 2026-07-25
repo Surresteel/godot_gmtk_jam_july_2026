@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://5vvbl1msxgmu"]
+
+[ext_resource type="Script" uid="uid://ixi1ctjs8ejk" path="res://ticketsystem/scripts/order_generator.gd" id="1_06458"]
+
+[node name="TicketBoard" type="Node3D" unique_id=1534670104]
+script = ExtResource("1_06458")

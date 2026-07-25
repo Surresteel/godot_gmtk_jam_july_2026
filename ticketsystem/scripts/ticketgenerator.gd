@@ -1,5 +1,7 @@
 extends Node3D
 
+class_name Ticket
+
 @onready var label: Label3D = $Order
 @export var ingredient_amount: int
 @export var ingredient_list: Array[IngredientData]
@@ -45,16 +47,10 @@ func ticket():
 		+ i.name + " " + doneness_value \
 		+ " " + prep_value + "\n").to_lower()
 	
-	label.text += "\n" + "\n" + "Order Number" \
+	label.text += "\n" + "Order Number" \
 	+ " " + str(order_number)
 	order_number += 1
-	ingredient_amount = randi_range(1, 33)
-	
-	label.line_spacing = remap(ingredient_amount, 0, 33, 30, -5)
-	label.font_size = remap(ingredient_amount, 0, 33, 54, 21)
-	
-	var t = clamp(ingredient_amount / 33, 0, 1)
-	label.font_size = lerp(54.0, 21.0, pow(t, 2.2))
+	ingredient_amount = randi_range(1, 12)
 	
 	return
 

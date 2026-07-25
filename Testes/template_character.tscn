@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cqlkomneg4t0b" path="res://Testes/template character.gd" id="1_lhsoi"]
 [ext_resource type="PackedScene" uid="uid://cmtnvvib0ond" path="res://Cooking/Ingredients/Egg/egg.tscn" id="2_pewpo"]
+[ext_resource type="Script" uid="uid://cqe888lyvppcg" path="res://Testes/crosshair.gd" id="3_xj6sp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f7fki"]
 radius = 0.25
@@ -32,3 +33,24 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5301525, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09, 0.17, -0.218)
 
 [node name="Egg" parent="HandPivot" unique_id=376967929 instance=ExtResource("2_pewpo")]
+
+[node name="UI" type="Control" parent="." unique_id=565920166]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Crosshair" type="CenterContainer" parent="UI" unique_id=1359871767]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_xj6sp")
+radius = 2.0
