@@ -52,7 +52,8 @@ func _ready() -> void:
 func pick_up(p: Player) -> void:
 	if not p:
 		return
-	self.reparent(p)
+	p.pickup_ticket(self)
+	#self.reparent(p)
 	return
 
 

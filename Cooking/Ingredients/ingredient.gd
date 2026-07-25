@@ -30,10 +30,18 @@ var cook_type: IngredientData.COOK
 var doneness_type: IngredientData.DONENESS
 var prep_type: IngredientData.PREP
 
+# PICKUP STUFF:
+@export var inter_pickup: Interactable = null
+var is_on_ground: bool = false
+
 
 func _ready() -> void:
+	if inter_pickup:
+		inter_pickup.process_mode = Node.PROCESS_MODE_DISABLED
+		inter_pickup.pressed.connect(pickup)
 	if data.doneness == null:
 		data.doneness.append(data.DONENESS.RAW)
+	
 
 func cook(amount: float, even_cook: bool) -> void:
 	if even_cook:
@@ -136,3 +144,21 @@ func change_mesh(new_mesh: MeshInstance3D) -> void:
 
 func set_cook_type(type: IngredientData.COOK) -> void:
 	cook_type = type
+
+
+func pickup(p: Player) -> void:
+	if not p or p.hand or p.ticket:
+		return
+	#physically_move(p.hand_pivot)
+	p.take_ingredient(self)
+	is_on_ground = false
+	if inter_pickup:
+		inter_pickup.process_mode = Node.PROCESS_MODE_DISABLED
+	return
+
+
+func put_down() -> void:
+	is_on_ground = true
+	if inter_pickup:
+		inter_pickup.process_mode = Node.PROCESS_MODE_INHERIT
+	return

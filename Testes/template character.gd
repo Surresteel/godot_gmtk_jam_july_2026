@@ -3,6 +3,7 @@ class_name Player
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
+const INT_ENV: int = 1 << 0
 const INT_COLLIDER: int = 1 << 2
 
 
@@ -11,6 +12,8 @@ const INT_COLLIDER: int = 1 << 2
 
 @onready var camera: Camera3D = $Camera3D
 @onready var crosshair: Crosshair = $UI/Crosshair
+@onready var ticket_pos: Node3D = $Camera3D/TicketPos
+var ticket: Ticket = null
 
 var camera_lock: bool = false
 
@@ -55,21 +58,22 @@ func _unhandled_input(event: InputEvent) -> void:
 		var interactable = _cast_mouse_ray()
 		
 		if interactable:
-			
 			crosshair.queue_redraw()
 			crosshair.color = Color.GREEN
-		
 		else:
-			
 			crosshair.queue_redraw()
 			crosshair.color = Color.WHITE
-			
+		
 		if event.is_action_pressed("left_click"):
-			if interactable != null:
+			if ticket:
+				putdown_ticket()
+			elif interactable != null:
 				signal_check(primary_click,interactable.activate)
 				primary_click.emit(self)
 				if interactable.hold:
-					held_inter = interactable 
+					held_inter = interactable
+			elif hand:
+				putdown_ingredient()
 	
 		if event.is_action_pressed("right_click"):
 			if interactable != null:
@@ -132,6 +136,21 @@ func _cast_mouse_ray() -> Interactable:
 	
 	return interact
 
+func _get_look_point() -> Dictionary:
+	var vp: Viewport = get_viewport()
+	var cam: Camera3D = vp.get_camera_3d()
+	if not cam:
+		return Dictionary()
+	
+	var m_pos: Vector2 = vp.get_mouse_position()
+	var start: Vector3 = cam.project_ray_origin(m_pos)
+	var end: Vector3 = start + cam.project_ray_normal(m_pos) * 1.5
+	var space_state = get_world_3d().direct_space_state
+	var query = PhysicsRayQueryParameters3D.create(start, end)
+	query.collision_mask = INT_ENV
+	return space_state.intersect_ray(query)
+
+
 func give_ingredient() -> Ingredient:
 	var give: Ingredient = hand
 	hand = null
@@ -166,3 +185,52 @@ func zoom(zoom_amount: float):
 	
 	zoom_tween.tween_property(camera, "fov", zoom_amount, 0.4).\
 	set_trans(Tween.TRANS_CUBIC)
+
+
+#===============================================================================
+#	PICK UP/DOWN STUFF:
+#===============================================================================
+func pickup_ticket(t: Ticket) -> void:
+	if ticket or hand:
+		return
+	t.reparent(ticket_pos)
+	t.position = Vector3.ZERO
+	t.basis = ticket_pos.basis
+	ticket = t
+	return
+
+func putdown_ticket() -> void:
+	if not ticket:
+		return
+	
+	var result: Dictionary = _get_look_point()
+	if not result:
+		return
+	ticket.reparent(result["collider"])
+	ticket.global_position = result["position"] + result["normal"] * 0.005
+	var b := Basis.looking_at(result["normal"], ticket_pos.global_basis.y)
+	ticket.global_basis = b
+	ticket = null
+	return
+
+
+func putdown_ingredient() -> void:
+	if not hand:
+		return
+	var result: Dictionary = _get_look_point()
+	if not result:
+		return
+	if result["normal"].dot(Vector3.UP) < 0.95:
+		return
+	hand.reparent(result["collider"])
+	hand.global_position = result["position"] + result["normal"] * 0.005
+	var b := Basis.looking_at(result["normal"], hand_pivot.global_basis.y)
+	hand.global_basis = b
+	hand.put_down()
+	hand = null
+	return
+
+
+#===============================================================================
+#	EOF:
+#===============================================================================

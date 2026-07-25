@@ -14,18 +14,19 @@
 [ext_resource type="PackedScene" uid="uid://8rjrxxb052f4" path="res://Cooking/ChoppingBoard/chopping_board.tscn" id="10_vlpn2"]
 [ext_resource type="PackedScene" uid="uid://ctbjli6hi8foy" path="res://Cooking/Containers/Ingredient Container/ingredient_holder.tscn" id="12_oclhi"]
 [ext_resource type="PackedScene" uid="uid://ehl176ciki56" path="res://Cooking/FryingPan/frying_pan.tscn" id="14_8l2iy"]
-[ext_resource type="Resource" uid="uid://h35oc5p0ky2p" path="res://Cooking/Containers/GENERATED RESOURCES/Onion MetaData.tres" id="15_a6wkw"]
+[ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Onion MetaData.tres" id="15_a6wkw"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Broccoli MetaData.tres" id="15_d6fmk"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Potato MetaData.tres" id="16_0w3sc"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Bread MetaData.tres" id="17_tt7yw"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Carrot MetaData.tres" id="18_2p6jd"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Egg MetaData.tres" id="19_q4xb1"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Chilli MetaData.tres" id="19_trl5h"]
-[ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Tomato MetaData.tres" id="20_qce37"]
+[ext_resource type="Resource" uid="uid://bl38mq4nal4ok" path="res://Cooking/Containers/GENERATED RESOURCES/Tomato MetaData.tres" id="20_qce37"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Chicken Breast MetaData.tres" id="20_w3t0v"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Cheese MetaData.tres" id="23_jb4jo"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Chicken Thigh MetaData.tres" id="25_3wyp5"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Sausage MetaData.tres" id="26_4bakx"]
+[ext_resource type="PackedScene" uid="uid://ycfhrw80h0ql" path="res://ticketsystem/scenes/ticket_board.tscn" id="27_trl5h"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_abi3o"]
 sky_top_color = Color(0.49208552, 0.67516345, 0.8445393, 1)
@@ -50,6 +51,9 @@ size = Vector2(100, 100)
 
 [node name="Kitchen" type="Node3D" unique_id=840701024]
 script = ExtResource("1_oclhi")
+
+[node name="TicketBoard" parent="." unique_id=372710249 instance=ExtResource("27_trl5h")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.385332, 1.3849409, 0.5781241)
 
 [node name="MusicPlayer" parent="." unique_id=1734320360 instance=ExtResource("2_kvk2a")]
 volume_db = -6.0
