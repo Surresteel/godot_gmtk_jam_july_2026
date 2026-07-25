@@ -53,4 +53,5 @@ shadow_mesh = SubResource("ArrayMesh_jy4wv")
 [node name="DicedModel" type="Node3D" unique_id=920969734]
 
 [node name="Icosphere" type="MeshInstance3D" parent="." unique_id=1746113247]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("ArrayMesh_b2nfn")

@@ -9,6 +9,8 @@ class_name Ingredient
 @export var bottom_half_mesh: MeshInstance3D # repalce with shader if can
 var current_mesh_index: int = 0
 
+@export var prep_colour: Color = Color.WHITE
+
 @export var prep_dictionary: Dictionary[IngredientData.PREP, MeshInstance3D]
 
 const COOK_COLOURS: Gradient = preload("uid://88d3j1g3o83w")
@@ -27,6 +29,7 @@ var current_side: side = side.TOP
 var cook_type: IngredientData.COOK
 var doneness_type: IngredientData.DONENESS
 var prep_type: IngredientData.PREP
+
 
 func cook(amount: float, even_cook: bool) -> void:
 	if even_cook:
@@ -57,20 +60,20 @@ func cook(amount: float, even_cook: bool) -> void:
 			doneness_type = data.DONENESS.BURNT
 
 func _process(_delta: float) -> void:
-	
+	pass
 	#delete all this
-	var max_cook_time = data.doneness_intervals[data.doneness_intervals.size()-1]
-	if top_half_mesh != null and bottom_half_mesh != null:
-		var top = remap(side_a_cook_level, 0,max_cook_time/2, 0,1)
-		var bot = remap(side_b_cook_level,0,max_cook_time/2, 0,1)
-		var mat: StandardMaterial3D = top_half_mesh.mesh.surface_get_material(0)
-		mat.albedo_color = COOK_COLOURS.sample(top)
-		mat = bottom_half_mesh.surface_get_material(0)
-		mat.albedo_color = COOK_COLOURS.sample(bot)
-	else:
-		var all = remap(cook_level, 0,max_cook_time, 0,1)
-		var mat: StandardMaterial3D = meshes[current_mesh_index].mesh.surface_get_material(0)
-		mat.albedo_color = COOK_COLOURS.sample(all)
+	#var max_cook_time = data.doneness_intervals[data.doneness_intervals.size()-1]
+	#if top_half_mesh != null and bottom_half_mesh != null:
+		#var top = remap(side_a_cook_level, 0,max_cook_time/2, 0,1)
+		#var bot = remap(side_b_cook_level,0,max_cook_time/2, 0,1)
+		#var mat: StandardMaterial3D = top_half_mesh.mesh.surface_get_material(0)
+		#mat.albedo_color = COOK_COLOURS.sample(top)
+		#mat = bottom_half_mesh.surface_get_material(0)
+		#mat.albedo_color = COOK_COLOURS.sample(bot)
+	#else:
+		#var all = remap(cook_level, 0,max_cook_time, 0,1)
+		#var mat: StandardMaterial3D = meshes[current_mesh_index].mesh.surface_get_material(0)
+		#mat.albedo_color = COOK_COLOURS.sample(all)
 
 func physically_move(new_parent: Node3D, Offset: Vector3 = Vector3.ZERO, Rotation: Vector3 = Vector3.ZERO) -> void:
 	reparent(new_parent)
