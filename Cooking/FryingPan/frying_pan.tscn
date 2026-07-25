@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://hd08ag0h56gx" path="res://Cooking/FryingPan/PrecisionGameUI.gd" id="2_ji5t8"]
 [ext_resource type="PackedScene" uid="uid://v4a8273qwfva" path="res://Cooking/Heat Area/heat_area.tscn" id="3_yh7qs"]
 [ext_resource type="Script" uid="uid://c0x3t0rb11ugq" path="res://Interactable/interactable.gd" id="4_yh7qs"]
+[ext_resource type="PackedScene" uid="uid://b05xn7e32oi12" path="res://Cooking/prep_station.tscn" id="5_imfdk"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_oqu74"]
 _surfaces = [{
@@ -19,8 +20,9 @@ _surfaces = [{
 [sub_resource type="SphereShape3D" id="SphereShape3D_ve6rv"]
 radius = 0.26782867
 
-[node name="Frying Pan" type="Node3D" unique_id=1945656068 groups=["Prep Station"]]
+[node name="Frying Pan" type="Node3D" unique_id=1945656068 node_paths=PackedStringArray("prep_station")]
 script = ExtResource("1_ckwe8")
+prep_station = NodePath("Prep_Station")
 precision_position = 0.75
 grace_amount = 0.05
 
@@ -98,7 +100,7 @@ color = Color(0.18000486, 0.18000486, 0.18000486, 1)
 
 [node name="HeatArea" parent="." unique_id=891329366 instance=ExtResource("3_yh7qs")]
 even_cook = false
-heat_level = 0.1
+cook_type = 2
 
 [node name="Interactable" type="Area3D" parent="." unique_id=1833764178]
 collision_layer = 4
@@ -109,6 +111,12 @@ metadata/_custom_type_script = "uid://c0x3t0rb11ugq"
 [node name="Collider" type="CollisionShape3D" parent="Interactable" unique_id=228812530]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06875706, 0, 0)
 shape = SubResource("SphereShape3D_ve6rv")
+
+[node name="Prep_Station" parent="." unique_id=1831401986 instance=ExtResource("5_imfdk")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15195781, 0)
+visible = false
+show_label = false
+prep_types = Array[int]([9])
 
 [connection signal="timeout" from="Precision Timer" to="." method="_on_precision_timer_timeout"]
 [connection signal="timeout" from="Cooldown Timer" to="." method="_on_cooldown_timer_timeout"]

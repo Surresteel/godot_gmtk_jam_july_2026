@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://ehl176ciki56" path="res://Cooking/FryingPan/frying_pan.tscn" id="1_dwqgj"]
 [ext_resource type="PackedScene" uid="uid://cdl3urpo8e7w4" path="res://Testes/template_character.tscn" id="2_pjr2m"]
 [ext_resource type="PackedScene" uid="uid://bduju8xc0b3li" path="res://Cooking/Ingredients/TimeBomb/time_bomb.tscn" id="3_v22l4"]
-[ext_resource type="PackedScene" uid="uid://bwdxnwb2myx1" path="res://trash_can.tscn" id="4_7okn6"]
+[ext_resource type="PackedScene" uid="uid://bwdxnwb2myx1" path="res://Cooking/Containers/TrashCan/trash_can.tscn" id="4_7okn6"]
 [ext_resource type="PackedScene" uid="uid://cju8258phf3m8" path="res://Cooking/Microwave/microwave.tscn" id="5_bkxmm"]
 [ext_resource type="PackedScene" uid="uid://bpnn7nb4fqwlj" path="res://Cooking/Oven/oven.tscn" id="6_3r1or"]
 

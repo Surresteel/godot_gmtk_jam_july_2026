@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cdl3urpo8e7w4"]
 
 [ext_resource type="Script" uid="uid://cqlkomneg4t0b" path="res://Testes/template character.gd" id="1_lhsoi"]
-[ext_resource type="PackedScene" uid="uid://cmtnvvib0ond" path="res://Cooking/Ingredients/Egg/egg.tscn" id="2_pewpo"]
+[ext_resource type="PackedScene" uid="uid://beaw6jwy3b1h" path="res://Testes/Ingredient Test.tscn" id="2_xj6sp"]
 [ext_resource type="Script" uid="uid://cqe888lyvppcg" path="res://Testes/crosshair.gd" id="3_xj6sp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f7fki"]
@@ -16,9 +16,10 @@ material = SubResource("StandardMaterial3D_ve6rv")
 radius = 0.25
 height = 1.8
 
-[node name="tempalte character" type="CharacterBody3D" unique_id=2009549190 node_paths=PackedStringArray("hand")]
+[node name="tempalte character" type="CharacterBody3D" unique_id=2009549190 node_paths=PackedStringArray("hand", "hand_pivot")]
 script = ExtResource("1_lhsoi")
-hand = NodePath("Camera3D/HandPivot/Egg")
+hand = NodePath("Camera3D/HandPivot/Test_Ingredient")
+hand_pivot = NodePath("Camera3D/HandPivot")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=745625115]
 shape = SubResource("CapsuleShape3D_f7fki")
@@ -32,7 +33,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5301525, 0)
 [node name="HandPivot" type="Node3D" parent="Camera3D" unique_id=884649959]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09, -0.22, -0.218)
 
-[node name="Egg" parent="Camera3D/HandPivot" unique_id=376967929 instance=ExtResource("2_pewpo")]
+[node name="Test_Ingredient" parent="Camera3D/HandPivot" unique_id=126693202 instance=ExtResource("2_xj6sp")]
 
 [node name="UI" type="Control" parent="." unique_id=565920166]
 layout_mode = 3

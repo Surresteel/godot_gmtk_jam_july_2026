@@ -426,7 +426,6 @@ area_range = 0.25
 area_size = Vector2(0.27443707, 0.24316889)
 
 [node name="HeatAreaL" parent="." unique_id=470900665 instance=ExtResource("3_6l0gs")]
-heat_level = 0.1
+cook_type = 8
 
 [node name="HeatAreaR" parent="." unique_id=638891095 instance=ExtResource("3_6l0gs")]
-heat_level = 0.1

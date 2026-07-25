@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dsn0lskwut4qh"]
+
+[ext_resource type="PackedScene" uid="uid://b05xn7e32oi12" path="res://Cooking/prep_station.tscn" id="1_eruxy"]
+[ext_resource type="Script" uid="uid://u6vj8yjtfqt0" path="res://Cooking/CuttingBoard/cutting_board.gd" id="1_qm4lk"]
+[ext_resource type="PackedScene" uid="uid://c5jb8qgn17sj5" path="res://Interactable/interactable.tscn" id="3_ahwvt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ve6rv"]
+albedo_color = Color(1, 0.73333335, 0.5, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_f7fki"]
+material = SubResource("StandardMaterial3D_ve6rv")
+size = Vector3(0.4, 0.02, 0.25)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f7fki"]
+size = Vector3(0.43945313, 0.16592407, 0.28125)
+
+[node name="CuttingBoard" type="Node3D" unique_id=662522804]
+script = ExtResource("1_qm4lk")
+
+[node name="Prep_Station" parent="." unique_id=1831401986 instance=ExtResource("1_eruxy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10027011, 0)
+prep_types = Array[int]([0, 1, 2, 3, 5])
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=583872648]
+mesh = SubResource("BoxMesh_f7fki")
+
+[node name="Interactable" parent="." unique_id=429174571 instance=ExtResource("3_ahwvt")]
+
+[node name="Collider" type="CollisionShape3D" parent="Interactable" unique_id=968295419]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.059036255, 0)
+shape = SubResource("BoxShape3D_f7fki")

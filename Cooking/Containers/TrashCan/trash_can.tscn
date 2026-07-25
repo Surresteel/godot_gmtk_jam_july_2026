@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://bwdxnwb2myx1"]
 
-[ext_resource type="Script" uid="uid://2fedomt5gpd1" path="res://trash_can.gd" id="1_alpy1"]
+[ext_resource type="Script" uid="uid://2fedomt5gpd1" path="res://Cooking/Containers/TrashCan/trash_can.gd" id="1_alpy1"]
 [ext_resource type="PackedScene" uid="uid://c5jb8qgn17sj5" path="res://Interactable/interactable.tscn" id="2_wr0p8"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_kcyba"]

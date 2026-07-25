@@ -220,6 +220,7 @@ volume_db = -32.0
 
 [node name="HeatArea" parent="." unique_id=470900665 instance=ExtResource("5_qnfm4")]
 heat_level = 0.05
+cook_type = 1
 
 [node name="HeatPos" type="Node3D" parent="." unique_id=1906661493]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23643234, -0.114174925)

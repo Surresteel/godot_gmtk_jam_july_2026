@@ -7,6 +7,7 @@ const INT_COLLIDER: int = 1 << 2
 
 
 @export var hand: Ingredient #holds ingredients and maybe also appliances and timers
+@export var hand_pivot: Node3D
 
 @onready var camera: Camera3D = $Camera3D
 @onready var crosshair: Crosshair = $UI/Crosshair
@@ -139,7 +140,7 @@ func give_ingredient() -> Ingredient:
 func take_ingredient(ingredient: Ingredient) -> bool:
 	if hand == null and ingredient != null:
 		hand = ingredient
-		ingredient.physically_move($HandPivot)
+		ingredient.physically_move(hand_pivot)
 		return true
 	return false
 

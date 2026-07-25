@@ -85,7 +85,7 @@ shadow_mesh = SubResource("ArrayMesh_puigb")
 [sub_resource type="SphereShape3D" id="SphereShape3D_ifow5"]
 radius = 0.1
 
-[node name="Egg" type="Node3D" unique_id=917528442]
+[node name="EggTimer" type="Node3D" unique_id=917528442]
 script = ExtResource("1_vaewx")
 
 [node name="Bottom" type="MeshInstance3D" parent="." unique_id=2063926937]

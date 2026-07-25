@@ -9,13 +9,11 @@ class_name Ingredient
 @export var bottom_half_mesh: MeshInstance3D # repalce with shader if can
 var current_mesh_index: int = 0
 
-@export var mesh_to_change_to: Dictionary[Node3D, Node3D]
-var prep_station_to_change: Dictionary[Node3D,Dictionary]
+@export var prep_dictionary: Dictionary[IngredientData.PREP, MeshInstance3D]
 
 const COOK_COLOURS: Gradient = preload("uid://88d3j1g3o83w")
 
 signal destroy_me(me)
-signal prep(station)
 
 var scale_tween: Tween
 
@@ -36,9 +34,9 @@ func cook(amount: float, even_cook: bool) -> void:
 		side_b_cook_level += amount/2
 	elif current_side == side.TOP:
 		side_a_cook_level += amount
-		side_b_cook_level += amount * 0.61
+		side_b_cook_level += amount * 0.4
 	else:
-		side_a_cook_level += amount * 0.61
+		side_a_cook_level += amount * 0.4
 		side_b_cook_level += amount
 	
 	cook_level = side_a_cook_level + side_b_cook_level
@@ -55,23 +53,29 @@ func cook(amount: float, even_cook: bool) -> void:
 	if _is_evenly_cooked():
 		_set_doneness()
 	else:
-		if cook_level < data.doneness_intervals[data.doneness_intervals.size()-1]:
-			doneness_type = data.DONENESS.RAW
-		else:
+		if cook_level > data.doneness_intervals[data.doneness_intervals.size()-1]:
 			doneness_type = data.DONENESS.BURNT
 
 func _process(_delta: float) -> void:
 	
 	#delete all this
 	var max_cook_time = data.doneness_intervals[data.doneness_intervals.size()-1]
-	var top = remap(side_a_cook_level, 0,max_cook_time/2, 0,1)
-	var bot = remap(side_b_cook_level,0,max_cook_time/2, 0,1)
-	var mat: StandardMaterial3D = meshes[current_mesh_index].mesh.surface_get_material(0)
-	mat.albedo_color = COOK_COLOURS.sample(top)
+	if top_half_mesh != null and bottom_half_mesh != null:
+		var top = remap(side_a_cook_level, 0,max_cook_time/2, 0,1)
+		var bot = remap(side_b_cook_level,0,max_cook_time/2, 0,1)
+		var mat: StandardMaterial3D = top_half_mesh.mesh.surface_get_material(0)
+		mat.albedo_color = COOK_COLOURS.sample(top)
+		mat = bottom_half_mesh.surface_get_material(0)
+		mat.albedo_color = COOK_COLOURS.sample(bot)
+	else:
+		var all = remap(cook_level, 0,max_cook_time, 0,1)
+		var mat: StandardMaterial3D = meshes[current_mesh_index].mesh.surface_get_material(0)
+		mat.albedo_color = COOK_COLOURS.sample(all)
 
-func physically_move(new_parent: Node3D, Offset: Vector3 = Vector3.ZERO) -> void:
+func physically_move(new_parent: Node3D, Offset: Vector3 = Vector3.ZERO, Rotation: Vector3 = Vector3.ZERO) -> void:
 	reparent(new_parent)
 	global_position = new_parent.global_position + Offset
+	rotation = Rotation
 
 func _is_evenly_cooked() -> bool:
 	var n : float
@@ -104,7 +108,22 @@ func _set_doneness() -> void:
 func flip_side() -> void:
 	current_side = (current_side + 1) % side.size() as side
 
-func prep_ingredient(station: Node) -> void:
-	if station.is_in_group("Prep Station"):
-		pass
+func prep_ingredient(prep_style: IngredientData.PREP) -> void:
+	if prep_dictionary.has(prep_style):
+		change_mesh(prep_dictionary[prep_style])
+	prep_type = prep_style
+
+func change_mesh(new_mesh: MeshInstance3D) -> void:
+	var index: int = 0
+	for i in meshes:
+		if i == new_mesh:
+			i.visible = true
+			current_mesh_index = index
+		else:
+			i.visible = false
+		
+		index +=1
 	
+
+func set_cook_type(type: IngredientData.COOK) -> void:
+	cook_type = type

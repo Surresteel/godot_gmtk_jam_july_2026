@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ctbjli6hi8foy"]
+
+[ext_resource type="Script" uid="uid://cygpcuc5m047a" path="res://Cooking/Containers/Ingredient Container/ingredient_holder.gd" id="1_1tlwy"]
+[ext_resource type="Script" uid="uid://c0x3t0rb11ugq" path="res://Interactable/interactable.gd" id="2_sbnpw"]
+
+[node name="Ingredient Holder" type="Node3D" unique_id=409195013]
+script = ExtResource("1_1tlwy")
+
+[node name="Interactable" type="Area3D" parent="." unique_id=1101779295]
+script = ExtResource("2_sbnpw")
+metadata/_custom_type_script = "uid://c0x3t0rb11ugq"
+
+[node name="Collider" type="CollisionShape3D" parent="Interactable" unique_id=1331933853]

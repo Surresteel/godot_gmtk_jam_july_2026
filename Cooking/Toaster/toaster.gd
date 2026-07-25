@@ -178,10 +178,10 @@ func add_food(p: Player, slot: Node3D) -> void:
 		print("Toaster slot already has a food item.")
 		return
 	var ing: Ingredient = p.give_ingredient()
-	ing.destroy_me.connect(clear_food.bind(slot))
 	if not ing:
 		print("Player has no ingredient to give.")
 		return
+	ing.destroy_me.connect(clear_food.bind(slot))
 	_ingredients[slot] = ing
 	if not _ingredients[slot]:
 		return
@@ -211,8 +211,10 @@ func remove_food(p: Player, slot: Node3D) -> void:
 	if p.take_ingredient(_ingredients[slot]):
 		if slot_sides[slot]:
 			_heat_area_r.increase_cook_level.disconnect(_ingredients[slot].cook)
+			_ingredients[slot].destroy_me.disconnect(clear_food)
 		else:
 			_heat_area_l.increase_cook_level.disconnect(_ingredients[slot].cook)
+			_ingredients[slot].destroy_me.disconnect(clear_food)
 		_ingredients.erase(slot)
 	return
 

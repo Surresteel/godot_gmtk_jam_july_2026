@@ -4,7 +4,6 @@
 
 [node name="HeatArea" type="Node3D" unique_id=470900665]
 script = ExtResource("1_5uel5")
-heat_level = 1.0
 
 [node name="Timer" type="Timer" parent="." unique_id=601249624]
 wait_time = 0.1

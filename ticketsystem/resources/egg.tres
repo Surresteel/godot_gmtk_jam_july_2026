@@ -6,7 +6,7 @@
 script = ExtResource("1_ycmdq")
 name = "Egg"
 cook = Array[int]([0, 1, 2, 3, 4, 5])
-doneness = Array[int]([0, 3, 4, 5])
+doneness = Array[int]([0, 3, 4, 6])
 prep = Array[int]([6, 9])
 doneness_intervals = Array[float]([15.0, 25.0, 35.0])
 metadata/_custom_type_script = "uid://br2b1npw4bnqg"

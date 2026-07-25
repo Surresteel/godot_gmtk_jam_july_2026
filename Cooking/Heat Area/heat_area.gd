@@ -5,14 +5,19 @@ class_name HeatArea
 
 @onready var _cook_timer: Timer = $Timer
 
-var flip_side: bool = false
 var is_cooking: bool = false
 @export var even_cook: bool = true
 
-@export var heat_level: float = 0.10 ##Increases an ingridients cook_level by this, 10 times a second
+##Increases an ingridients cook_level by this every second
+@export var heat_level: float = 1 
 
-signal increase_cook_level(amount: float, cooks_evenly: bool) ##Signal Emitted when the current ingridient has been cooked for its appointed time
+@export var cook_type: IngredientData.COOK
 
+##Signal Emitted when the current ingridient has been cooked for its appointed time
+signal increase_cook_level(amount: float, cooks_evenly: bool)
+
+func _ready() -> void:
+	heat_level *= _cook_timer.wait_time
 
 func start_cooking() -> void:
 	_cook_timer.start()

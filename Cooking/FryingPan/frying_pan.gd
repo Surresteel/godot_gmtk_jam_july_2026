@@ -14,6 +14,7 @@ var flipping: bool = false
 @onready var timer: Timer = $"Precision Timer"
 
 @onready var heat_area: HeatArea = $HeatArea
+@export var prep_station: PrepStation
 
 var current_ingredient: Ingredient
 
@@ -56,7 +57,6 @@ func _flip() -> void:
 		successful_flip.emit()
 		timer.stop()
 		
-		heat_area.flip_side = !heat_area.flip_side
 		flip_tween(180)
 		_stop_flipping()
 	elif not timer.is_stopped():
@@ -106,10 +106,12 @@ func _activate(player: Player) -> void:
 	current_ingredient = player.give_ingredient()
 	current_ingredient.physically_move(self,Vector3(0,0.01,0))
 	current_ingredient.destroy_me.connect(_clear_pan)
+	prep_station.prep(current_ingredient)
 	successful_flip.connect(current_ingredient.flip_side)
 	active = true
 	heat_area.increase_cook_level.connect(current_ingredient.cook)
 	heat_area.start_cooking()
+	current_ingredient.set_cook_type(heat_area.cook_type)
 
 func _deactivate(player: Player) -> void:
 	if flipping:
@@ -152,7 +154,6 @@ func flip_tween(flip_amount: float) -> void:
 			Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN).set_delay(time/2 + 0.05)
 
 func _clear_pan() ->void:
-	print("i shouldnt happen")
 	heat_area.stop_cooking()
 	current_ingredient = null
 	active = false

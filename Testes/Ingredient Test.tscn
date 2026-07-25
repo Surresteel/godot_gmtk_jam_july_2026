@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://beaw6jwy3b1h"]
+
+[ext_resource type="Script" uid="uid://d23hx50erxjbr" path="res://test_ingredient.gd" id="1_ud7ih"]
+[ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/IngredientData.gd" id="2_6kruu"]
+
+[sub_resource type="Resource" id="Resource_1xfyl"]
+script = ExtResource("2_6kruu")
+name = "TEST"
+cook = Array[int]([0, 1, 2, 3, 4, 5, 6, 7, 8])
+doneness = Array[int]([0, 1, 2, 3, 4, 5, 6])
+prep = Array[int]([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+doneness_intervals = Array[float]([10.0, 20.0, 30.0, 40.0, 50.0, 60.0])
+metadata/_custom_type_script = "uid://br2b1npw4bnqg"
+
+[sub_resource type="BoxMesh" id="BoxMesh_ve6rv"]
+size = Vector3(0.12, 0.05, 0.12)
+
+[node name="Test_Ingredient" type="Node3D" unique_id=126693202 node_paths=PackedStringArray("top_half_mesh", "bottom_half_mesh")]
+script = ExtResource("1_ud7ih")
+data = SubResource("Resource_1xfyl")
+top_half_mesh = NodePath("MeshInstance3D")
+bottom_half_mesh = NodePath("MeshInstance3D2")
+metadata/_custom_type_script = "uid://dulb72uu4rwuk"
+
+[node name="Label3D" type="Label3D" parent="." unique_id=499798982]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.15369584, 0)
+pixel_size = 0.0007
+text = "Cook: BAKED
+Done: WELLDONE
+Prep: MINCED"
+font_size = 50
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1428196127]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
+mesh = SubResource("BoxMesh_ve6rv")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=774198946]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
+mesh = SubResource("BoxMesh_ve6rv")
