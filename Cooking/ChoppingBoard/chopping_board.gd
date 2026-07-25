@@ -16,7 +16,9 @@ extends StaticBody3D
 @onready var use_knife: Interactable = $Knife/UseKnife
 
 # OPERATION:
+@onready var prep_station: PrepStation = $Prep_Station
 var _ingredient: Ingredient = null
+var _is_chopping: bool = false
 
 # ANIMATIONS:
 @export var chop_height: float = 0.05
@@ -42,6 +44,7 @@ func _ready() -> void:
 #	ANIMATIONS:
 #===============================================================================
 func _do_cut_anim() -> void:
+	_is_chopping = true
 	var c_time: float = chop_time / chop_cycles / 2.0
 	var tween: Tween = create_tween()
 	tween.tween_property(knife, "transform", pos_start, 0.75)\
@@ -79,6 +82,11 @@ func _do_cut_anim() -> void:
 	tween.tween_property(knife, "transform", pos_idle, 0.75)\
 			.set_trans(Tween.TRANS_QUAD)\
 			.set_ease(Tween.EASE_OUT)
+	
+	await tween.finished
+	if _ingredient:
+		prep_station.prep(_ingredient)
+	_is_chopping = false
 	return
 
 
@@ -86,14 +94,14 @@ func _do_cut_anim() -> void:
 #	OPERATIONS:
 #===============================================================================
 func cut(_p: Player) -> void:
-	#if not _ingredient:
-	#	print("There's nothing to cut.")
-	#	return
-	_do_cut_anim()
+	if not _is_chopping:
+		_do_cut_anim()
 	return
 
 ## Adds a food item to the microwave:
 func add_food(p: Player) -> void:
+	if _is_chopping:
+		return
 	if _ingredient:
 		print("Chopping board already has a food item.")
 		return
@@ -106,8 +114,10 @@ func add_food(p: Player) -> void:
 
 ## Removes a food item from the microwave:
 func remove_food(p: Player) -> void:
+	if _is_chopping:
+		return
 	if not _ingredient:
-		print("Chopping board has no food item.")
+		prep_station.cycle_prep_type()
 		return
 	if p.take_ingredient(_ingredient):
 		_ingredient = null
