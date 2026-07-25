@@ -302,10 +302,12 @@ alarm_duration = 3.0
 [node name="Beeper" type="AudioStreamPlayer3D" parent="." unique_id=2065597479]
 stream = ExtResource("7_2auqa")
 volume_db = -32.0
+bus = &"SFX"
 
 [node name="Hum" type="AudioStreamPlayer3D" parent="." unique_id=2065221878]
 stream = ExtResource("8_0ofec")
 volume_db = -32.0
+bus = &"SFX"
 doppler_tracking = 1
 
 [node name="Light" type="AreaLight3D" parent="." unique_id=1945820606]

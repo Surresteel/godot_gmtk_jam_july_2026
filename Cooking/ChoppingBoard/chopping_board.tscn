@@ -1,0 +1,89 @@
+[gd_scene format=4 uid="uid://8rjrxxb052f4"]
+
+[ext_resource type="Script" uid="uid://cpwtkslbv124c" path="res://Cooking/ChoppingBoard/chopping_board.gd" id="1_8cdg2"]
+[ext_resource type="Texture2D" uid="uid://c1syxjr4qxx67" path="res://Cooking/ChoppingBoard/Model/roughness.png" id="1_meq6t"]
+[ext_resource type="PackedScene" uid="uid://dcblsaoymmomp" path="res://Cooking/ChoppingBoard/knife.tscn" id="2_il80j"]
+[ext_resource type="PackedScene" uid="uid://c5jb8qgn17sj5" path="res://Interactable/interactable.tscn" id="3_43cla"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_81nmc"]
+resource_name = "Board"
+cull_mode = 2
+albedo_color = Color(0.64176226, 0.5067054, 0.36471117, 1)
+roughness_texture = ExtResource("1_meq6t")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_pqnae"]
+_surfaces = [{
+"aabb": AABB(-0.15999985, 0, -0.110000014, 0.3199998, 0.01999998, 0.22000003),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAgABAAQAAAACAAUAAgAEAAUAAQAGAAQAAQADAAYAAwAAAAcAAAAFAAcAAwAHAAYACAAEAAYACQAHAAUACgAFAAQACQAFAAoACgAEAAgACwAHAAkACgALAAkACwAGAAcACgAIAAsACAAGAAsA"),
+"name": "Board",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AAAAAAAAAAD//wAA//8AAP//AAAAAAAAAAAAAP//AAD//3jd//8AAP//eN0AAAAAAAB43f//AAAAAHjdAAAAANb9///b/AAAKAL//yMDAADW/f//IwMAACgC///b/AAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_tl2v2"]
+resource_name = "chopping_board_Cube_001"
+_surfaces = [{
+"aabb": AABB(-0.15999985, 0, -0.110000014, 0.3199998, 0.01999998, 0.22000003),
+"attribute_data": PackedByteArray("3XH+/wAAX1rdcV9aAAD//6X1ho8K9///pfWZ/gr3IY5W4sRbu+P+/1bimf67419apfWoHQr3IY6l9buMCvdDHENzmf7dcV9aQ3PEW91x//+w7F9au+P//7vjX1qw7P///v8hjgr3//8K9yGO/////1bimf5Dc8RbVuLEW0Nzmf6l9V9asOz//7DsX1ql9f////9DHAr3IY4K90Mc//8hjg=="),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUAGAAZABoAGAAbABkAHAAdAB4AHAAfAB0AIAAhACIAIAAjACEAJAAlACYAJAAnACUA"),
+"material": SubResource("StandardMaterial3D_81nmc"),
+"name": "Board",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 40,
+"vertex_data": PackedByteArray("AAAAAAAAVNX//wAA//9U1f//AAAAAFTVAAAAAP//VNUoAv//2/yq6QAAeN0AAKrpKAL//yMDqukAAHjd//+q6SgC//8jA6rp//943QAAqunW/f//IwOq6QAAeN0AAKrp1v3//yMD/MX//3jd///8xdb9///b/PzF//943QAA/MXW/f//2/z8xQAAeN3///zFKAL//9v8/MX//3jd///8xf//AAD///+/AAB43f///7///3jd////vwAAAAD///+/AAAAAP//VNUAAHjdAABU1QAAeN3//1TVAAAAAAAAVNXW/f//IwNU1SgC///b/FTVKAL//yMDVNXW/f//2/xU1QAAAAAAAP////943QAA//8AAHjdAAD/////AAAAAP////8AAAAAVNX//3jd//9U1f//eN0AAFTV//8AAP//VNVUVVRVVFVUVVRVVFVUVVRVCWoEtQlqBLUJagS1CWoEtfrKBDX6ygQ1+soENfrKBDUAxgBjAMYAYwDGAGMAxgBj/+L/HP/i/xz/4v8c/+L/HP9//3//f/9//3//f/9//39UVaqqVFWqqlRVqqpUVaqqVNWqKlTVqipU1aoqVNWqKv8//7//P/+//z//v/8//7+qqlRVqqpUVaqqVFWqqlRV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_pqnae")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wvhbo"]
+size = Vector3(0.3239746, 0.0211792, 0.22070313)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8cdg2"]
+size = Vector3(0.053710938, 0.056396484, 0.3095703)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ifow5"]
+size = Vector3(0.053710938, 0.20446777, 0.17016602)
+
+[node name="chopping_board" type="StaticBody3D" unique_id=772539163]
+script = ExtResource("1_8cdg2")
+
+[node name="Cube" type="MeshInstance3D" parent="." unique_id=659407821]
+mesh = SubResource("ArrayMesh_tl2v2")
+
+[node name="Collider" type="CollisionShape3D" parent="." unique_id=1872741704]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.010101318, 0)
+shape = SubResource("BoxShape3D_wvhbo")
+
+[node name="Knife" parent="." unique_id=1712835109 instance=ExtResource("2_il80j")]
+transform = Transform3D(0.10377778, 0.6174829, 0.77970827, -0.99286896, 0.018079937, 0.11783087, 0.058661435, -0.78637654, 0.61495596, -0.18175352, 0.021559969, -0.003530085)
+
+[node name="UseKnife" parent="Knife" unique_id=53925974 instance=ExtResource("3_43cla")]
+transform = Transform3D(-0.9928692, -0.10377777, 0.05866148, 0.018079938, -0.61748284, -0.7863765, 0.11783082, -0.7797084, 0.61495596, 0.02037494, 0.10942992, 0.14373061)
+
+[node name="Collider" type="CollisionShape3D" parent="Knife/UseKnife" unique_id=1432825288]
+transform = Transform3D(0.991472, 0.017264808, 0.12917086, 0.09082621, 0.6192538, -0.7799201, -0.093454726, 0.7850011, 0.61240476, 0.014510842, 0.17676961, -0.0031231584)
+shape = SubResource("BoxShape3D_8cdg2")
+
+[node name="FoodSlot" parent="." unique_id=429174571 instance=ExtResource("3_43cla")]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0.07790028, 0.020244718, 0)
+
+[node name="Collider" type="CollisionShape3D" parent="FoodSlot" unique_id=151615133]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.014579531, 0.045824103, 0)
+shape = SubResource("BoxShape3D_ifow5")
+
+[node name="KIdle" type="Node3D" parent="." unique_id=533625148]
+transform = Transform3D(0.10377775, 0.61748296, 0.77970827, -0.99286896, 0.018079905, 0.11783085, 0.058661483, -0.7863765, 0.61495596, -0.18175352, 0.021559969, -0.003530085)
+
+[node name="KStart" type="Node3D" parent="." unique_id=1166419714]
+transform = Transform3D(0.9429798, 0, 0.33284947, 0, 1, 0, -0.33284947, 0, 0.9429799, -0.09204835, 0.019654557, -0.052781)
+
+[node name="KEnd" type="Node3D" parent="." unique_id=432773436]
+transform = Transform3D(0.9088679, 0, -0.41708383, 0, 1, 0, 0.41708383, 0, 0.90886796, 0.07365714, 0.019654557, -0.052781)

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://o47lvxqu7dw0"]
+
+[ext_resource type="AudioStream" uid="uid://bfuwfqql2ab8v" path="res://Audio/Funiculi Funicula_w.i.p.mp3" id="1_farvl"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" unique_id=1734320360]
+stream = ExtResource("1_farvl")
+bus = &"Music"

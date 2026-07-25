@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://c0smi1453trep"]
 
 [ext_resource type="Material" uid="uid://vvesh6rbjoq0" path="res://Levels/Kitchen/Resources/debug.tres" id="1_83lam"]
+[ext_resource type="Script" uid="uid://d2uanfwiq8bn0" path="res://Levels/Kitchen/kitchen.gd" id="1_oclhi"]
 [ext_resource type="PackedScene" uid="uid://cdl3urpo8e7w4" path="res://Testes/template_character.tscn" id="2_8c2ne"]
+[ext_resource type="PackedScene" uid="uid://o47lvxqu7dw0" path="res://Audio/music_player.tscn" id="2_kvk2a"]
 [ext_resource type="PackedScene" uid="uid://bpnn7nb4fqwlj" path="res://Cooking/Oven/oven.tscn" id="3_ejrnt"]
 [ext_resource type="PackedScene" uid="uid://cju8258phf3m8" path="res://Cooking/Microwave/microwave.tscn" id="4_60r0g"]
 [ext_resource type="PackedScene" uid="uid://cfpea7c6cd1kn" path="res://Timers/Egg/egg_timer.tscn" id="5_8g2gw"]
@@ -11,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://ny2fgb7y3rxp" path="res://Levels/Counter/kitchen_corner.tscn" id="9_8g2gw"]
 [ext_resource type="PackedScene" uid="uid://ehl176ciki56" path="res://Cooking/FryingPan/frying_pan.tscn" id="10_vlpn2"]
 [ext_resource type="PackedScene" uid="uid://dsn0lskwut4qh" path="res://Cooking/CuttingBoard/CuttingBoard.tscn" id="11_nc5na"]
+[ext_resource type="PackedScene" uid="uid://8rjrxxb052f4" path="res://Cooking/ChoppingBoard/chopping_board.tscn" id="10_vlpn2"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_abi3o"]
 sky_top_color = Color(0.49208552, 0.67516345, 0.8445393, 1)
@@ -34,6 +37,16 @@ map_data = PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 size = Vector2(100, 100)
 
 [node name="Kitchen" type="Node3D" unique_id=840701024]
+script = ExtResource("1_oclhi")
+
+[node name="MusicPlayer" parent="." unique_id=1734320360 instance=ExtResource("2_kvk2a")]
+volume_db = -6.0
+
+[node name="Sun" type="DirectionalLight3D" parent="." unique_id=737940651]
+transform = Transform3D(1, 0, 0, 0, 0.6156615, 0.7880107, 0, -0.7880107, 0.6156615, 0, 0, 0)
+shadow_enabled = true
+shadow_bias = 0.022
+shadow_reverse_cull_face = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1886812601]
 environment = SubResource("Environment_wvhbo")
@@ -49,9 +62,6 @@ mesh = SubResource("PlaneMesh_wvhbo")
 
 [node name="tempalte character" parent="." unique_id=2009549190 instance=ExtResource("2_8c2ne")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3849409, 0)
-
-[node name="Sun" type="DirectionalLight3D" parent="." unique_id=737940651]
-transform = Transform3D(1, 0, 0, 0, 0.6156615, 0.7880107, 0, -0.7880107, 0.6156615, 0, 0, 0)
 
 [node name="Oven" parent="." unique_id=427900998 instance=ExtResource("3_ejrnt")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.086340904, 0.33862638, 1.7641021)
@@ -85,3 +95,5 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.026108146, 0.9612874, 1.779
 
 [node name="CuttingBoard" parent="." unique_id=662522804 instance=ExtResource("11_nc5na")]
 transform = Transform3D(-0.99997646, 0, -0.006864168, 0, 1, 0, 0.006864168, 0, -0.99997646, 0.67227685, 0.96028686, 1.674485)
+[node name="chopping_board" parent="." unique_id=772539163 instance=ExtResource("10_vlpn2")]
+transform = Transform3D(-0.10355582, 0, 0.99462366, 0, 1, 0, -0.99462366, 0, -0.10355582, 4.079187, 0.9468608, 0.45714855)

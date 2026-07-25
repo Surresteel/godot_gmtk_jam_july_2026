@@ -211,10 +211,9 @@ func remove_food(p: Player, slot: Node3D) -> void:
 	if p.take_ingredient(_ingredients[slot]):
 		if slot_sides[slot]:
 			_heat_area_r.increase_cook_level.disconnect(_ingredients[slot].cook)
-			_ingredients[slot].destroy_me.disconnect(clear_food)
 		else:
 			_heat_area_l.increase_cook_level.disconnect(_ingredients[slot].cook)
-			_ingredients[slot].destroy_me.disconnect(clear_food)
+		_ingredients[slot].destroy_me.disconnect(clear_food)
 		_ingredients.erase(slot)
 	return
 

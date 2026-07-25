@@ -336,7 +336,7 @@ radius = 0.059
 size = Vector3(0.08267212, 0.068359375, 0.070495605)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_abi3o"]
-size = Vector3(0.12695313, 0.059887696, 0.048828125)
+size = Vector3(0.12695313, 0.059887696, 0.115234375)
 
 [node name="Toaster" type="Node3D" unique_id=1715365848]
 script = ExtResource("1_xw0y0")
