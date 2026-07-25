@@ -89,7 +89,23 @@ func _unhandled_input(event: InputEvent) -> void:
 				camera.rotation_degrees.x = 90
 			elif camera.rotation_degrees.x <= -90:
 				camera.rotation_degrees.x = -90
-
+				
+	if event.is_action_pressed("crouch"):
+		
+		crouch(-0.25)
+		
+	elif event.is_action_released("crouch"):
+		
+		crouch(0.53)
+		
+	if event.is_action_pressed("zoom"):
+		
+		zoom(40.0)
+		
+	if event.is_action_released("zoom"):
+		
+		zoom(75.0)
+		
 func _cast_mouse_ray() -> Interactable:
 	var vp: Viewport = get_viewport()
 	var cam: Camera3D = vp.get_camera_3d()
@@ -136,3 +152,16 @@ func signal_check(action: Signal, callable: Callable) -> void:
 
 func lock_camera(state: bool) -> void:
 	camera_lock = state
+	
+func crouch(crouch_amount: float):
+	
+	var crouch_tween : Tween = create_tween()
+	
+	crouch_tween.tween_property(camera, "position", Vector3(0,crouch_amount,0), 0.3)
+	
+func zoom(zoom_amount: float):
+	
+	var zoom_tween : Tween = create_tween()
+	
+	zoom_tween.tween_property(camera, "fov", zoom_amount, 0.4).\
+	set_trans(Tween.TRANS_CUBIC)

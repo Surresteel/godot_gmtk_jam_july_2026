@@ -18,7 +18,7 @@ height = 1.8
 
 [node name="tempalte character" type="CharacterBody3D" unique_id=2009549190 node_paths=PackedStringArray("hand")]
 script = ExtResource("1_lhsoi")
-hand = NodePath("HandPivot/Egg")
+hand = NodePath("Camera3D/HandPivot/Egg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=745625115]
 shape = SubResource("CapsuleShape3D_f7fki")
@@ -29,10 +29,10 @@ mesh = SubResource("CapsuleMesh_f7fki")
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1029608773]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5301525, 0)
 
-[node name="HandPivot" type="Node3D" parent="." unique_id=884649959]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09, 0.17, -0.218)
+[node name="HandPivot" type="Node3D" parent="Camera3D" unique_id=884649959]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09, -0.22, -0.218)
 
-[node name="Egg" parent="HandPivot" unique_id=376967929 instance=ExtResource("2_pewpo")]
+[node name="Egg" parent="Camera3D/HandPivot" unique_id=376967929 instance=ExtResource("2_pewpo")]
 
 [node name="UI" type="Control" parent="." unique_id=565920166]
 layout_mode = 3
