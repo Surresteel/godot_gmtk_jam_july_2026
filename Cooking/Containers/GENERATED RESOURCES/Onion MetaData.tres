@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="IngredientMetaData" format=4 uid="uid://brrjuc4036xjr"]
+[gd_resource type="Resource" script_class="IngredientMetaData" format=4 uid="uid://skja6gl71xxv"]
 
 [ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/IngredientData.gd" id="1_8owab"]
 [ext_resource type="PackedScene" uid="uid://py0umhddtq4n" path="res://Cooking/Ingredients/Onion/Onion.tscn" id="2_ki4od"]
@@ -113,9 +113,8 @@ resource_local_to_scene = true
 script = ExtResource("1_8owab")
 name = "Onion"
 mesh = SubResource("ArrayMesh_ua265")
-cook = Array[int]([5, 4, 0, 6, 3, 2])
-doneness = Array[int]([0, 6])
-prep = Array[int]([2, 3, 4, 5, 0])
+cook = Array[int]([1, 0, 3, 2])
+prep = Array[int]([0])
 bounding_box_size = Vector3(350, 306, 370)
 metadata/_custom_type_script = "uid://br2b1npw4bnqg"
 

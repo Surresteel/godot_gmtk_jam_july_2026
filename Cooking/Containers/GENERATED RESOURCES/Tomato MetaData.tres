@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="IngredientMetaData" format=3]
+[gd_resource type="Resource" script_class="IngredientMetaData" format=3 uid="uid://bl38mq4nal4ok"]
 
-[ext_resource type="ArrayMesh" path="res://Cooking/Ingredients/Tomato/Tomato.tres" id="1_ghdd8"]
-[ext_resource type="Script" path="res://ticketsystem/scripts/IngredientData.gd" id="2_8s282"]
-[ext_resource type="PackedScene" path="res://Cooking/Ingredients/Tomato/Tomato.tscn" id="3_wfwu8"]
-[ext_resource type="Script" path="res://Cooking/Ingredients/IngredientMetaData.gd" id="4_lcs4h"]
+[ext_resource type="ArrayMesh" uid="uid://ble88vryemvhv" path="res://Cooking/Ingredients/Tomato/Tomato.tres" id="1_ghdd8"]
+[ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/IngredientData.gd" id="2_8s282"]
+[ext_resource type="PackedScene" uid="uid://dmijmnkaj72yw" path="res://Cooking/Ingredients/Tomato/Tomato.tscn" id="3_wfwu8"]
+[ext_resource type="Script" uid="uid://bsw0u32sk22ag" path="res://Cooking/Ingredients/IngredientMetaData.gd" id="4_lcs4h"]
 
 [sub_resource type="Resource" id="Resource_ukqol"]
 script = ExtResource("2_8s282")

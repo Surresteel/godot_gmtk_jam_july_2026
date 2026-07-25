@@ -40,8 +40,10 @@ prep_dictionary = {
 metadata/_custom_type_script = "uid://dulb72uu4rwuk"
 
 [node name="Sausage" type="MeshInstance3D" parent="." unique_id=352964332]
+transform = Transform3D(0.195, 0, 0, 0, 0.195, 0, 0, 0, 0.195, 0, 0, 0)
 mesh = ExtResource("3_xc8mi")
 
 [node name="CutUP" type="MeshInstance3D" parent="." unique_id=208390450]
+transform = Transform3D(0.195, 0, 0, 0, 0.195, 0, 0, 0, 0.195, 0, 0, 0)
 visible = false
 mesh = SubResource("ArrayMesh_s5l3q")

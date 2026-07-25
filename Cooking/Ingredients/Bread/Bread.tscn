@@ -12,5 +12,5 @@ prep_colour = Color(0.5882353, 0.4509804, 0.20392157, 1)
 metadata/_custom_type_script = "uid://dulb72uu4rwuk"
 
 [node name="Bread" type="MeshInstance3D" parent="." unique_id=1643763088]
-transform = Transform3D(1, 0, 0, 0, -1, 1.509958e-07, 0, -1.509958e-07, -1, 0, 0.05529747, 0)
+transform = Transform3D(-3.5070112e-08, 7.6878955e-08, -0.36562222, 0, -0.87939274, -3.196371e-08, -0.8023106, -3.360486e-15, 1.5981856e-08, -9.4642765e-09, 0.1082587, 4.1369666e-16)
 mesh = ExtResource("3_dtecw")

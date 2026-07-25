@@ -102,6 +102,8 @@ func _is_evenly_cooked() -> bool:
 		return true
 
 func _set_doneness() -> void:
+	if data.doneness_intervals.size() != data.doneness.size():
+		return
 	var iterations: int = data.doneness_intervals.size()
 	for i in range(iterations-1,-1,-1):
 		if cook_level < data.doneness_intervals[i]:

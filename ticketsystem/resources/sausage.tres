@@ -7,8 +7,8 @@
 script = ExtResource("1_3b522")
 name = "Sausage"
 mesh = ExtResource("1_aeg01")
-cook = Array[int]([1, 2, 6])
-doneness = Array[int]([0, 3, 4, 5])
-prep = Array[int]([2])
+cook = Array[int]([1, 2, 4])
+doneness = Array[int]([0, 3, 4])
+prep = Array[int]([0])
 doneness_intervals = Array[float]([50.0, 75.0, 100.0])
 metadata/_custom_type_script = "uid://br2b1npw4bnqg"

@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cqlkomneg4t0b" path="res://Testes/template character.gd" id="1_lhsoi"]
 [ext_resource type="PackedScene" uid="uid://beaw6jwy3b1h" path="res://Testes/Ingredient Test.tscn" id="2_xj6sp"]
+[ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/IngredientData.gd" id="3_1xfyl"]
 [ext_resource type="Script" uid="uid://cqe888lyvppcg" path="res://Testes/crosshair.gd" id="3_xj6sp"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_f7fki"]
@@ -15,6 +16,15 @@ albedo_color = Color(0.8627451, 0, 0, 1)
 material = SubResource("StandardMaterial3D_ve6rv")
 radius = 0.25
 height = 1.8
+
+[sub_resource type="Resource" id="Resource_15kj2"]
+script = ExtResource("3_1xfyl")
+name = "TEST"
+cook = Array[int]([0, 1, 2, 3, 4])
+doneness = Array[int]([0, 1, 2, 3, 4, 5])
+prep = Array[int]([0, 1])
+doneness_intervals = Array[float]([10.0, 20.0, 30.0, 40.0, 50.0, 60.0])
+metadata/_custom_type_script = "uid://br2b1npw4bnqg"
 
 [node name="tempalte character" type="CharacterBody3D" unique_id=2009549190 node_paths=PackedStringArray("hand", "hand_pivot")]
 script = ExtResource("1_lhsoi")
@@ -31,9 +41,10 @@ mesh = SubResource("CapsuleMesh_f7fki")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5301525, 0)
 
 [node name="HandPivot" type="Node3D" parent="Camera3D" unique_id=884649959]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09, -0.22, -0.218)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.09, -0.1, -0.223)
 
 [node name="Test_Ingredient" parent="Camera3D/HandPivot" unique_id=126693202 instance=ExtResource("2_xj6sp")]
+data = SubResource("Resource_15kj2")
 
 [node name="UI" type="Control" parent="." unique_id=565920166]
 layout_mode = 3

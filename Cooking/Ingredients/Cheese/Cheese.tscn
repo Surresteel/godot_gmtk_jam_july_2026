@@ -11,4 +11,5 @@ meshes = [NodePath("Cheese")]
 metadata/_custom_type_script = "uid://dulb72uu4rwuk"
 
 [node name="Cheese" type="MeshInstance3D" parent="." unique_id=741477642]
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0, 0, 0)
 mesh = ExtResource("3_jf6cd")

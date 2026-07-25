@@ -60,11 +60,11 @@ func _update_multimesh() -> void:
 	var x := 0
 	var z := 0
 	for i in range(0,amount):
-		var pos = Vector3(pos.x + x + spacing  + randf_range(-spacing,spacing), pos.y, pos.z + z * spacing + randf_range(-spacing,spacing))
+		var where = Vector3(pos.x + x + spacing  + randf_range(-spacing,spacing), pos.y, pos.z + z * spacing + randf_range(-spacing,spacing))
 		var rot = Quaternion(Vector3(randf(), randf(), randf()).normalized(), randf() * PI * 2)
 		var base = Basis()
-		base = base.scaled(Vector3.ONE * ing_scale)
-		var trans = Transform3D(base,pos)
+		base = base.scaled(rot * ing_scale)
+		var trans = Transform3D(base,where)
 		multimesh.set_instance_transform(i,trans)
 		
 		if x < rows-1:

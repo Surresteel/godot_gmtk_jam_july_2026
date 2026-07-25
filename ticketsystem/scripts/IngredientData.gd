@@ -21,6 +21,8 @@ enum PREP { CHOPPED, SUNNYSIDEUP }
 
 @export_group("Specifics")
 @export var bounding_box_size: Vector3 = Vector3.ONE
-
+@export var flipped_position: Vector3
+@export var laying_position: Vector3
+@export var laying_rotation_degrees: Vector3
 
 	
