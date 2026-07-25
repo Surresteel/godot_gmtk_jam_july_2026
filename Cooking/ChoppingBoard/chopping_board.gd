@@ -101,7 +101,7 @@ func add_food(p: Player) -> void:
 	if not _ingredient:
 		return
 	_ingredient.physically_move(self, self.global_basis * food_slot.position)
-	_ingredient.basis = food_slot.basis
+	_ingredient.basis = food_slot.basis.scaled(_ingredient.scale)
 	return
 
 ## Removes a food item from the microwave:

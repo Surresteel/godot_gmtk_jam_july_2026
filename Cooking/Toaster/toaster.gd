@@ -185,7 +185,8 @@ func add_food(p: Player, slot: Node3D) -> void:
 	_ingredients[slot] = ing
 	if not _ingredients[slot]:
 		return
-	_ingredients[slot].global_basis = self.global_basis
+	_ingredients[slot].global_basis = self.global_basis.scaled(
+				_ingredients[slot].scale)
 	_ingredients[slot].physically_move(slot, Vector3.ZERO)
 	if slot_sides[slot]:
 		_heat_area_r.increase_cook_level.connect(_ingredients[slot].cook)
