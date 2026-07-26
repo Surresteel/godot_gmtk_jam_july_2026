@@ -9,4 +9,5 @@ name = "Cheese"
 mesh = ExtResource("1_k2gwr")
 cook = Array[int]([0, 2, 3])
 prep = Array[int]([2, 0])
+cook_scale = 1.115
 metadata/_custom_type_script = "uid://br2b1npw4bnqg"

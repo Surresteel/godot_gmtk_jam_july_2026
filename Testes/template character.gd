@@ -14,7 +14,7 @@ const INT_COLLIDER: int = 1 << 2
 @onready var crosshair: Crosshair = $UI/Crosshair
 @onready var ticket_pos: Node3D = $Camera3D/TicketPos
 var ticket: Ticket = null
-
+@onready var temp:= $Camera3D/TicketPos/Ticket
 var camera_lock: bool = false
 
 @export var sensitivity: float = 0.2
@@ -26,6 +26,7 @@ signal secondary_click(player: Player)
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	pickup_ticket(temp)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -110,7 +111,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_released("zoom"):
 		
 		zoom(75.0)
-		
+	
+	if event.is_action_pressed("focus_mouse"):
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
 func _cast_mouse_ray() -> Interactable:
 	var vp: Viewport = get_viewport()
 	var cam: Camera3D = vp.get_camera_3d()

@@ -8,25 +8,36 @@
 [ext_resource type="PackedScene" uid="uid://cju8258phf3m8" path="res://Cooking/Microwave/microwave.tscn" id="4_60r0g"]
 [ext_resource type="PackedScene" uid="uid://cfpea7c6cd1kn" path="res://Timers/Egg/egg_timer.tscn" id="5_8g2gw"]
 [ext_resource type="PackedScene" uid="uid://vhgao8ryl3vs" path="res://Cooking/Toaster/toaster.tscn" id="6_8c2ne"]
+[ext_resource type="ArrayMesh" uid="uid://byyekiu4wpl07" path="res://Cooking/Ingredients/Onion/Onion.tres" id="6_qmq8k"]
 [ext_resource type="PackedScene" uid="uid://dr82dajpjam24" path="res://Levels/Counter/kitchen_counter.tscn" id="7_ejrnt"]
 [ext_resource type="PackedScene" uid="uid://ces40c6el0x3x" path="res://Levels/Counter/kitchen_sink.tscn" id="8_60r0g"]
+[ext_resource type="ArrayMesh" uid="uid://dem4x83k2af0k" path="res://Cooking/Ingredients/Potato/Potato.tres" id="8_gvsr2"]
 [ext_resource type="PackedScene" uid="uid://ny2fgb7y3rxp" path="res://Levels/Counter/kitchen_corner.tscn" id="9_8g2gw"]
+[ext_resource type="ArrayMesh" uid="uid://c56w413heaq6r" path="res://Cooking/Ingredients/Brocoli/Brocoli.tres" id="10_ovon8"]
 [ext_resource type="PackedScene" uid="uid://8rjrxxb052f4" path="res://Cooking/ChoppingBoard/chopping_board.tscn" id="10_vlpn2"]
+[ext_resource type="ArrayMesh" uid="uid://ds0vj5ktb25qa" path="res://Cooking/Ingredients/Carrot/Carrot.tres" id="12_d357d"]
 [ext_resource type="PackedScene" uid="uid://ctbjli6hi8foy" path="res://Cooking/Containers/Ingredient Container/ingredient_holder.tscn" id="12_oclhi"]
 [ext_resource type="PackedScene" uid="uid://ehl176ciki56" path="res://Cooking/FryingPan/frying_pan.tscn" id="14_8l2iy"]
-[ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Onion MetaData.tres" id="15_a6wkw"]
+[ext_resource type="ArrayMesh" uid="uid://c05ftk8ao7xnk" path="res://Cooking/Ingredients/Chilli/Chilli.tres" id="14_evbux"]
+[ext_resource type="Resource" uid="uid://bleuxdm816a0x" path="res://Cooking/Containers/GENERATED RESOURCES/Onion MetaData.tres" id="15_a6wkw"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Broccoli MetaData.tres" id="15_d6fmk"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Potato MetaData.tres" id="16_0w3sc"]
+[ext_resource type="ArrayMesh" uid="uid://ble88vryemvhv" path="res://Cooking/Ingredients/Tomato/Tomato.tres" id="16_m56k5"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Bread MetaData.tres" id="17_tt7yw"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Carrot MetaData.tres" id="18_2p6jd"]
+[ext_resource type="ArrayMesh" uid="uid://bxqguofbo0dof" path="res://Cooking/Ingredients/Bread/Bread.tres" id="18_iwgjj"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Egg MetaData.tres" id="19_q4xb1"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Chilli MetaData.tres" id="19_trl5h"]
 [ext_resource type="Resource" uid="uid://bl38mq4nal4ok" path="res://Cooking/Containers/GENERATED RESOURCES/Tomato MetaData.tres" id="20_qce37"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Chicken Breast MetaData.tres" id="20_w3t0v"]
+[ext_resource type="ArrayMesh" uid="uid://bfuwscxr7dgb0" path="res://Cooking/Ingredients/Cheese/Cheese.tres" id="21_e4y2t"]
+[ext_resource type="ArrayMesh" uid="uid://dxi1u8ata3cin" path="res://Cooking/Ingredients/Chicken Breast/Chicken breast.tres" id="23_75tl5"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Cheese MetaData.tres" id="23_jb4jo"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Chicken Thigh MetaData.tres" id="25_3wyp5"]
+[ext_resource type="ArrayMesh" uid="uid://b3uqldhll76l5" path="res://Cooking/Ingredients/Chicken Leg/Chicken Leg.tres" id="25_oelok"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Sausage MetaData.tres" id="26_4bakx"]
-[ext_resource type="PackedScene" uid="uid://ycfhrw80h0ql" path="res://ticketsystem/scenes/ticket_board.tscn" id="27_trl5h"]
+[ext_resource type="ArrayMesh" uid="uid://b3ilpl6mjakhi" path="res://Cooking/Ingredients/Sausage/Sausage.tres" id="27_t70p0"]
+[ext_resource type="PackedScene" uid="uid://5vvbl1msxgmu" path="res://ticketsystem/scenes/ticket_board.tscn" id="27_trl5h"]
 [ext_resource type="PackedScene" uid="uid://dtbw5p0u6cgx6" path="res://Cooking/Plate/plate.tscn" id="28_qce37"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_wvhbo"]
@@ -73,49 +84,97 @@ mesh = SubResource("PlaneMesh_wvhbo")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.822888, 0.3, -5.976039)
 ingredient_to_give = ExtResource("15_a6wkw")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Holders/OnionHlder" unique_id=199920418]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35683107, 0)
+mesh = ExtResource("6_qmq8k")
+
 [node name="PotatoHolder" parent="Level/Holders" unique_id=1136984319 instance=ExtResource("12_oclhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8359876, 0.3, -5.158418)
 ingredient_to_give = ExtResource("16_0w3sc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Holders/PotatoHolder" unique_id=1448358805]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35683107, 0)
+mesh = ExtResource("8_gvsr2")
 
 [node name="BroccoliHolder" parent="Level/Holders" unique_id=200614968 instance=ExtResource("12_oclhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8365388, 0.3, -4.3262596)
 ingredient_to_give = ExtResource("15_d6fmk")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Holders/BroccoliHolder" unique_id=10454459]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35683107, 0)
+mesh = ExtResource("10_ovon8")
+
 [node name="CarrotHolder" parent="Level/Holders" unique_id=198878219 instance=ExtResource("12_oclhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.903524, 0.3, -4.3262596)
 ingredient_to_give = ExtResource("18_2p6jd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Holders/CarrotHolder" unique_id=965232539]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35683107, 0)
+mesh = ExtResource("12_d357d")
 
 [node name="ChilliHolder" parent="Level/Holders" unique_id=1076045106 instance=ExtResource("12_oclhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8365388, 0.3, -3.529521)
 ingredient_to_give = ExtResource("19_trl5h")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Holders/ChilliHolder" unique_id=514933947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35683107, 0)
+mesh = ExtResource("14_evbux")
+
 [node name="TomatoHolder" parent="Level/Holders" unique_id=474651387 instance=ExtResource("12_oclhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8365388, 0.3, -2.7306192)
 ingredient_to_give = ExtResource("20_qce37")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Holders/TomatoHolder" unique_id=276806723]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35683107, 0)
+mesh = ExtResource("16_m56k5")
 
 [node name="BreadHolder" parent="Level/Holders" unique_id=1662208105 instance=ExtResource("12_oclhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2651012, 0.3, -6.6557565)
 ingredient_to_give = ExtResource("17_tt7yw")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Holders/BreadHolder" unique_id=830890417]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35683107, 0)
+mesh = ExtResource("18_iwgjj")
+
 [node name="EggHolder" parent="Level/Holders" unique_id=1567398738 instance=ExtResource("12_oclhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.059859, 0.3, -6.6038523)
 ingredient_to_give = ExtResource("19_q4xb1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Holders/EggHolder" unique_id=880928696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35683107, 0)
+mesh = ExtResource("16_m56k5")
 
 [node name="CheeseHolder" parent="Level/Holders" unique_id=1662489280 instance=ExtResource("12_oclhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8530366, 0.3, -6.6038523)
 ingredient_to_give = ExtResource("23_jb4jo")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Holders/CheeseHolder" unique_id=1774200250]
+transform = Transform3D(0.372, 0, 0, 0, 0.372, 0, 0, 0, 0.372, 0, 0.35683107, 0)
+mesh = ExtResource("21_e4y2t")
+
 [node name="ChickenBreastHolder" parent="Level/Holders" unique_id=1683019093 instance=ExtResource("12_oclhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4183693, 0.3, -5.4443665)
 ingredient_to_give = ExtResource("20_w3t0v")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Holders/ChickenBreastHolder" unique_id=307949692]
+transform = Transform3D(0.284, 0, 0, 0, 0.284, 0, 0, 0, 0.284, 0, 0.35683107, 0)
+mesh = ExtResource("23_75tl5")
 
 [node name="ChickenLegHolder" parent="Level/Holders" unique_id=1723004719 instance=ExtResource("12_oclhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4183693, 0.3, -4.6303654)
 ingredient_to_give = ExtResource("25_3wyp5")
 
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Holders/ChickenLegHolder" unique_id=1852220702]
+transform = Transform3D(0.667, 0, 0, 0, 0.667, 0, 0, 0, 0.667, 0, 0.35683107, 0)
+mesh = ExtResource("25_oelok")
+
 [node name="SausageHolder" parent="Level/Holders" unique_id=1949324790 instance=ExtResource("12_oclhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4183693, 0.3, -3.5713153)
 ingredient_to_give = ExtResource("26_4bakx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Holders/SausageHolder" unique_id=698735802]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35683107, 0)
+mesh = ExtResource("27_t70p0")
 
 [node name="Cookers" type="Node3D" parent="Level" unique_id=454830454]
 

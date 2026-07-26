@@ -20,6 +20,7 @@ var _ticket: Ticket = null
 @export var food_area: Area3D = null
 var _ingredients: Array[Ingredient]
 var _order_status: bool = false
+const PLATE = preload("uid://dtbw5p0u6cgx6")
 
 # PARTICLES:
 const FLASH = preload("uid://bss3pcr33idw8")
@@ -49,6 +50,9 @@ func _physics_process(_delta: float) -> void:
 				i.queue_free()
 		if _ticket:
 			_ticket.queue_free()
+		var new : Plate = PLATE.instantiate()
+		get_tree().current_scene.add_child(new)
+		new.global_transform = global_transform
 		self.queue_free()
 	return
 

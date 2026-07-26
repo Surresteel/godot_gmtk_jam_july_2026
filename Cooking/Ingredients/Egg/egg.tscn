@@ -83,7 +83,7 @@ script = ExtResource("1_6m5vo")
 data = ExtResource("2_q580g")
 meshes = [NodePath("Egg"), NodePath("Cracked Egg")]
 prep_dictionary = {
-9: NodePath("Cracked Egg")
+1: NodePath("Cracked Egg")
 }
 inter_pickup = NodePath("Interactable")
 metadata/_custom_type_script = "uid://dulb72uu4rwuk"

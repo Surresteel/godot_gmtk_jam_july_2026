@@ -9,4 +9,5 @@ name = "Chilli"
 mesh = ExtResource("1_dw2yc")
 cook = Array[int]([4, 0, 3, 2])
 prep = Array[int]([2, 0])
+cook_scale = 1.325
 metadata/_custom_type_script = "uid://br2b1npw4bnqg"

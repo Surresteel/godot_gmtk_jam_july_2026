@@ -10,5 +10,6 @@ name = "Onion"
 mesh = ExtResource("1_7mj5e")
 cook = Array[int]([1, 0, 3, 2])
 prep = Array[int]([2, 0])
+cook_scale = 0.835
 bounding_box_size = Vector3(350, 306, 370)
 metadata/_custom_type_script = "uid://br2b1npw4bnqg"

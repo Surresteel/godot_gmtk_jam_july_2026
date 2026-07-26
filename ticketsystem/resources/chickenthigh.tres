@@ -9,4 +9,5 @@ name = "Chicken Thigh"
 mesh = ExtResource("1_hu4ql")
 cook = Array[int]([0, 1, 2, 3])
 prep = Array[int]([0, 2])
+cook_scale = 0.41
 metadata/_custom_type_script = "uid://br2b1npw4bnqg"

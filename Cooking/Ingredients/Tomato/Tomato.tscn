@@ -13,6 +13,7 @@ name = "Tomato"
 mesh = ExtResource("2_yr855")
 cook = Array[int]([0, 1, 2, 5])
 prep = Array[int]([2, 0])
+cook_scale = 1.215
 metadata/_custom_type_script = "uid://br2b1npw4bnqg"
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qe56h"]

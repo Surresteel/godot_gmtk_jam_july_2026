@@ -9,4 +9,5 @@ name = "Broccoli"
 mesh = ExtResource("1_njgqe")
 cook = Array[int]([0, 3, 2, 1])
 prep = Array[int]([2, 0])
+cook_scale = 1.19
 metadata/_custom_type_script = "uid://br2b1npw4bnqg"

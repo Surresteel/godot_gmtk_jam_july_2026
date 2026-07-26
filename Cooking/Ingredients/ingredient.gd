@@ -51,11 +51,15 @@ func _ready() -> void:
 	
 	_shader_material_force()
 	
+	prep_type = IngredientData.PREP.NA
+	
 	label_3d = Label3D.new()
 	add_child(label_3d)
 	label_3d.position = Vector3(0,0.154,0)
 	label_3d.pixel_size = 0.0007
 	label_3d.font_size = 40
+	label_3d.top_level = true
+	label_3d.billboard = BaseMaterial3D.BILLBOARD_FIXED_Y
 
 func _shader_material_force() -> void:
 	for i in meshes:
@@ -147,6 +151,7 @@ func cook(amount: float, even_cook: bool) -> void:
 func _process(_delta: float) -> void:
 	do_shader_stuff()
 	
+	label_3d.global_position = global_position + Vector3(0,0.154,0)
 	label_3d.text = "Cook: " + str(IngredientData.COOK.find_key(cook_type)) +"\nDone: " + str(IngredientData.DONENESS.find_key(doneness_type)) + "\nPrep: " + str(IngredientData.PREP.find_key(prep_type))
 
 func physically_move(new_parent: Node3D, Offset: Vector3 = Vector3.ZERO, Rotation: Vector3 = Vector3.ZERO) -> void:
@@ -177,7 +182,7 @@ func flip_side() -> void:
 func prep_ingredient(prep_style: IngredientData.PREP) -> void:
 	if prep_dictionary.has(prep_style):
 		change_mesh(prep_dictionary[prep_style])
-	prep_type = prep_style
+		prep_type = prep_style
 
 func change_mesh(new_mesh: MeshInstance3D) -> void:
 	var index: int = 0
