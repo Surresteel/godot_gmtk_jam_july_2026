@@ -18,6 +18,7 @@ enum PREP { CHOPPED, SUNNYSIDEUP, NA }
 @export var prep: Array[PREP]
 @export_subgroup("CookLevel")
 @export var doneness_intervals: Array[float] = [50.0]
+@export var cooked_colour: Color = Color.BLACK
 
 @export_group("Specifics")
 @export var bounding_box_size: Vector3 = Vector3.ONE

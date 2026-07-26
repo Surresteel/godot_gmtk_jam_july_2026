@@ -3,7 +3,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tew51"]
 resource_name = "Material.001"
 cull_mode = 2
-albedo_color = Color(0.9063355, 0.679227, 0.27743438, 1)
+albedo_color = Color(0.90588236, 0.6784314, 0.2784314, 1)
 roughness = 0.5
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_bf41s"]

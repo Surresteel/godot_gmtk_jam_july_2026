@@ -42,6 +42,7 @@ prep_dictionary = {
 2: NodePath("CutUP")
 }
 inter_pickup = NodePath("Interactable")
+use_z_shader = true
 metadata/_custom_type_script = "uid://dulb72uu4rwuk"
 
 [node name="Sausage" type="MeshInstance3D" parent="." unique_id=352964332]

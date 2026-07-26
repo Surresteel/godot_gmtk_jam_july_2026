@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://cd34muvt67ex5"]
+
+[ext_resource type="Shader" uid="uid://cucrkgld6n1fa" path="res://Testes/Ingredient Test.gdshader" id="1_6rpe7"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_6rpe7")
+shader_parameter/top_cook = 0.0
+shader_parameter/bot_cook = 1.0
+shader_parameter/base_colour = Vector3(0, 0, 0)
+shader_parameter/cooked_colour = Vector3(1, 1, 1)
+shader_parameter/split_point = 0.5
+shader_parameter/blend_width = 0.05
+shader_parameter/min_y = 0.0
+shader_parameter/max_y = 0.0

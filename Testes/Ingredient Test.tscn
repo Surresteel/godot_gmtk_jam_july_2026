@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://beq4b1va7xgnr" path="res://Cooking/Containers/Resource maker.gd" id="3_dxejd"]
 [ext_resource type="PackedScene" uid="uid://py0umhddtq4n" path="res://Cooking/Ingredients/Onion/Onion.tscn" id="4_f82mh"]
 [ext_resource type="PackedScene" uid="uid://c5jb8qgn17sj5" path="res://Interactable/interactable.tscn" id="5_f82mh"]
+[ext_resource type="ArrayMesh" uid="uid://bxqguofbo0dof" path="res://Cooking/Ingredients/Bread/Bread.tres" id="6_h773j"]
 
 [sub_resource type="Resource" id="Resource_1xfyl"]
 script = ExtResource("2_6kruu")
@@ -12,20 +13,17 @@ name = "TEST"
 cook = Array[int]([0, 1, 2, 3, 4, 5, 6, 7, 8])
 doneness = Array[int]([0, 1, 2, 3, 4, 5, 6])
 prep = Array[int]([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
-doneness_intervals = Array[float]([10.0, 20.0, 30.0, 40.0, 50.0, 60.0])
+doneness_intervals = Array[float]([2.0, 4.0, 6.0, 8.0, 9.0, 10.0])
+cooked_colour = Color(0.15489992, 0.06669104, 0, 1)
 metadata/_custom_type_script = "uid://br2b1npw4bnqg"
-
-[sub_resource type="BoxMesh" id="BoxMesh_ve6rv"]
-size = Vector3(0.12, 0.05, 0.12)
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_f82mh"]
 radius = 0.11047399
 
-[node name="Test_Ingredient" type="Node3D" unique_id=126693202 node_paths=PackedStringArray("top_half_mesh", "bottom_half_mesh", "inter_pickup")]
+[node name="Test_Ingredient" type="Node3D" unique_id=126693202 node_paths=PackedStringArray("meshes", "inter_pickup")]
 script = ExtResource("1_ud7ih")
 data = SubResource("Resource_1xfyl")
-top_half_mesh = NodePath("MeshInstance3D")
-bottom_half_mesh = NodePath("MeshInstance3D2")
+meshes = [NodePath("MeshInstance3D")]
 inter_pickup = NodePath("Interactable")
 metadata/_custom_type_script = "uid://dulb72uu4rwuk"
 
@@ -37,14 +35,6 @@ Done: WELLDONE
 Prep: MINCED"
 font_size = 50
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1428196127]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
-mesh = SubResource("BoxMesh_ve6rv")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=774198946]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.025, 0)
-mesh = SubResource("BoxMesh_ve6rv")
-
 [node name="ResourceMaker" type="Node" parent="." unique_id=779196200]
 script = ExtResource("3_dxejd")
 scenes = Array[PackedScene]([ExtResource("4_f82mh")])
@@ -54,3 +44,7 @@ metadata/_custom_type_script = "uid://beq4b1va7xgnr"
 
 [node name="Collider" type="CollisionShape3D" parent="Interactable" unique_id=1841179621]
 shape = SubResource("SphereShape3D_f82mh")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=304251364]
+transform = Transform3D(0.99985033, -0.01730072, 0, 0.01730072, 0.99985033, 0, 0, 0, 1, 0, 0, 0)
+mesh = ExtResource("6_h773j")

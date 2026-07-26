@@ -13,10 +13,11 @@ script = ExtResource("1_udf2r")
 data = ExtResource("2_pwlt4")
 meshes = [NodePath("Carrot")]
 inter_pickup = NodePath("Interactable")
+use_z_shader = true
 metadata/_custom_type_script = "uid://dulb72uu4rwuk"
 
 [node name="Carrot" type="MeshInstance3D" parent="." unique_id=1134352160]
-transform = Transform3D(0.625, 0, 0, 0, -2.7319619e-08, -0.625, 0, 0.625, -2.7319619e-08, 0, 0.015467167, 0)
+transform = Transform3D(0.625, 0, 0, 0, -2.7319619e-08, 0.625, 0, -0.625, -2.7319619e-08, 0, 0.015467167, 0)
 mesh = ExtResource("3_ojcu4")
 
 [node name="Interactable" parent="." unique_id=429174571 instance=ExtResource("4_ojcu4")]

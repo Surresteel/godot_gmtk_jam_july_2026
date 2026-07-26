@@ -3,7 +3,7 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4765i"]
 resource_name = "Material.020"
 cull_mode = 2
-albedo_color = Color(0.11525514, 0.6329149, 0.1731595, 1)
+albedo_color = Color(0.11372549, 0.6313726, 0.17254902, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_epcjs"]
 resource_name = "Material.022"

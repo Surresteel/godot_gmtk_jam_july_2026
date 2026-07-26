@@ -1,0 +1,15 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://ecp15so151v4"]
+
+[ext_resource type="Shader" uid="uid://t0xps2wxdg4q" path="res://Testes/Ingredient Z Shader.gdshader" id="1_xqeft"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_xqeft")
+shader_parameter/top_cook = 0.0
+shader_parameter/bot_cook = 1.0
+shader_parameter/base_colour = Vector3(0, 0, 0)
+shader_parameter/cooked_colour = Vector3(1, 1, 1)
+shader_parameter/split_point = 0.5
+shader_parameter/blend_width = 0.05
+shader_parameter/min_y = 0.0
+shader_parameter/max_y = 0.0

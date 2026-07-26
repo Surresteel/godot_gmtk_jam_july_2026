@@ -14,10 +14,11 @@ data = ExtResource("2_uagve")
 meshes = [NodePath("Bread")]
 prep_colour = Color(0.5882353, 0.4509804, 0.20392157, 1)
 inter_pickup = NodePath("Interactable")
+use_x_shader = true
 metadata/_custom_type_script = "uid://dulb72uu4rwuk"
 
 [node name="Bread" type="MeshInstance3D" parent="." unique_id=1643763088]
-transform = Transform3D(-3.5070116e-08, 7.6878955e-08, -0.36562222, -0.8023106, 3.8439474e-08, 1.598186e-08, 3.507011e-08, 0.87939274, 3.196371e-08, -9.4642765e-09, -0.00056277215, -0.042424943)
+transform = Transform3D(-7.014022e-08, -3.843948e-08, 0.36562222, 0.8023106, 3.8439477e-08, 3.1963708e-08, -3.5070112e-08, 0.87939274, 1.5981854e-08, -9.4642765e-09, -0.00056277215, -0.042424943)
 mesh = ExtResource("3_dtecw")
 
 [node name="Interactable" parent="." unique_id=429174571 instance=ExtResource("4_dtecw")]
