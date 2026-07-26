@@ -13,7 +13,7 @@ const NA_C := IngredientData.COOK.NA
 const NA_D := IngredientData.DONENESS.NA
 const NA_P := IngredientData.PREP.NA
 #const MAX_ORDER_ITEMS: int = 5
-const MAX_ORDER_ITEMS: int = 1
+const MAX_ORDER_ITEMS: int = 5
 static var order_number: int = 1
 
 # INNER CLASSES:

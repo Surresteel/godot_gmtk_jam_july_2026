@@ -2,7 +2,7 @@ extends Resource
 
 class_name IngredientData
 
-const MAX_COOK_VALUE: float = 150
+const MAX_COOK_VALUE: float = 300
 
 enum COOK { RAW, BAKED, FRIED, MICROWAVED, TOASTED, NA }
 enum DONENESS { RAW, RARE, MEDIUMRARE, MEDIUM, WELLDONE, BURNT, NA }

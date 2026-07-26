@@ -20,7 +20,7 @@ buses/default_bus_layout="uid://cnr0kbjka6whu"
 
 [display]
 
-window/stretch/mode="canvas_items"
+window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 
 [input]

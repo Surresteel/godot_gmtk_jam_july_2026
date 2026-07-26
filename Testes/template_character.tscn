@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cqlkomneg4t0b" path="res://Testes/template character.gd" id="1_lhsoi"]
 [ext_resource type="PackedScene" uid="uid://tygjep58dxwr" path="res://ticketsystem/scenes/ticket.tscn" id="2_tryxg"]
 [ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/IngredientData.gd" id="3_1xfyl"]
+[ext_resource type="Script" uid="uid://bjqbm5ht3xj7k" path="res://ticketsystem/scenes/tutorial.gd" id="3_ospfm"]
 [ext_resource type="Script" uid="uid://cqe888lyvppcg" path="res://Testes/crosshair.gd" id="3_xj6sp"]
 [ext_resource type="Resource" uid="uid://d0f2cauwut22p" path="res://ticketsystem/resources/bread.tres" id="4_ospfm"]
 [ext_resource type="Resource" uid="uid://cavlhsox0dika" path="res://ticketsystem/resources/broccoli.tres" id="5_5ssyk"]
@@ -150,6 +151,7 @@ hand_pivot = NodePath("Camera3D/HandPivot")
 shape = SubResource("CapsuleShape3D_f7fki")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1218905569]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0877848e-06, 0.00042838603, 2.9936433e-05)
 mesh = SubResource("CapsuleMesh_f7fki")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1029608773]
@@ -163,10 +165,28 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.1
 
 [node name="Ticket" parent="Camera3D/TicketPos" unique_id=1322980451 instance=ExtResource("2_tryxg")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -0.26132512, -0.5301525, 0.18191077)
+script = ExtResource("3_ospfm")
 ingredient_amount = 1
 ingredient_list = Array[ExtResource("3_1xfyl")]([ExtResource("4_ospfm"), ExtResource("5_5ssyk"), ExtResource("6_gyr6f"), ExtResource("7_s08cp"), ExtResource("8_iwpws"), ExtResource("9_vnchk"), ExtResource("10_m7tth"), ExtResource("11_s5rt3"), SubResource("Resource_sronr"), ExtResource("12_ybv2i"), ExtResource("13_dkky3"), ExtResource("14_nub4n")])
 
-[node name="UI" type="Control" parent="." unique_id=565920166]
+[node name="OrderText" parent="Camera3D/TicketPos/Ticket/TicketMesh" parent_id_path=PackedInt32Array(1322980451, 1602496689) index="0" unique_id=221562286]
+text = "-Tab to focus Mouse
+-left click to interact
+-right click to grab ingredient from appliances
+
+-place ticket and completed food on plate to win, one ticket at a time
+
+-KEEP AWAY FROM PLATE-
+
+"
+
+[node name="Title" parent="Camera3D/TicketPos/Ticket/TicketMesh" parent_id_path=PackedInt32Array(1322980451, 1602496689) index="1" unique_id=75580497]
+text = "How To Play
+______________"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1467719319]
+
+[node name="UI" type="Control" parent="CanvasLayer" unique_id=565920166]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -175,14 +195,14 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="Crosshair" type="CenterContainer" parent="UI" unique_id=1359871767]
+[node name="Crosshair" type="CenterContainer" parent="CanvasLayer/UI" unique_id=1359871767]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("3_xj6sp")
 radius = 2.0
+
+[editable path="Camera3D/TicketPos/Ticket"]

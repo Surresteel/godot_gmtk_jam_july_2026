@@ -36,7 +36,6 @@ const y_size: float = 0.8
 
 
 func put_in(player: Player) -> void:
-	print("wow")
 	super.put_in(player)
 	if ingredient == null:
 		return
@@ -44,7 +43,6 @@ func put_in(player: Player) -> void:
 	ingredient = null
 
 func take_out(player:Player) -> void:
-	print("Niggger")
 	ingredient = ingredient_to_give.scene.instantiate()
 	add_child(ingredient)
 	super.take_out(player)

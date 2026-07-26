@@ -11,7 +11,7 @@ const INT_COLLIDER: int = 1 << 2
 @export var hand_pivot: Node3D
 
 @onready var camera: Camera3D = $Camera3D
-@onready var crosshair: Crosshair = $UI/Crosshair
+@onready var crosshair: Crosshair = $CanvasLayer/UI/Crosshair
 @onready var ticket_pos: Node3D = $Camera3D/TicketPos
 var ticket: Ticket = null
 @onready var temp:= $Camera3D/TicketPos/Ticket
@@ -125,8 +125,8 @@ func _cast_mouse_ray() -> Interactable:
 		return
 	
 	var m_pos: Vector2 = vp.get_mouse_position()
-	var start: Vector3 = cam.project_ray_origin(m_pos)
-	var end: Vector3 = start + cam.project_ray_normal(m_pos) * 1.5
+	var start: Vector3 = cam.global_position
+	var end: Vector3 = start + -cam.global_basis.z * 1.5
 	var space_state = get_world_3d().direct_space_state
 	var query = PhysicsRayQueryParameters3D.create(start, end)
 	query.collide_with_areas = true
@@ -150,8 +150,8 @@ func _get_look_point() -> Dictionary:
 		return Dictionary()
 	
 	var m_pos: Vector2 = vp.get_mouse_position()
-	var start: Vector3 = cam.project_ray_origin(m_pos)
-	var end: Vector3 = start + cam.project_ray_normal(m_pos) * 1.5
+	var start: Vector3 = cam.global_position
+	var end: Vector3 = start + -cam.global_basis.z * 1.5
 	var space_state = get_world_3d().direct_space_state
 	var query = PhysicsRayQueryParameters3D.create(start, end)
 	query.collision_mask = INT_ENV

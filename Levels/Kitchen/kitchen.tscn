@@ -31,6 +31,7 @@
 [ext_resource type="Resource" uid="uid://bl38mq4nal4ok" path="res://Cooking/Containers/GENERATED RESOURCES/Tomato MetaData.tres" id="20_qce37"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Chicken Breast MetaData.tres" id="20_w3t0v"]
 [ext_resource type="ArrayMesh" uid="uid://bfuwscxr7dgb0" path="res://Cooking/Ingredients/Cheese/Cheese.tres" id="21_e4y2t"]
+[ext_resource type="PackedScene" uid="uid://bss3pcr33idw8" path="res://ParticleEffects/flash.tscn" id="22_gvsr2"]
 [ext_resource type="ArrayMesh" uid="uid://dxi1u8ata3cin" path="res://Cooking/Ingredients/Chicken Breast/Chicken breast.tres" id="23_75tl5"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Cheese MetaData.tres" id="23_jb4jo"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Chicken Thigh MetaData.tres" id="25_3wyp5"]
@@ -151,6 +152,9 @@ ingredient_to_give = ExtResource("23_jb4jo")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Level/Holders/CheeseHolder" unique_id=1774200250]
 transform = Transform3D(0.372, 0, 0, 0, 0.372, 0, 0, 0, 0.372, 0, 0.35683107, 0)
 mesh = ExtResource("21_e4y2t")
+
+[node name="Flash" parent="Level/Holders/CheeseHolder" unique_id=328277064 instance=ExtResource("22_gvsr2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.51887, 0.42904514, 1.938005)
 
 [node name="ChickenBreastHolder" parent="Level/Holders" unique_id=1683019093 instance=ExtResource("12_oclhi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4183693, 0.3, -5.4443665)

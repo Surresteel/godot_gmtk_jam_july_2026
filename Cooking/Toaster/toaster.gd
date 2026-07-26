@@ -33,7 +33,7 @@ var _dial_rot_amount: float = 0.0
 var _toast_down_offset := Vector3(0.0, 0.0, 0.05)
 
 # HEATING:
-var HEAT_TIME_MAX: float = 120.0
+var HEAT_TIME_MAX: float = 60.0
 var HEAT_TIME_MIN: float = 5.0
 @onready var _heat_area_l: HeatArea = $HeatAreaL
 @onready var _heat_area_r: HeatArea = $HeatAreaR
