@@ -30,7 +30,7 @@ const DIAL_ROT_SCALE: float = 0.01
 @onready var light: AreaLight3D = $Light
 @onready var hum: AudioStreamPlayer3D = $Hum
 var _dial_rot_amount: float = 0.0
-var _toast_down_offset := Vector3(0.0, -0.05, 0.0)
+var _toast_down_offset := Vector3(0.0, 0.0, 0.05)
 
 # HEATING:
 var HEAT_TIME_MAX: float = 120.0

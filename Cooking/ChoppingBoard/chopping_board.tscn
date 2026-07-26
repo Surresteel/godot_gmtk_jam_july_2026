@@ -74,10 +74,10 @@ transform = Transform3D(0.991472, 0.017264808, 0.12917086, 0.09082621, 0.6192538
 shape = SubResource("BoxShape3D_8cdg2")
 
 [node name="FoodSlot" parent="." unique_id=429174571 instance=ExtResource("3_43cla")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0014311001, 0.020244718, 0)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.0014311001, 0.020244718, 0)
 
 [node name="Collider" type="CollisionShape3D" parent="FoodSlot" unique_id=151615133]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.028861757, 0.005587958, 0)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.002075063, -0.000492312, 0.031529456)
 shape = SubResource("BoxShape3D_ifow5")
 
 [node name="KIdle" type="Node3D" parent="." unique_id=533625148]

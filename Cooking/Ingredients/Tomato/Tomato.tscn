@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dulb72uu4rwuk" path="res://Cooking/Ingredients/ingredient.gd" id="1_n75po"]
 [ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/IngredientData.gd" id="2_3kp7k"]
 [ext_resource type="ArrayMesh" uid="uid://ble88vryemvhv" path="res://Cooking/Ingredients/Tomato/Tomato.tres" id="2_yr855"]
+[ext_resource type="PackedScene" uid="uid://c5jb8qgn17sj5" path="res://Interactable/interactable.tscn" id="4_hxbh0"]
 
 [sub_resource type="Resource" id="Resource_ukqol"]
 script = ExtResource("2_3kp7k")
@@ -13,12 +14,21 @@ doneness = Array[int]([0, 2, 4, 6])
 prep = Array[int]([0, 2])
 metadata/_custom_type_script = "uid://br2b1npw4bnqg"
 
-[node name="Tomato" type="Node3D" unique_id=446975003 node_paths=PackedStringArray("meshes")]
+[sub_resource type="SphereShape3D" id="SphereShape3D_qe56h"]
+radius = 0.11047399
+
+[node name="Tomato" type="Node3D" unique_id=446975003 node_paths=PackedStringArray("meshes", "inter_pickup")]
 script = ExtResource("1_n75po")
 data = SubResource("Resource_ukqol")
 meshes = [NodePath("tomato")]
+inter_pickup = NodePath("Interactable")
 metadata/_custom_type_script = "uid://dulb72uu4rwuk"
 
 [node name="tomato" type="MeshInstance3D" parent="." unique_id=2021209012]
-transform = Transform3D(0.235, 0, 0, 0, 0.235, 0, 0, 0, 0.235, 0, 0, 0)
+transform = Transform3D(0.235, 0, 0, 0, 0.235, 0, 0, 0, 0.235, 0, 0.031888336, 0)
 mesh = ExtResource("2_yr855")
+
+[node name="Interactable" parent="." unique_id=429174571 instance=ExtResource("4_hxbh0")]
+
+[node name="Collider" type="CollisionShape3D" parent="Interactable" unique_id=159405089]
+shape = SubResource("SphereShape3D_qe56h")

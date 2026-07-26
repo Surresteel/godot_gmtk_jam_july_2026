@@ -63,7 +63,7 @@ autowrap_trim_flags = 0
 width = 650.0
 
 [node name="Title" type="Label3D" parent="TicketMesh" unique_id=75580497]
-transform = Transform3D(0.9974188, -0.14360596, -3.897469e-10, -3.5283563e-09, -1.0888102e-07, 1, -0.07180298, -1.9948376, -5.4553336e-08, -0.10725595, 0.0009999603, -0.5372242)
+transform = Transform3D(0.9835795, -0.36095068, -2.4794247e-09, -1.036824e-08, -1.4048929e-07, 1, -0.18047534, -1.967159, -7.09624e-08, -0.10725595, 0.0009999605, -0.5372242)
 pixel_size = 0.001
 shaded = true
 double_sided = false

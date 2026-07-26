@@ -3,13 +3,23 @@
 [ext_resource type="Script" uid="uid://dulb72uu4rwuk" path="res://Cooking/Ingredients/ingredient.gd" id="1_skvg1"]
 [ext_resource type="Resource" uid="uid://cavlhsox0dika" path="res://ticketsystem/resources/broccoli.tres" id="2_7b6cp"]
 [ext_resource type="ArrayMesh" uid="uid://c56w413heaq6r" path="res://Cooking/Ingredients/Brocoli/Brocoli.tres" id="3_0e2wb"]
+[ext_resource type="PackedScene" uid="uid://c5jb8qgn17sj5" path="res://Interactable/interactable.tscn" id="4_0e2wb"]
 
-[node name="Brocoli" type="Node3D" unique_id=1546075127 node_paths=PackedStringArray("meshes")]
+[sub_resource type="SphereShape3D" id="SphereShape3D_l4ddk"]
+radius = 0.11047399
+
+[node name="Brocoli" type="Node3D" unique_id=1546075127 node_paths=PackedStringArray("meshes", "inter_pickup")]
 script = ExtResource("1_skvg1")
 data = ExtResource("2_7b6cp")
 meshes = [NodePath("Brocoli")]
+inter_pickup = NodePath("Interactable")
 metadata/_custom_type_script = "uid://dulb72uu4rwuk"
 
 [node name="Brocoli" type="MeshInstance3D" parent="." unique_id=1512228338]
-transform = Transform3D(0.16, 0, 0, 0, -6.993822e-09, -0.16, 0, 0.16, -6.993822e-09, 0, 0, 0)
+transform = Transform3D(0.16, 0, 0, 0, 0.16, -4.440892e-16, 0, 4.440892e-16, 0.16, 0, 0.011537522, 0)
 mesh = ExtResource("3_0e2wb")
+
+[node name="Interactable" parent="." unique_id=429174571 instance=ExtResource("4_0e2wb")]
+
+[node name="Collider" type="CollisionShape3D" parent="Interactable" unique_id=1104082880]
+shape = SubResource("SphereShape3D_l4ddk")

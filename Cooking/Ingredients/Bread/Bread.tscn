@@ -3,14 +3,24 @@
 [ext_resource type="Script" uid="uid://dulb72uu4rwuk" path="res://Cooking/Ingredients/ingredient.gd" id="1_j3g5w"]
 [ext_resource type="Resource" uid="uid://d0f2cauwut22p" path="res://ticketsystem/resources/bread.tres" id="2_uagve"]
 [ext_resource type="ArrayMesh" uid="uid://bxqguofbo0dof" path="res://Cooking/Ingredients/Bread/Bread.tres" id="3_dtecw"]
+[ext_resource type="PackedScene" uid="uid://c5jb8qgn17sj5" path="res://Interactable/interactable.tscn" id="4_dtecw"]
 
-[node name="Bread" type="Node3D" unique_id=1665781404 node_paths=PackedStringArray("meshes")]
+[sub_resource type="SphereShape3D" id="SphereShape3D_uflf2"]
+radius = 0.11047399
+
+[node name="Bread" type="Node3D" unique_id=1665781404 node_paths=PackedStringArray("meshes", "inter_pickup")]
 script = ExtResource("1_j3g5w")
 data = ExtResource("2_uagve")
 meshes = [NodePath("Bread")]
 prep_colour = Color(0.5882353, 0.4509804, 0.20392157, 1)
+inter_pickup = NodePath("Interactable")
 metadata/_custom_type_script = "uid://dulb72uu4rwuk"
 
 [node name="Bread" type="MeshInstance3D" parent="." unique_id=1643763088]
-transform = Transform3D(-3.5070112e-08, 7.6878955e-08, -0.36562222, 0, -0.87939274, -3.196371e-08, -0.8023106, -3.360486e-15, 1.5981856e-08, -9.4642765e-09, 0.1082587, 4.1369666e-16)
+transform = Transform3D(-3.5070116e-08, 7.6878955e-08, -0.36562222, -0.8023106, 3.8439474e-08, 1.598186e-08, 3.507011e-08, 0.87939274, 3.196371e-08, -9.4642765e-09, -0.00056277215, -0.042424943)
 mesh = ExtResource("3_dtecw")
+
+[node name="Interactable" parent="." unique_id=429174571 instance=ExtResource("4_dtecw")]
+
+[node name="Collider" type="CollisionShape3D" parent="Interactable" unique_id=1731847156]
+shape = SubResource("SphereShape3D_uflf2")

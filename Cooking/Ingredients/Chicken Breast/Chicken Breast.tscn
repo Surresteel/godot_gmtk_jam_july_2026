@@ -3,13 +3,23 @@
 [ext_resource type="Script" uid="uid://dulb72uu4rwuk" path="res://Cooking/Ingredients/ingredient.gd" id="1_uol3f"]
 [ext_resource type="Resource" uid="uid://bbacld0t00y05" path="res://ticketsystem/resources/chickenbreast.tres" id="2_7gvoi"]
 [ext_resource type="ArrayMesh" uid="uid://dxi1u8ata3cin" path="res://Cooking/Ingredients/Chicken Breast/Chicken breast.tres" id="3_tsfcw"]
+[ext_resource type="PackedScene" uid="uid://c5jb8qgn17sj5" path="res://Interactable/interactable.tscn" id="4_tsfcw"]
 
-[node name="ChickenBreast" type="Node3D" unique_id=398388009 node_paths=PackedStringArray("meshes")]
+[sub_resource type="SphereShape3D" id="SphereShape3D_nateg"]
+radius = 0.11047399
+
+[node name="ChickenBreast" type="Node3D" unique_id=398388009 node_paths=PackedStringArray("meshes", "inter_pickup")]
 script = ExtResource("1_uol3f")
 data = ExtResource("2_7gvoi")
 meshes = [NodePath("Chicken breast")]
+inter_pickup = NodePath("Interactable")
 metadata/_custom_type_script = "uid://dulb72uu4rwuk"
 
 [node name="Chicken breast" type="MeshInstance3D" parent="." unique_id=1243410874]
 transform = Transform3D(0.095, 0, 0, 0, 0.095, 0, 0, 0, 0.095, 0, 0, 0)
 mesh = ExtResource("3_tsfcw")
+
+[node name="Interactable" parent="." unique_id=429174571 instance=ExtResource("4_tsfcw")]
+
+[node name="Collider" type="CollisionShape3D" parent="Interactable" unique_id=234531030]
+shape = SubResource("SphereShape3D_nateg")

@@ -5,6 +5,7 @@
 [ext_resource type="ArrayMesh" uid="uid://byyekiu4wpl07" path="res://Cooking/Ingredients/Onion/Onion.tres" id="3_vggs1"]
 [ext_resource type="Texture2D" uid="uid://bojmpo3jnyjx2" path="res://Cooking/DicedModel/Model/h_map.png" id="5_vy6bv"]
 [ext_resource type="Texture2D" uid="uid://bms5ghkf2bp4v" path="res://Cooking/DicedModel/Model/n_map.png" id="6_7wk6f"]
+[ext_resource type="PackedScene" uid="uid://c5jb8qgn17sj5" path="res://Interactable/interactable.tscn" id="6_8hv3e"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pd2v6"]
 resource_name = "Material"
@@ -54,7 +55,10 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_1xq7a")
 
-[node name="Onion" type="Node3D" unique_id=2144904434 node_paths=PackedStringArray("meshes", "prep_dictionary")]
+[sub_resource type="SphereShape3D" id="SphereShape3D_vy6bv"]
+radius = 0.11047399
+
+[node name="Onion" type="Node3D" unique_id=2144904434 node_paths=PackedStringArray("meshes", "prep_dictionary", "inter_pickup")]
 script = ExtResource("1_f05cb")
 data = ExtResource("2_c71o2")
 meshes = [NodePath("Onion_001"), NodePath("Icosphere")]
@@ -62,13 +66,19 @@ prep_colour = Color(0, 0, 0, 1)
 prep_dictionary = {
 0: NodePath("Icosphere")
 }
+inter_pickup = NodePath("Interactable")
 metadata/_custom_type_script = "uid://dulb72uu4rwuk"
 
 [node name="Onion_001" type="MeshInstance3D" parent="." unique_id=1360754261]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.036981344, 0)
 mesh = ExtResource("3_vggs1")
 
 [node name="Icosphere" type="MeshInstance3D" parent="." unique_id=1734912581]
 transform = Transform3D(0.058, 0, 0, 0, 0.058, 0, 0, 0, 0.058, 0, 0, 0)
 visible = false
 mesh = SubResource("ArrayMesh_8hv3e")
+
+[node name="Interactable" parent="." unique_id=429174571 instance=ExtResource("6_8hv3e")]
+
+[node name="Collider" type="CollisionShape3D" parent="Interactable" unique_id=725064178]
+shape = SubResource("SphereShape3D_vy6bv")

@@ -3,13 +3,23 @@
 [ext_resource type="Script" uid="uid://dulb72uu4rwuk" path="res://Cooking/Ingredients/ingredient.gd" id="1_ffaqc"]
 [ext_resource type="Resource" uid="uid://rneejnyhqrei" path="res://ticketsystem/resources/chickenthigh.tres" id="2_cyqts"]
 [ext_resource type="ArrayMesh" uid="uid://b3uqldhll76l5" path="res://Cooking/Ingredients/Chicken Leg/Chicken Leg.tres" id="3_wtjhr"]
+[ext_resource type="PackedScene" uid="uid://c5jb8qgn17sj5" path="res://Interactable/interactable.tscn" id="4_wtjhr"]
 
-[node name="ChickenLeg" type="Node3D" unique_id=1243591717 node_paths=PackedStringArray("meshes")]
+[sub_resource type="SphereShape3D" id="SphereShape3D_cr6gk"]
+radius = 0.11047399
+
+[node name="ChickenLeg" type="Node3D" unique_id=1243591717 node_paths=PackedStringArray("meshes", "inter_pickup")]
 script = ExtResource("1_ffaqc")
 data = ExtResource("2_cyqts")
 meshes = [NodePath("Chicken leg")]
+inter_pickup = NodePath("Interactable")
 metadata/_custom_type_script = "uid://dulb72uu4rwuk"
 
 [node name="Chicken leg" type="MeshInstance3D" parent="." unique_id=1391685765]
-transform = Transform3D(0.26, 0, 0, 0, -1.13649605e-08, -0.26, 0, 0.26, -1.13649605e-08, 0, 0, 0)
+transform = Transform3D(0.26, 0, 0, 0, 0.26, -8.881784e-16, 0, 8.881784e-16, 0.26, 0, 0.024615161, 0)
 mesh = ExtResource("3_wtjhr")
+
+[node name="Interactable" parent="." unique_id=429174571 instance=ExtResource("4_wtjhr")]
+
+[node name="Collider" type="CollisionShape3D" parent="Interactable" unique_id=1828558936]
+shape = SubResource("SphereShape3D_cr6gk")

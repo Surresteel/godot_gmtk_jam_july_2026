@@ -3,13 +3,23 @@
 [ext_resource type="Script" uid="uid://dulb72uu4rwuk" path="res://Cooking/Ingredients/ingredient.gd" id="1_udf2r"]
 [ext_resource type="Resource" uid="uid://dewv1qfkbc4nn" path="res://ticketsystem/resources/carrot.tres" id="2_pwlt4"]
 [ext_resource type="ArrayMesh" uid="uid://ds0vj5ktb25qa" path="res://Cooking/Ingredients/Carrot/Carrot.tres" id="3_ojcu4"]
+[ext_resource type="PackedScene" uid="uid://c5jb8qgn17sj5" path="res://Interactable/interactable.tscn" id="4_ojcu4"]
 
-[node name="Carrot" type="Node3D" unique_id=638008396 node_paths=PackedStringArray("meshes")]
+[sub_resource type="SphereShape3D" id="SphereShape3D_co8n7"]
+radius = 0.11047399
+
+[node name="Carrot" type="Node3D" unique_id=638008396 node_paths=PackedStringArray("meshes", "inter_pickup")]
 script = ExtResource("1_udf2r")
 data = ExtResource("2_pwlt4")
 meshes = [NodePath("Carrot")]
+inter_pickup = NodePath("Interactable")
 metadata/_custom_type_script = "uid://dulb72uu4rwuk"
 
 [node name="Carrot" type="MeshInstance3D" parent="." unique_id=1134352160]
-transform = Transform3D(0.625, 0, 0, 0, 0.625, 0, 0, 0, 0.625, 0, 0, 0)
+transform = Transform3D(0.625, 0, 0, 0, -2.7319619e-08, -0.625, 0, 0.625, -2.7319619e-08, 0, 0.015467167, 0)
 mesh = ExtResource("3_ojcu4")
+
+[node name="Interactable" parent="." unique_id=429174571 instance=ExtResource("4_ojcu4")]
+
+[node name="Collider" type="CollisionShape3D" parent="Interactable" unique_id=385877364]
+shape = SubResource("SphereShape3D_co8n7")

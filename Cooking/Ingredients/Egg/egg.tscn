@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dulb72uu4rwuk" path="res://Cooking/Ingredients/ingredient.gd" id="1_6m5vo"]
 [ext_resource type="Resource" uid="uid://xlhqs5p6wjpf" path="res://ticketsystem/resources/egg.tres" id="2_q580g"]
 [ext_resource type="ArrayMesh" uid="uid://b730ku0p41boc" path="res://Cooking/Ingredients/Egg/Egg.tres" id="3_fogdk"]
+[ext_resource type="PackedScene" uid="uid://c5jb8qgn17sj5" path="res://Interactable/interactable.tscn" id="4_w08qh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s6ngk"]
 resource_name = "white"
@@ -74,13 +75,17 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_m8b2k")
 
-[node name="Egg" type="Node3D" unique_id=376967929 node_paths=PackedStringArray("meshes", "prep_dictionary")]
+[sub_resource type="SphereShape3D" id="SphereShape3D_6i2h1"]
+radius = 0.11047399
+
+[node name="Egg" type="Node3D" unique_id=376967929 node_paths=PackedStringArray("meshes", "prep_dictionary", "inter_pickup")]
 script = ExtResource("1_6m5vo")
 data = ExtResource("2_q580g")
 meshes = [NodePath("Egg"), NodePath("Cracked Egg")]
 prep_dictionary = {
 9: NodePath("Cracked Egg")
 }
+inter_pickup = NodePath("Interactable")
 metadata/_custom_type_script = "uid://dulb72uu4rwuk"
 
 [node name="Cracked Egg" type="MeshInstance3D" parent="." unique_id=912660465]
@@ -89,5 +94,10 @@ visible = false
 mesh = SubResource("ArrayMesh_q580g")
 
 [node name="Egg" type="MeshInstance3D" parent="." unique_id=1888217179]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+transform = Transform3D(0.1, 0, 0, 0, -4.371139e-09, -0.1, 0, 0.1, -4.371139e-09, 0, 0.018987037, 0)
 mesh = ExtResource("3_fogdk")
+
+[node name="Interactable" parent="." unique_id=429174571 instance=ExtResource("4_w08qh")]
+
+[node name="Collider" type="CollisionShape3D" parent="Interactable" unique_id=854290501]
+shape = SubResource("SphereShape3D_6i2h1")

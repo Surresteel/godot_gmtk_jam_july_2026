@@ -3,13 +3,23 @@
 [ext_resource type="Script" uid="uid://dulb72uu4rwuk" path="res://Cooking/Ingredients/ingredient.gd" id="1_pi5nm"]
 [ext_resource type="Resource" uid="uid://pfq8en113e0i" path="res://ticketsystem/resources/potato.tres" id="2_t7m8j"]
 [ext_resource type="ArrayMesh" uid="uid://dem4x83k2af0k" path="res://Cooking/Ingredients/Potato/Potato.tres" id="3_jlkc0"]
+[ext_resource type="PackedScene" uid="uid://c5jb8qgn17sj5" path="res://Interactable/interactable.tscn" id="4_jlkc0"]
 
-[node name="Potato" type="Node3D" unique_id=96665190 node_paths=PackedStringArray("meshes")]
+[sub_resource type="SphereShape3D" id="SphereShape3D_fep5u"]
+radius = 0.11047399
+
+[node name="Potato" type="Node3D" unique_id=96665190 node_paths=PackedStringArray("meshes", "inter_pickup")]
 script = ExtResource("1_pi5nm")
 data = ExtResource("2_t7m8j")
 meshes = [NodePath("Potato")]
+inter_pickup = NodePath("Interactable")
 metadata/_custom_type_script = "uid://dulb72uu4rwuk"
 
 [node name="Potato" type="MeshInstance3D" parent="." unique_id=1854626893]
-transform = Transform3D(0.285, 0, 0, 0, 0.285, 0, 0, 0, 0.285, 0, 0, 0)
+transform = Transform3D(-1.2457746e-08, 0, 0.285, 0, 0.285, 0, -0.285, 0, -1.2457746e-08, 0, 0.021097787, 0)
 mesh = ExtResource("3_jlkc0")
+
+[node name="Interactable" parent="." unique_id=429174571 instance=ExtResource("4_jlkc0")]
+
+[node name="Collider" type="CollisionShape3D" parent="Interactable" unique_id=1677536268]
+shape = SubResource("SphereShape3D_fep5u")

@@ -383,31 +383,31 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10541172, 0.04081704, -0.1
 shape = SubResource("BoxShape3D_ifow5")
 
 [node name="ToastSlotFL" parent="." unique_id=1464788433 instance=ExtResource("2_0yicp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0629016, 0.15293925, -0.054919306)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.0629016, 0.12318969, -0.054919306)
 
 [node name="Collider" type="CollisionShape3D" parent="ToastSlotFL" unique_id=1690260908]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.020056158, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, -0.0034713298, -0.0012904331, -0.01724863)
 shape = SubResource("BoxShape3D_abi3o")
 
 [node name="ToastSlotFR" parent="." unique_id=1330814128 instance=ExtResource("2_0yicp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06881757, 0.15293925, -0.054919306)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.06881757, 0.12318969, -0.054919306)
 
 [node name="Collider" type="CollisionShape3D" parent="ToastSlotFR" unique_id=1395029150]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.020056158, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.0006942451, -0.007429216, -0.017066479)
 shape = SubResource("BoxShape3D_abi3o")
 
 [node name="ToastSlotRR" parent="." unique_id=2033960319 instance=ExtResource("2_0yicp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.06881757, 0.15293925, 0.062374886)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.06881757, 0.12318969, 0.062374886)
 
 [node name="Collider" type="CollisionShape3D" parent="ToastSlotRR" unique_id=1881032937]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.020056158, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.0004136376, -0.01701118)
 shape = SubResource("BoxShape3D_abi3o")
 
 [node name="ToastSlotRL" parent="." unique_id=905201494 instance=ExtResource("2_0yicp")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.059969574, 0.15293925, 0.062374886)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.059969574, 0.12318969, 0.062374886)
 
 [node name="Collider" type="CollisionShape3D" parent="ToastSlotRL" unique_id=763888415]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.020056158, 0)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.0004136376, -0.01701118)
 shape = SubResource("BoxShape3D_abi3o")
 
 [node name="AlarmL" parent="." unique_id=1661125311 instance=ExtResource("3_udcx1")]
