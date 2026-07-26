@@ -14,6 +14,7 @@ var current_mesh_index: int = 0
 @export var prep_dictionary: Dictionary[IngredientData.PREP, MeshInstance3D]
 
 const COOK_COLOURS: Gradient = preload("uid://88d3j1g3o83w")
+const ING_SPHERE = preload("uid://diegpaqm2wyqr")
 
 signal destroy_me(me)
 
@@ -40,8 +41,22 @@ func _ready() -> void:
 		inter_pickup.process_mode = Node.PROCESS_MODE_DISABLED
 		inter_pickup.pressed.connect(pickup)
 	if data.doneness == null:
-		data.doneness.append(data.DONENESS.RAW)
-	
+		data.doneness.append(data.DONENESS.NA)
+	_create_detection_area()
+
+
+func _create_detection_area() -> void:
+	var ar := Area3D.new()
+	self.add_child(ar)
+	ar.collision_layer = 1 << 1
+	ar.collision_mask = 0
+	ar.monitorable = true
+	ar.monitoring = false
+	var cs := CollisionShape3D.new()
+	ar.add_child(cs)
+	cs.shape = ING_SPHERE
+	return
+
 
 func cook(amount: float, even_cook: bool) -> void:
 	if even_cook:

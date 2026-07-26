@@ -28,6 +28,9 @@ size = Vector2(0.75, 1.5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_ifow5"]
 size = Vector3(0.1484375, 0.30297852, 0.032226563)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_wvhbo"]
+radius = 0.195639
+
 [node name="Ticket" type="Node3D" unique_id=1322980451]
 script = ExtResource("1_fgxps")
 ingredient_amount = 5
@@ -83,3 +86,10 @@ line_spacing = -58.41
 
 [node name="Collider" type="CollisionShape3D" parent="Pickup" unique_id=276238791]
 shape = SubResource("BoxShape3D_ifow5")
+
+[node name="TicketArea" type="Area3D" parent="." unique_id=1893694595]
+collision_layer = 8
+collision_mask = 0
+
+[node name="Collider" type="CollisionShape3D" parent="TicketArea" unique_id=1411212871]
+shape = SubResource("SphereShape3D_wvhbo")

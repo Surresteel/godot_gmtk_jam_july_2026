@@ -12,7 +12,8 @@ class_name Ticket
 const NA_C := IngredientData.COOK.NA
 const NA_D := IngredientData.DONENESS.NA
 const NA_P := IngredientData.PREP.NA
-const MAX_ORDER_ITEMS: int = 5
+#const MAX_ORDER_ITEMS: int = 5
+const MAX_ORDER_ITEMS: int = 1
 static var order_number: int = 1
 
 # INNER CLASSES:
@@ -41,7 +42,8 @@ var ticket_order: Order = null
 #	CALLBACKS:
 #===============================================================================
 func _ready() -> void:
-	ticket_order = generate_dish()
+	ingredient_amount = randi_range(1, MAX_ORDER_ITEMS)
+	generate_dish()
 	inter_pickup.pressed.connect(pick_up)
 	return
 
@@ -69,9 +71,9 @@ func add_ingredient(arr: Array[IngredientData]) -> bool:
 	return true
 
 
-func generate_ticket() -> Order:
+func _generate_ticket() -> void:
 	if _ingredient_list_ready.is_empty():
-		return null
+		return
 	ticket_order = Order.new()
 	label.text = ""
 	for i in _ingredient_list_ready:
@@ -92,6 +94,7 @@ func generate_ticket() -> Order:
 		var prep_key = "" if prep == NA_P else i.PREP.find_key(prep)
 		
 		var order_item := OrderItem.new()
+		order_item.item = i.name
 		order_item.cook = cook
 		order_item.donness = done
 		order_item.prep = prep
@@ -106,17 +109,21 @@ func generate_ticket() -> Order:
 	order_number += 1
 	ingredient_amount = randi_range(1, MAX_ORDER_ITEMS)
 	
-	return null
+	return
 
 
-func generate_dish() -> Order:
+func generate_dish() -> void:
 	var temp: Array[IngredientData] = ingredient_list.duplicate()
 	_ingredient_list_ready.clear()
 	ingredient_amount = mini(ingredient_amount, ingredient_list.size())
 	for i in range(ingredient_amount):
 		add_ingredient(temp)
-	generate_ticket()
-	return null
+	_generate_ticket()
+	return
+
+
+func get_order() -> Order:
+	return ticket_order
 
 
 #func _unhandled_input(event: InputEvent) -> void:

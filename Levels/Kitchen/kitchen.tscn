@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://8rjrxxb052f4" path="res://Cooking/ChoppingBoard/chopping_board.tscn" id="10_vlpn2"]
 [ext_resource type="PackedScene" uid="uid://ctbjli6hi8foy" path="res://Cooking/Containers/Ingredient Container/ingredient_holder.tscn" id="12_oclhi"]
 [ext_resource type="PackedScene" uid="uid://ehl176ciki56" path="res://Cooking/FryingPan/frying_pan.tscn" id="14_8l2iy"]
-[ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Onion MetaData.tres" id="15_a6wkw"]
+[ext_resource type="Resource" uid="uid://ix2g54a8emp3" path="res://Cooking/Containers/GENERATED RESOURCES/Onion MetaData.tres" id="15_a6wkw"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Broccoli MetaData.tres" id="15_d6fmk"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Potato MetaData.tres" id="16_0w3sc"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Bread MetaData.tres" id="17_tt7yw"]
@@ -126,7 +126,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8365388, 0.3, -4.3262596)
 ingredient_to_give = ExtResource("15_d6fmk")
 
 [node name="CarrotHolder" parent="." unique_id=198878219 instance=ExtResource("12_oclhi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8365388, 0.3, -4.3262596)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.903524, 0.3, -4.3262596)
 ingredient_to_give = ExtResource("18_2p6jd")
 
 [node name="ChilliHolder" parent="." unique_id=1076045106 instance=ExtResource("12_oclhi")]

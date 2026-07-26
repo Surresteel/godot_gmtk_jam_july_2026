@@ -8,5 +8,5 @@ script = ExtResource("1_duvgk")
 name = "Carrot"
 mesh = ExtResource("1_wli7l")
 cook = Array[int]([0, 1, 3, 2])
-prep = Array[int]([0])
+prep = Array[int]([2, 0])
 metadata/_custom_type_script = "uid://br2b1npw4bnqg"

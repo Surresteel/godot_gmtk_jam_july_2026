@@ -8,6 +8,6 @@ script = ExtResource("1_ycmdq")
 name = "Egg"
 mesh = ExtResource("1_8qkwd")
 cook = Array[int]([0, 1, 2, 3, 4])
-prep = Array[int]([1])
+prep = Array[int]([2, 1])
 doneness_intervals = Array[float]([15.0, 25.0, 35.0])
 metadata/_custom_type_script = "uid://br2b1npw4bnqg"

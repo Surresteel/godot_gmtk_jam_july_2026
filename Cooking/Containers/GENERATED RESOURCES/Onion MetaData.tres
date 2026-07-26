@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="IngredientMetaData" format=4 uid="uid://b13xxdqmyx5af"]
+[gd_resource type="Resource" script_class="IngredientMetaData" format=4 uid="uid://4afhs0qxc4ho"]
 
 [ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/IngredientData.gd" id="1_8owab"]
 [ext_resource type="PackedScene" uid="uid://py0umhddtq4n" path="res://Cooking/Ingredients/Onion/Onion.tscn" id="2_ki4od"]
