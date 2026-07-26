@@ -225,7 +225,7 @@ func putdown_ingredient() -> void:
 	hand.reparent(result["collider"])
 	hand.global_position = result["position"] + result["normal"] * 0.005
 	#var b := Basis.looking_at(result["normal"], hand_pivot.global_basis.y)
-	var b := Basis.looking_at(Vector3.FORWARD, Vector3.UP)
+	var b := Basis.looking_at(Vector3.FORWARD, Vector3.UP).scaled(hand.scale)
 	hand.global_basis = b
 	hand.put_down()
 	hand = null

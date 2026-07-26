@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bss3pcr33idw8"]
+
+[ext_resource type="Script" uid="uid://dcr6vepd7kjhd" path="res://ParticleEffects/particle_fx.gd" id="1_l5s4d"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_wvhbo"]
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_min = 0.14
+initial_velocity_max = 0.39999998
+gravity = Vector3(0, 1, 0)
+scale_min = 0.19999999
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_abi3o"]
+albedo_color = Color(0.9434514, 0.37956363, 5.7756904e-07, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ifow5"]
+material = SubResource("StandardMaterial3D_abi3o")
+radius = 0.1
+height = 0.2
+
+[node name="Flash" type="GPUParticles3D" unique_id=328277064]
+emitting = false
+amount = 25
+lifetime = 3.0
+one_shot = true
+explosiveness = 0.9
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_wvhbo")
+draw_pass_1 = SubResource("SphereMesh_ifow5")
+script = ExtResource("1_l5s4d")

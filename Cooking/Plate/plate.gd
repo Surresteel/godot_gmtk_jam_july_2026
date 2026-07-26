@@ -21,6 +21,9 @@ var _ticket: Ticket = null
 var _ingredients: Array[Ingredient]
 var _order_status: bool = false
 
+# PARTICLES:
+const FLASH = preload("uid://bss3pcr33idw8")
+
 
 #===============================================================================
 #	CALLBACK:
@@ -38,6 +41,9 @@ func _physics_process(_delta: float) -> void:
 	if _order_status and not _has_emitted and _ticket:
 		order_complete.emit(_ticket)
 		_has_emitted = true
+		var fx: GPUParticles3D = FLASH.instantiate()
+		get_tree().current_scene.add_child(fx)
+		self.queue_free()
 	return
 
 

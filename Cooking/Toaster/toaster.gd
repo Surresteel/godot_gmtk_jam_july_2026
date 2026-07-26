@@ -188,6 +188,7 @@ func add_food(p: Player, slot: Node3D) -> void:
 	_ingredients[slot].global_basis = self.global_basis.scaled(
 				_ingredients[slot].scale)
 	_ingredients[slot].physically_move(slot, Vector3.ZERO)
+	_ingredients[slot].cook_type = IngredientData.COOK.TOASTED
 	if slot_sides[slot]:
 		_heat_area_r.increase_cook_level.connect(_ingredients[slot].cook)
 	else:

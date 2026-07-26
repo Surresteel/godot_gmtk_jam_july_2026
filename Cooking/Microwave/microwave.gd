@@ -146,6 +146,7 @@ func add_food(p: Player) -> void:
 	if not _ingredient:
 		return
 	_ingredient.physically_move(self, global_basis * _heat_pos)
+	_ingredient.cook_type = IngredientData.COOK.MICROWAVED
 	_heat_area.increase_cook_level.connect(_ingredient.cook)
 	return
 
