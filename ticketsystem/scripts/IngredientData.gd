@@ -2,6 +2,8 @@ extends Resource
 
 class_name IngredientData
 
+const MAX_COOK_VALUE: float = 150
+
 enum COOK { RAW, BAKED, FRIED, MICROWAVED, TOASTED, NA }
 enum DONENESS { RAW, RARE, MEDIUMRARE, MEDIUM, WELLDONE, BURNT, NA }
 enum PREP { CHOPPED, SUNNYSIDEUP, NA }
@@ -17,7 +19,8 @@ enum PREP { CHOPPED, SUNNYSIDEUP, NA }
 @export var doneness: Array[DONENESS] = [DONENESS.RAW, DONENESS.WELLDONE]
 @export var prep: Array[PREP]
 @export_subgroup("CookLevel")
-@export var doneness_intervals: Array[float] = [50.0]
+@export var cook_scale: float = 1
+#@export var doneness_intervals: Array[float] = [50.0]
 @export var cooked_colour: Color = Color.BLACK
 
 @export_group("Specifics")

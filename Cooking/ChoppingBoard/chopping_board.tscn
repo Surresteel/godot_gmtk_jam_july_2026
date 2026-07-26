@@ -91,4 +91,5 @@ transform = Transform3D(0.9088679, 0, -0.41708383, 0, 1, 0, 0.41708383, 0, 0.908
 
 [node name="Prep_Station" parent="." unique_id=1831401986 instance=ExtResource("5_bclxw")]
 transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0.13507953, 0)
-prep_types = Array[int]([0, 3])
+show_label = false
+prep_types = Array[int]([0])

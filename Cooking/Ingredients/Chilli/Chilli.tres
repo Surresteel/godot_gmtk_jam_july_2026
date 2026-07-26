@@ -9,7 +9,7 @@ roughness = 0.5
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ut4fb"]
 resource_name = "Material.026"
 cull_mode = 2
-albedo_color = Color(0.9063355, 0.27367827, 0.31753382, 1)
+albedo_color = Color(0.90588236, 0.27450982, 0.31764707, 1)
 roughness = 0.5
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_llb31"]

@@ -62,7 +62,6 @@ radius = 0.11047399
 script = ExtResource("1_f05cb")
 data = ExtResource("2_c71o2")
 meshes = [NodePath("Onion_001"), NodePath("Icosphere")]
-prep_colour = Color(0, 0, 0, 1)
 prep_dictionary = {
 0: NodePath("Icosphere")
 }

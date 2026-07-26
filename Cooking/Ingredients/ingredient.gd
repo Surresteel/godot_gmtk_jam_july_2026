@@ -9,11 +9,7 @@ const COOK_SHADER_X = preload("uid://dqu0s5nb21df2")
 
 
 @export var meshes: Array[MeshInstance3D]
-@export var top_half_mesh: MeshInstance3D
-@export var bottom_half_mesh: MeshInstance3D # repalce with shader if can
 var current_mesh_index: int = 0
-
-@export var prep_colour: Color = Color.WHITE
 
 @export var prep_dictionary: Dictionary[IngredientData.PREP, MeshInstance3D]
 
@@ -58,7 +54,6 @@ func _shader_material_force() -> void:
 		for j in range(i.get_surface_override_material_count()):
 			if i.get_surface_override_material(j) == null:
 				if use_z_shader:
-					var shader = COOK_SHADER_Z.duplicate()
 					i.set_surface_override_material(j, COOK_SHADER_Z.duplicate())
 				elif use_x_shader:
 					i.set_surface_override_material(j, COOK_SHADER_X.duplicate())
@@ -66,24 +61,24 @@ func _shader_material_force() -> void:
 					i.set_surface_override_material(j, COOK_SHADER_DEFAULT.duplicate())
 
 func do_shader_stuff() -> void:
-	var max_cook_time = data.doneness_intervals[data.doneness_intervals.size()-1]
+	var max_cook_time = data.MAX_COOK_VALUE * data.cook_scale
 	var current_mesh: = meshes[current_mesh_index].mesh
 	
 	var top = remap(top_side_cook_level, 0,max_cook_time/2, 0,1)
 	var bot = remap(bot_side_cook_level,0,max_cook_time/2, 0,1)
 	
 	var aabb = meshes[current_mesh_index].mesh.get_aabb()
-	var min: float
-	var max: float
+	var _min: float
+	var _max: float
 	if use_z_shader:
-		min = aabb.position.z
-		max = aabb.position.z + aabb.size.z
+		_min = aabb.position.z
+		_max = aabb.position.z + aabb.size.z
 	elif use_x_shader:
-		min = aabb.position.x
-		max = aabb.position.x + aabb.size.x
+		_min = aabb.position.x
+		_max = aabb.position.x + aabb.size.x
 	else:
-		min = aabb.position.y
-		max = aabb.position.y + aabb.size.y
+		_min = aabb.position.y
+		_max = aabb.position.y + aabb.size.y
 	for i in range(current_mesh.get_surface_count()):
 		var material : ShaderMaterial = meshes[current_mesh_index].get_surface_override_material(i)
 		
@@ -98,8 +93,8 @@ func do_shader_stuff() -> void:
 		material.set_shader_parameter("cooked_colour",\
 				 data.cooked_colour)
 
-		material.set_shader_parameter("min_y", min)
-		material.set_shader_parameter("max_y", max)
+		material.set_shader_parameter("min_y", _min)
+		material.set_shader_parameter("max_y", _max)
 
 func _create_detection_area() -> void:
 	var ar := Area3D.new()
@@ -115,6 +110,7 @@ func _create_detection_area() -> void:
 
 
 func cook(amount: float, even_cook: bool) -> void:
+	amount * data.cook_scale
 	if even_cook:
 		top_side_cook_level += amount/2
 		bot_side_cook_level += amount/2
@@ -127,7 +123,9 @@ func cook(amount: float, even_cook: bool) -> void:
 	
 	cook_level = top_side_cook_level + bot_side_cook_level
 	
-	if cook_level > data.doneness_intervals[data.doneness_intervals.size()-1]:
+	var burnt_amount: float = remap(cook_level,0, data.MAX_COOK_VALUE,0,IngredientData.DONENESS.size()-1)
+	
+	if burnt_amount > IngredientData.DONENESS.size()-2:
 		scale_tween = create_tween()
 		scale_tween.tween_property(self, "scale", scale - (Vector3.ONE * amount * 0.1) ,0.1)
 		if scale <= Vector3.ZERO:
@@ -135,12 +133,8 @@ func cook(amount: float, even_cook: bool) -> void:
 			destroy_me.emit()
 			queue_free()
 	
-	#print("Cook Level = ", str(cook_level).pad_decimals(2))
-	if _is_evenly_cooked():
-		_set_doneness()
-	else:
-		if cook_level > data.doneness_intervals[data.doneness_intervals.size()-1]:
-			doneness_type = data.DONENESS.BURNT
+	
+	doneness_type = IngredientData.DONENESS.values()[int(burnt_amount)]
 
 func _process(_delta: float) -> void:
 	do_shader_stuff()
@@ -166,19 +160,6 @@ func _is_evenly_cooked() -> bool:
 		return false
 	else:
 		return true
-
-func _set_doneness() -> void:
-	if data.doneness_intervals.size() != data.doneness.size():
-		return
-	var iterations: int = data.doneness_intervals.size()
-	for i in range(iterations-1,-1,-1):
-		if cook_level < data.doneness_intervals[i]:
-			doneness_type = data.doneness[i]
-		else:
-			break
-	
-	if cook_level > data.doneness_intervals[iterations-1]:
-		doneness_type = data.DONENESS.BURNT
 
 func flip_side() -> void:
 	pan_facing_side = (pan_facing_side + 1) % side.size() as side
