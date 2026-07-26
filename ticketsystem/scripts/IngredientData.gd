@@ -16,7 +16,6 @@ enum PREP { CHOPPED, SUNNYSIDEUP, NA }
 @export_group("Cooking")
 @export_subgroup("Style")
 @export var cook: Array[COOK]
-@export var doneness: Array[DONENESS] = [DONENESS.RAW, DONENESS.WELLDONE]
 @export var prep: Array[PREP]
 @export_subgroup("CookLevel")
 @export var cook_scale: float = 1

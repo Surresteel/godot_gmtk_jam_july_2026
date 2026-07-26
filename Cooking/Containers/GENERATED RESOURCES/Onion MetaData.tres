@@ -1,8 +1,8 @@
-[gd_resource type="Resource" script_class="IngredientMetaData" format=4 uid="uid://dlsqt66syiq0s"]
+[gd_resource type="Resource" script_class="IngredientMetaData" format=4]
 
-[ext_resource type="Script" uid="uid://br2b1npw4bnqg" path="res://ticketsystem/scripts/IngredientData.gd" id="1_8owab"]
-[ext_resource type="PackedScene" uid="uid://py0umhddtq4n" path="res://Cooking/Ingredients/Onion/Onion.tscn" id="2_ki4od"]
-[ext_resource type="Script" uid="uid://bsw0u32sk22ag" path="res://Cooking/Ingredients/IngredientMetaData.gd" id="3_e0anx"]
+[ext_resource type="Script" path="res://ticketsystem/scripts/IngredientData.gd" id="1_8owab"]
+[ext_resource type="PackedScene" path="res://Cooking/Ingredients/Onion/Onion.tscn" id="2_ki4od"]
+[ext_resource type="Script" path="res://Cooking/Ingredients/IngredientMetaData.gd" id="3_e0anx"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8owab"]
 resource_local_to_scene = true

@@ -11,9 +11,7 @@
 script = ExtResource("2_6kruu")
 name = "TEST"
 cook = Array[int]([0, 1, 2, 3, 4, 5, 6, 7, 8])
-doneness = Array[int]([0, 1, 2, 3, 4, 5, 6])
 prep = Array[int]([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
-doneness_intervals = Array[float]([2.0, 4.0, 6.0, 8.0, 9.0, 10.0])
 cooked_colour = Color(0.15489992, 0.06669104, 0, 1)
 metadata/_custom_type_script = "uid://br2b1npw4bnqg"
 

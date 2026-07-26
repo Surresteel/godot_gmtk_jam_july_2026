@@ -1,6 +1,6 @@
 extends Ingredient
 
-@onready var label_3d: Label3D = $Label3D
+#@onready var label_3d: Label3D = $Label3D
 
 var top_cook: float
 var bot_cook: float
@@ -18,6 +18,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	pass
 	#var max_cook_time = data.doneness_intervals[data.doneness_intervals.size()-1]
 	#var current_mesh: = meshes[current_mesh_index].mesh
 	#
@@ -46,4 +47,4 @@ func _process(_delta: float) -> void:
 		#material.set_shader_parameter("max_y", max_y)
 		
 	
-	label_3d.text = "Cook: " + str(IngredientData.COOK.find_key(cook_type)) +"\nDone: " + str(IngredientData.DONENESS.find_key(doneness_type)) + "\nPrep: " + str(IngredientData.PREP.find_key(prep_type))
+	#label_3d.text = "Cook: " + str(IngredientData.COOK.find_key(cook_type)) +"\nDone: " + str(IngredientData.DONENESS.find_key(doneness_type)) + "\nPrep: " + str(IngredientData.PREP.find_key(prep_type))

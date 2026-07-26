@@ -12,8 +12,7 @@ script = ExtResource("2_3kp7k")
 name = "Tomato"
 mesh = ExtResource("2_yr855")
 cook = Array[int]([0, 1, 2, 5])
-doneness = Array[int]([0, 2, 4, 6])
-prep = Array[int]([0, 2])
+prep = Array[int]([2, 0])
 metadata/_custom_type_script = "uid://br2b1npw4bnqg"
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_qe56h"]

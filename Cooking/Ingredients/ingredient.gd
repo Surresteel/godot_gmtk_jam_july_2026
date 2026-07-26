@@ -39,15 +39,23 @@ var is_on_ground: bool = false
 @export var use_z_shader: bool = false
 @export var use_x_shader: bool = false
 
+var label_3d: Label3D
+
 func _ready() -> void:
 	if inter_pickup:
 		inter_pickup.process_mode = Node.PROCESS_MODE_DISABLED
 		inter_pickup.pressed.connect(pickup)
-	if data.doneness == null:
-		data.doneness.append(data.DONENESS.NA)
+	#if data.doneness == null:
+		#data.doneness.append(data.DONENESS.NA)
 	_create_detection_area()
 	
 	_shader_material_force()
+	
+	label_3d = Label3D.new()
+	add_child(label_3d)
+	label_3d.position = Vector3(0,0.154,0)
+	label_3d.pixel_size = 0.0007
+	label_3d.font_size = 40
 
 func _shader_material_force() -> void:
 	for i in meshes:
@@ -110,7 +118,7 @@ func _create_detection_area() -> void:
 
 
 func cook(amount: float, even_cook: bool) -> void:
-	amount * data.cook_scale
+	amount *= data.cook_scale
 	if even_cook:
 		top_side_cook_level += amount/2
 		bot_side_cook_level += amount/2
@@ -138,6 +146,8 @@ func cook(amount: float, even_cook: bool) -> void:
 
 func _process(_delta: float) -> void:
 	do_shader_stuff()
+	
+	label_3d.text = "Cook: " + str(IngredientData.COOK.find_key(cook_type)) +"\nDone: " + str(IngredientData.DONENESS.find_key(doneness_type)) + "\nPrep: " + str(IngredientData.PREP.find_key(prep_type))
 
 func physically_move(new_parent: Node3D, Offset: Vector3 = Vector3.ZERO, Rotation: Vector3 = Vector3.ZERO) -> void:
 	reparent(new_parent)

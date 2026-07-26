@@ -77,16 +77,16 @@ func _generate_ticket() -> void:
 	ticket_order = Order.new()
 	label.text = ""
 	for i in _ingredient_list_ready:
-		assert(not i.cook.is_empty() and not i.doneness.is_empty()
+		assert(not i.cook.is_empty()
 				and not i.prep.is_empty())
 		
 		var cook = i.cook.pick_random()
 		var cook_raw: bool = cook == IngredientData.COOK.RAW
-		var done = i.doneness.pick_random()
+		var done = i.DONENESS.values().pick_random()
 		if cook_raw:
 			done = NA_D
 		elif done == IngredientData.DONENESS.RAW:
-			done = (done + 1) % i.doneness.size()
+			done = (done + 1) % i.DONENESS.size()
 		var prep = i.prep.pick_random()
 		
 		var cook_key = "" if cook == NA_C else i.COOK.find_key(cook)
