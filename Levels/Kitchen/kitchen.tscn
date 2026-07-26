@@ -26,7 +26,7 @@
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Cheese MetaData.tres" id="23_jb4jo"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Chicken Thigh MetaData.tres" id="25_3wyp5"]
 [ext_resource type="Resource" path="res://Cooking/Containers/GENERATED RESOURCES/Sausage MetaData.tres" id="26_4bakx"]
-[ext_resource type="PackedScene" uid="uid://5vvbl1msxgmu" path="res://ticketsystem/scenes/ticket_board.tscn" id="27_trl5h"]
+[ext_resource type="PackedScene" uid="uid://ycfhrw80h0ql" path="res://ticketsystem/scenes/ticket_board.tscn" id="27_trl5h"]
 [ext_resource type="PackedScene" uid="uid://dtbw5p0u6cgx6" path="res://Cooking/Plate/plate.tscn" id="28_qce37"]
 
 [sub_resource type="HeightMapShape3D" id="HeightMapShape3D_wvhbo"]

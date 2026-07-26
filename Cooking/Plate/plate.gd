@@ -43,6 +43,12 @@ func _physics_process(_delta: float) -> void:
 		_has_emitted = true
 		var fx: GPUParticles3D = FLASH.instantiate()
 		get_tree().current_scene.add_child(fx)
+		fx.global_position = self.global_position
+		for i in _ingredients:
+			if i:
+				i.queue_free()
+		if _ticket:
+			_ticket.queue_free()
 		self.queue_free()
 	return
 

@@ -84,13 +84,13 @@ func _generate_ticket() -> void:
 		var cook_raw: bool = cook == IngredientData.COOK.RAW
 		var done = i.DONENESS.values().pick_random()
 		if cook_raw:
-			done = NA_D
+			done = IngredientData.DONENESS.RAW
 		elif done == IngredientData.DONENESS.RAW:
 			done = (done + 1) % i.DONENESS.size()
 		var prep = i.prep.pick_random()
 		
 		var cook_key = "" if cook == NA_C else i.COOK.find_key(cook)
-		var done_key = "" if done == NA_D else i.DONENESS.find_key(done)
+		var done_key = "" if done == NA_D or done == IngredientData.DONENESS.RAW else i.DONENESS.find_key(done)
 		var prep_key = "" if prep == NA_P else i.PREP.find_key(prep)
 		
 		var order_item := OrderItem.new()
@@ -100,7 +100,7 @@ func _generate_ticket() -> void:
 		order_item.prep = prep
 		ticket_order.items.append(order_item)
 		
-		var done_space: String = "" if done == NA_D else " "
+		var done_space: String = "" if done == NA_D or done == IngredientData.DONENESS.RAW else " "
 		label.text += ("- " + cook_key + " " + i.name + " " + done_key \
 				+ done_space + prep_key + "\n").to_lower()
 	
